@@ -143,7 +143,7 @@ a {
   &.link-cards {
     & > span {
       @extend a;
-      line-height: 1.0em;
+      display: inline;
       border-bottom: 0.1em solid #000;
     }
     &:hover > span {
