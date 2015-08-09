@@ -111,7 +111,7 @@ a {
   text-decoration: none;
   color: inherit;
   display: inline-block;
-  line-height: 1.0em;
+  line-height: 1.2em;
   border-bottom: 0.1em solid transparent;
   
   &:active, &:hover {
@@ -133,5 +133,43 @@ a {
   }
   &.link-oliver {
     border-bottom-color: #A26FED;
+  }
+  &.link-realm {
+    border-bottom-color: #F0727D;
+  }
+  &.link-cmu, &.link-mhci {
+    border-bottom-color: #900;
+  }
+  &.link-cards {
+    & > span {
+      @extend a;
+      line-height: 1.0em;
+      border-bottom: 0.1em solid #000;
+    }
+    &:hover > span {
+      border-bottom-width: 0.15em;
+    }
+    &:hover > span:nth-of-type(2n) {
+      border-bottom-color: #F00;      
+    }
+  }
+  &.link-email {
+    border-bottom-color: #000;
+  }
+}
+
+.container-about {
+  .info {
+    text-align: left;
+  }
+
+  p {
+    margin: 3em 2em;
+    max-width: 25em;
+  }
+
+  small {
+    display: block;
+    font-size: 0.6em;
   }
 }
