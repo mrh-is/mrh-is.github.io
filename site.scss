@@ -81,9 +81,6 @@ h2 {
   }
 }
 
-.info {
-}
-
 p {
   font-family: "Merriweather", serif;
   font-size: 1em;
@@ -125,16 +122,16 @@ a {
     border-bottom-width: 0.15em;
   }
   
-  &.about {
+  &.link-about {
     border-bottom-color: #979797;
   }
-  &.realm {
+  &.link-realm {
     border-bottom-color: #F0727D;
   }
-  &.sonar {
+  &.link-sonar {
     border-bottom-color: #49A1BB;
   }
-  &.oliver {
+  &.link-oliver {
     border-bottom-color: #A26FED;
   }
 }
