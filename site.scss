@@ -111,7 +111,7 @@ a {
   text-decoration: none;
   color: inherit;
   display: inline-block;
-  line-height: 1.25em;
+  line-height: 1.0em;
   border-bottom: 0.1em solid transparent;
   
   &:active, &:hover {
@@ -122,7 +122,7 @@ a {
     border-bottom-width: 0.15em;
   }
   
-  &.link-about {
+  &.link-about, &.link-cards, &.link-email {
     border-bottom-color: #979797;
   }
   &.link-realm {
@@ -137,23 +137,8 @@ a {
   &.link-realm {
     border-bottom-color: #F0727D;
   }
-  &.link-cmu, &.link-mhci {
+  &.link-cmu {
     border-bottom-color: #900;
-  }
-  &.link-cards {
-    border-bottom-color: #000;
-    & > span {
-      border-bottom: 0.1em solid transparent;
-    }
-    &:hover > span {
-      border-bottom-width: 0.15em;
-    }
-    &:hover > span:nth-of-type(2n) {
-      border-bottom-color: #F00;      
-    }
-  }
-  &.link-email {
-    border-bottom-color: #000;
   }
 }
 
