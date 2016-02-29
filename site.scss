@@ -129,6 +129,9 @@ a {
 .link-cmu {
   border-bottom-color: #900;
 }
+.link-github {
+  border-bottom-color: #eee;
+}
 
 // ----
 // Back
@@ -261,4 +264,27 @@ a {
 .sidebar {
     display: block;
     font-size: 0.6em;
+}
+
+// --------
+// Projects
+// --------
+
+.project-section {
+  max-width: 25em;
+  margin-bottom: 4em;
+}
+
+.project-section-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+
+// -----
+// Realm
+// -----
+
+.container-realm {
+  background: #222;
+  color: white;
 }
