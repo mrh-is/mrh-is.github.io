@@ -1,9 +1,8 @@
 <script lang="ts">
   import Section from "$lib/components/Section.svelte";
   import Entry from "./Entry.svelte";
-  import type { PageData } from './$types';
 	
-	export let data: PageData;
+	export let data;
 </script>
 
 <Section title="Work">
