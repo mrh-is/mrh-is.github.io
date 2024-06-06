@@ -5,24 +5,24 @@
   import TextBlock from "./TextBlock.svelte";
   import TitleBlock from "./TitleBlock.svelte";
   import type { ContentBlock } from "$lib/types/Project";
-  
+
   export let content: ContentBlock;
 </script>
 
 {#if content.kind === "text"}
-<TextBlock {...content} />
+  <TextBlock {...content} />
 {:else if content.kind === "title"}
-<TitleBlock {...content} />
+  <TitleBlock {...content} />
 {:else if content.kind === "list"}
-<ListBlock {...content} />
+  <ListBlock {...content} />
 {:else if content.kind === "image"}
-<ImageCarousel {...content} />
+  <ImageCarousel {...content} />
 {:else if content.kind === "subsection"}
-<Section>
-  {#each content.content as subblock}
-  <svelte:self content={subblock} />
-  {/each}
-</Section>
+  <Section>
+    {#each content.content as subblock}
+      <svelte:self content={subblock} />
+    {/each}
+  </Section>
 {:else}
-{@debug content}
+  {@debug content}
 {/if}

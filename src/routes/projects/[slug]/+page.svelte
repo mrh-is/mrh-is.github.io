@@ -1,10 +1,10 @@
 <script lang="ts">
   import Section from "$lib/components/Section.svelte";
-	import ProjectTile from "../../ProjectTile.svelte";
-	import ContentBlock from "./blocks/ContentBlock.svelte";
-  
+  import ProjectTile from "../../ProjectTile.svelte";
+  import ContentBlock from "./blocks/ContentBlock.svelte";
+
   export let data;
-  
+
   const project = data.project;
 </script>
 

@@ -1,5 +1,5 @@
-import type { TimelineEntry } from '$lib/types/TimelineEntry';
-import type { PageLoad } from './$types';
+import type { TimelineEntry } from "$lib/types/TimelineEntry";
+import type { PageLoad } from "./$types";
 
 export const load = (() => {
   return {
@@ -14,7 +14,7 @@ export const load = (() => {
         endDate: new Date(2022, 10),
         description: [
           "Designed & shepherded products, processes, & features for a new data-centric application for commercial real estate insurance.",
-          "See more details about my work on <a href=\"/projects/archipelago-platform\">the customer-facing application</a> & <a href=\"/projects/archipelago-tooling\">the internal data tooling</a>.",
+          'See more details about my work on <a href="/projects/archipelago-platform">the customer-facing application</a> & <a href="/projects/archipelago-tooling">the internal data tooling</a>.',
           "Founded the design team! Led or advised almost all major projects for the first 4 years of the company, as both the product designer & the product manager.",
         ],
       },
@@ -52,9 +52,7 @@ export const load = (() => {
         },
         startDate: new Date(2014, 4),
         endDate: new Date(2015, 1),
-        description: [
-          "Developed iOS apps & device SDK for wearable device.",
-        ],
+        description: ["Developed iOS apps & device SDK for wearable device."],
       },
       {
         title: "Designer",
@@ -64,9 +62,7 @@ export const load = (() => {
         },
         startDate: new Date(2013, 7),
         endDate: new Date(2014, 4),
-        description: [
-          "Designed iPad apps for teachers & energy salespersons.",
-        ],
+        description: ["Designed iPad apps for teachers & energy salespersons."],
       },
     ] as TimelineEntry[],
     education: [
@@ -84,9 +80,9 @@ export const load = (() => {
         },
         endDate: new Date(2012, 4),
         description: [
-          "Minors in Spanish & mathematics, plus certificate in cognitive science"
-        ]
+          "Minors in Spanish & mathematics, plus certificate in cognitive science",
+        ],
       },
     ] as TimelineEntry[],
-  }
+  };
 }) satisfies PageLoad;

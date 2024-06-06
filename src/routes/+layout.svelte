@@ -1,20 +1,20 @@
 <script>
-	import NavBar from "$lib/components/NavBar.svelte";
+  import NavBar from "$lib/components/NavBar.svelte";
 
-  import '$lib/assets/normalize.css';
-  import '$lib/assets/styles.css';
+  import "$lib/assets/normalize.css";
+  import "$lib/assets/styles.css";
 </script>
 
 <svelte:head>
-  <link rel="preconnect" href="https://rsms.me/">
-  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <link rel="preconnect" href="https://rsms.me/" />
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 </svelte:head>
 
 <NavBar />
 
 <div class="content">
   <div class="container">
-    <slot></slot>
+    <slot />
   </div>
 </div>
 

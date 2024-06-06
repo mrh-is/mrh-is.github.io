@@ -20,11 +20,13 @@ export const kidfund: Project = {
       slides: [
         {
           src: home,
-          caption: "The home page of the app gives parents an instant sense of how their kids' funds are growing, plus easy access to gifting for kids they follow.",
+          caption:
+            "The home page of the app gives parents an instant sense of how their kids' funds are growing, plus easy access to gifting for kids they follow.",
         },
         {
           src: memoryBank,
-          caption: "Each kid has a \"memory bank\" for a super-private way to share photos with family & friends.",
+          caption:
+            'Each kid has a "memory bank" for a super-private way to share photos with family & friends.',
         },
         {
           src: gifting,
@@ -36,7 +38,8 @@ export const kidfund: Project = {
         },
         {
           src: giftHistory,
-          caption: "You can see all the gifts your kid has received (plus any referral bonuses you earned!).",
+          caption:
+            "You can see all the gifts your kid has received (plus any referral bonuses you earned!).",
         },
       ],
     },
@@ -61,12 +64,12 @@ export const kidfund: Project = {
         "A complete home screen redesign",
         "Easier integration with social networks for greater reach",
         "Allowing gifts to be pledged to kids who didn't have accounts yet",
-      ]
+      ],
     },
     {
       kind: "text",
       title: "Outcome",
       text: "I boosted our onboarding completion by ~10% through research & iterative design. The app grew to over 30,000 users & was ultimately acquired.",
-    }
-  ]
+    },
+  ],
 };

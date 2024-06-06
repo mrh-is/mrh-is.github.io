@@ -10,7 +10,8 @@ export const archipelagoDataTooling: Project = {
   slug: "archipelago-data-tooling",
   tile: {
     subtitle: "Workflow & product design for internal data management",
-    imageSrc: "https://assets-global.website-files.com/644f069ff64cdc5300138063/64623c2876d640a4b6d28e61_Archipelago%20tooling%20thumbnail.png",
+    imageSrc:
+      "https://assets-global.website-files.com/644f069ff64cdc5300138063/64623c2876d640a4b6d28e61_Archipelago%20tooling%20thumbnail.png",
   },
   tagline: "Ingest building data from any spreadsheet or PDF",
   content: [
@@ -23,19 +24,23 @@ export const archipelagoDataTooling: Project = {
       slides: [
         {
           src: myJobs,
-          caption: "The \"My jobs\" page is a worker's home base, where it's clear what's assigned to them and what to do next.",
+          caption:
+            "The \"My jobs\" page is a worker's home base, where it's clear what's assigned to them and what to do next.",
         },
         {
           src: jobDetails,
-          caption: "A job has a complete history that can be easily tracked, including who did what and any issues at each step.",
+          caption:
+            "A job has a complete history that can be easily tracked, including who did what and any issues at each step.",
         },
         {
           src: onboardingFlow,
-          caption: "The tooling is only a part of this larger process to get a new customer onto Archipelago. It was important that each player understand both their work and how it integrated with everyone else's.",
+          caption:
+            "The tooling is only a part of this larger process to get a new customer onto Archipelago. It was important that each player understand both their work and how it integrated with everyone else's.",
         },
         {
           src: jobState,
-          caption: "Part of building out this system was defining a simple state machine for the fundamental unit of work, the \"job\". Being able to reason about each job enabled the team to confidently reason about higher-order abstractions.",
+          caption:
+            'Part of building out this system was defining a simple state machine for the fundamental unit of work, the "job". Being able to reason about each job enabled the team to confidently reason about higher-order abstractions.',
         },
       ],
     },
@@ -62,5 +67,5 @@ export const archipelagoDataTooling: Project = {
       kind: "text",
       text: "This allowed the same number of workers to handle increasing amounts of customers data, maintaining response times even with a growing customer base.",
     },
-  ]
+  ],
 };

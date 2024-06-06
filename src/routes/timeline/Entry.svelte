@@ -1,12 +1,13 @@
 <script lang="ts">
-	import type { TimelineEntry } from "$lib/types/TimelineEntry";
+  import type { TimelineEntry } from "$lib/types/TimelineEntry";
 
-  export let entry: TimelineEntry
+  export let entry: TimelineEntry;
 
-  const formatDate = (date: Date) => date.toLocaleDateString(undefined, {
-    month: 'long',
-    year: 'numeric'
-  });
+  const formatDate = (date: Date) =>
+    date.toLocaleDateString(undefined, {
+      month: "long",
+      year: "numeric",
+    });
 </script>
 
 <div class="entry">
@@ -18,7 +19,7 @@
     {:else}
       {entry.institution.name}
     {/if}
-    · 
+    ·
     {#if entry.startDate}
       {formatDate(entry.startDate)}–{formatDate(entry.endDate)}
     {:else}

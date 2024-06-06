@@ -5,9 +5,9 @@
 </script>
 
 <ul>
-{#each slides as slide}
-  <li>{slide.src}</li>
-{/each}
+  {#each slides as slide}
+    <li>{slide.src}</li>
+  {/each}
 </ul>
 
 <p class="instructions">Click the image above to embiggen & see notes.</p>

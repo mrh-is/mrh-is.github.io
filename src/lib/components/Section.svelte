@@ -10,7 +10,7 @@
   {#if subtitle}
     <p class="subtitle">{subtitle}</p>
   {/if}
-  <slot></slot>
+  <slot />
 </div>
 
 <style>

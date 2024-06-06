@@ -27,7 +27,12 @@ export interface Subsection {
   kind: "subsection";
   content: ContentBlock[];
 }
-export type ContentBlock = TextBlock | TitleBlock | ListBlock | ImageCarousel | Subsection;
+export type ContentBlock =
+  | TextBlock
+  | TitleBlock
+  | ListBlock
+  | ImageCarousel
+  | Subsection;
 
 export interface Project {
   title: string;
@@ -60,4 +65,4 @@ export const projects: Project[] = [
   archipelagoPlatform,
   archipelagoDataTooling,
   kidfund,
-]
+];

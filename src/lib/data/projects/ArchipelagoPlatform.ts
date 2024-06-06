@@ -36,15 +36,18 @@ export const archipelagoPlatform: Project = {
       slides: [
         {
           src: stream,
-          caption: "The heart of the Archipelago platform. This page shows one \"placement\", the industry term for a group of buildings insured together.",
+          caption:
+            'The heart of the Archipelago platform. This page shows one "placement", the industry term for a group of buildings insured together.',
         },
         {
           src: buildingDetails,
-          caption: "Clicking on a building brings up a detail modal. It starts by summarizing the property, then more granular data is available in the other tabs.",
+          caption:
+            "Clicking on a building brings up a detail modal. It starts by summarizing the property, then more granular data is available in the other tabs.",
         },
         {
           src: provenance,
-          caption: "Hovering over a data element shows its source, which increases confidence in the accuracy of the data. (You wouldn't believe how many typos there are in multi-million dollar spreadsheets.)",
+          caption:
+            "Hovering over a data element shows its source, which increases confidence in the accuracy of the data. (You wouldn't believe how many typos there are in multi-million dollar spreadsheets.)",
         },
       ],
     },
@@ -64,23 +67,28 @@ export const archipelagoPlatform: Project = {
           slides: [
             {
               src: v1,
-              caption: "Ah, v1. Simpler times. Swap in a nicer UI library & a few extra capabilities, and you've got something pretty good.",
+              caption:
+                "Ah, v1. Simpler times. Swap in a nicer UI library & a few extra capabilities, and you've got something pretty good.",
             },
             {
               src: v1Building,
-              caption: "Examining building details. Users told us the first thing they need to know is location, so I put that front and center.",
+              caption:
+                "Examining building details. Users told us the first thing they need to know is location, so I put that front and center.",
             },
             {
               src: ia,
-              caption: "My first step toward getting a handle on this new product was understanding the information architecture. I used this diagram to check my understanding with the executive team.",
+              caption:
+                "My first step toward getting a handle on this new product was understanding the information architecture. I used this diagram to check my understanding with the executive team.",
             },
             {
               src: wireframeStreamSpaced,
-              caption: "After some whiteboarding sessions with the team (sadly not documented), I started working on some UIs. Things are getting a little crowded here, but we've got a lot of the right pieces in play.",
+              caption:
+                "After some whiteboarding sessions with the team (sadly not documented), I started working on some UIs. Things are getting a little crowded here, but we've got a lot of the right pieces in play.",
             },
             {
               src: wireframeBuildingSpaced,
-              caption: "An important question was always how to show the details of a specific building, since users need to understand both the portfolio & be able to examine details. This stacking navigation turned out to be too tricky to implement, so I moved to the modal seen in the other UIs.",
+              caption:
+                "An important question was always how to show the details of a specific building, since users need to understand both the portfolio & be able to examine details. This stacking navigation turned out to be too tricky to implement, so I moved to the modal seen in the other UIs.",
             },
           ],
         },
@@ -111,7 +119,7 @@ export const archipelagoPlatform: Project = {
           kind: "text",
           text: "In addition, those insurers reached out directly to Archipelago, which led to signing deals with 2 of the largest insurers in the world over the following year.",
         },
-      ]
+      ],
     },
     {
       kind: "subsection",
@@ -121,15 +129,18 @@ export const archipelagoPlatform: Project = {
           slides: [
             {
               src: editingWorkflow,
-              caption: "The basic editing workflow: Prevent conflicts by checking out the data you need to edit, then edit in the tool you already know. Ensure your changes are all valid, and you're done!",
+              caption:
+                "The basic editing workflow: Prevent conflicts by checking out the data you need to edit, then edit in the tool you already know. Ensure your changes are all valid, and you're done!",
             },
             {
               src: editingSelect,
-              caption: "Start by checking out the data. Just pick which buildings (aka properties) & which data attributes you need.",
+              caption:
+                "Start by checking out the data. Just pick which buildings (aka properties) & which data attributes you need.",
             },
             {
               src: editingSelectError,
-              caption: "Before edits can be applied, they are validated by the system, including expert– & AI–written rules.",
+              caption:
+                "Before edits can be applied, they are validated by the system, including expert– & AI–written rules.",
             },
             {
               src: editingValidation,
@@ -168,7 +179,7 @@ export const archipelagoPlatform: Project = {
           kind: "text",
           text: "Since I had designed the MVP with the longer-term vision in mind, the implementation was built to be forward-compatible, reducing the time for the upgrades shipped over the following year.",
         },
-      ]
+      ],
     },
-  ]
+  ],
 };
