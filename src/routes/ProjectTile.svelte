@@ -1,10 +1,11 @@
 <script lang="ts">
-	import type { Project } from "$lib/types/Project";
+	import type { ProjectPreview } from "$lib/types/Project";
 
-  export let project: Project;
+  export let size: "small" | "large";
+  export let project: ProjectPreview;
 </script>
 
-<a href={project.imageSrc}>
+<a class={size} href="/projects/{project.slug}">
   <img src={project.imageSrc} alt="">
   <p class="title">{project.title}</p>
   <p class="subtitle">{project.subtitle}</p>
@@ -13,7 +14,14 @@
 <style>
   a {
     display: inline-block;
+  }
+
+  a.large {
     width: 70%;
+  }
+
+  a.small {
+    width: 40%;
   }
 
   img {

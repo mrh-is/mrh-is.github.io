@@ -1,6 +1,8 @@
 <script lang="ts">
   import Section from "$lib/components/Section.svelte";
   import ProjectTile from './ProjectTile.svelte';
+
+  import parque from '$lib/assets/Parque.jpg';
 	
 	export let data;
 </script>
@@ -16,12 +18,8 @@
       </p>
     </div>
     <img
-      src="https://assets-global.website-files.com/644f069ff64cdc5300138063/6452b610f49a380e813264ee_Moi.jpg"
-      loading="eager"
-      sizes="(max-width: 479px) 80vw, 320px"
-      srcset="https://assets-global.website-files.com/644f069ff64cdc5300138063/6452b610f49a380e813264ee_Moi-p-500.jpg 500w, https://assets-global.website-files.com/644f069ff64cdc5300138063/6452b610f49a380e813264ee_Moi.jpg 640w"
+      src={parque}
       alt="Me!"
-      class="me-photo"
     >
   </div>
   <p>
@@ -33,7 +31,7 @@
   <p>Have a look at some of my work:</p>
   <div class="project-tiles">
     {#each data.projects as project}
-      <ProjectTile {project} />
+      <ProjectTile {project} size="large" />
     {/each}
   </div>
 </Section>
