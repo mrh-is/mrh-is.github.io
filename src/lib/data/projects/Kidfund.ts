@@ -16,7 +16,7 @@ export const kidfund: Project = {
   tagline: "Save for your kids, with help from your friends",
   content: [
     {
-      kind: "image",
+      kind: "carousel",
       slides: [
         {
           src: home,

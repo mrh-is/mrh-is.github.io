@@ -32,7 +32,7 @@ export const archipelagoPlatform: Project = {
       text: "I started & helped grow the design team, & was the sole or lead designer on almost every major project for the company's first 4 years.",
     },
     {
-      kind: "image",
+      kind: "carousel",
       slides: [
         {
           src: stream,
@@ -63,7 +63,7 @@ export const archipelagoPlatform: Project = {
       kind: "subsection",
       content: [
         {
-          kind: "image",
+          kind: "carousel",
           slides: [
             {
               src: v1,
@@ -125,7 +125,7 @@ export const archipelagoPlatform: Project = {
       kind: "subsection",
       content: [
         {
-          kind: "image",
+          kind: "carousel",
           slides: [
             {
               src: editingWorkflow,

@@ -20,7 +20,7 @@ export const archipelagoDataTooling: Project = {
       text: "I designed workflows and systems to ingest millions of data points across many parallel human & AI workers, plus most associated UIs.",
     },
     {
-      kind: "image",
+      kind: "carousel",
       slides: [
         {
           src: myJobs,

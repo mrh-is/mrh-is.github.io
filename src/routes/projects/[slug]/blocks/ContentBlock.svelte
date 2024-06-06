@@ -15,7 +15,7 @@
   <TitleBlock {...content} />
 {:else if content.kind === "list"}
   <ListBlock {...content} />
-{:else if content.kind === "image"}
+{:else if content.kind === "carousel"}
   <ImageCarousel {...content} />
 {:else if content.kind === "subsection"}
   <Section>

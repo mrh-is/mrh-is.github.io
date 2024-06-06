@@ -20,7 +20,8 @@ export interface ImageCarouselSlide {
   caption: string;
 }
 export interface ImageCarousel {
-  kind: "image";
+  kind: "carousel";
+  coverSrc?: string;
   slides: ImageCarouselSlide[];
 }
 export interface Subsection {
