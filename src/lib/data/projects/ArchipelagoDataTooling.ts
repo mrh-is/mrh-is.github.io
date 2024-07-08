@@ -13,6 +13,14 @@ export const archipelagoDataTooling: Project = {
     imageSrc:
       "https://assets-global.website-files.com/644f069ff64cdc5300138063/64623c2876d640a4b6d28e61_Archipelago%20tooling%20thumbnail.png",
   },
+  colorScheme: {
+    light: {
+      link: "#09569b",
+    },
+    dark: {
+      link: "#98bfe4",
+    },
+  },
   tagline: "Ingest building data from any spreadsheet or PDF",
   content: [
     {

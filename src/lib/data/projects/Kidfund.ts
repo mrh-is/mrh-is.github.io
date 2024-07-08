@@ -13,6 +13,14 @@ export const kidfund: Project = {
     subtitle: "Product design & development for consumer iOS app",
     imageSrc: thumbnail,
   },
+  colorScheme: {
+    light: {
+      link: "#b56e02",
+    },
+    dark: {
+      link: "#f7c983",
+    },
+  },
   tagline: "Save for your kids, with help from your friends",
   content: [
     {

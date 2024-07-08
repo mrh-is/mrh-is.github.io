@@ -3,6 +3,15 @@ import type { PageLoad } from "./$types";
 
 export const load = (() => {
   return {
+    title: "Timeline | Michael Helmbrecht",
+    colorScheme: {
+      light: {
+        link: "#4b00b1",
+      },
+      dark: {
+        link: "#bd99ee",
+      },
+    },
     work: [
       {
         title: "Lead designer / product manager",

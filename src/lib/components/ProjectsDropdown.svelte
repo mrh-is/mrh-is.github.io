@@ -7,7 +7,7 @@
 </script>
 
 <Dropdown>
-  <span slot="toggle">Projects</span>
+  <span slot="toggle">Projects ↓</span>
 
   {#each projects as project}
     <DropdownItem>

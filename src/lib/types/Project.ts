@@ -1,6 +1,7 @@
 import { archipelagoDataTooling } from "$lib/data/projects/ArchipelagoDataTooling";
 import { archipelagoPlatform } from "$lib/data/projects/ArchipelagoPlatform";
 import { kidfund } from "$lib/data/projects/Kidfund";
+import type { ColorScheme } from "./Colors";
 
 export interface TextBlock {
   kind: "text";
@@ -42,6 +43,7 @@ export interface Project {
     subtitle: string;
     imageSrc: string;
   };
+  colorScheme: ColorScheme;
   tagline: string;
   content: ContentBlock[];
 }

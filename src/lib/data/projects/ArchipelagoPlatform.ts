@@ -25,6 +25,14 @@ export const archipelagoPlatform: Project = {
     subtitle: "Product design for customer-facing web app",
     imageSrc: thumbnail,
   },
+  colorScheme: {
+    light: {
+      link: "#0f766e",
+    },
+    dark: {
+      link: "#83bf9b",
+    },
+  },
   tagline: "Understand your building data, get better insurance",
   content: [
     {

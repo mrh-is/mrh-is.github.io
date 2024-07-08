@@ -1,5 +1,5 @@
-// See https://kit.svelte.dev/docs/types#app
-// for information about these interfaces
+import type { ColorScheme } from "$lib/types/Colors";
+
 declare global {
   namespace App {
     interface Platform {
@@ -11,7 +11,11 @@ declare global {
       };
       caches: CacheStorage & { default: Cache };
     }
+    interface PageData {
+      title: string;
+      colorScheme: ColorScheme;
+    }
   }
 }
 
-export {};
+export { };

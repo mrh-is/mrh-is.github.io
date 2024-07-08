@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { page } from "$app/stores";
+  import { styleStringFromScheme } from "$lib/types/Colors";
   import NavBar from "$lib/components/NavBar.svelte";
 
   export let data;
@@ -10,13 +12,17 @@
 <svelte:head>
   <link rel="preconnect" href="https://rsms.me/" />
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+
+  <title>{$page.data.title}</title>
 </svelte:head>
 
-<NavBar projects={data.projects} />
+<div style={styleStringFromScheme($page.data.colorScheme)}>
+  <NavBar projects={data.projects} />
 
-<div class="content">
-  <div class="container">
-    <slot />
+  <div class="content">
+    <div class="container">
+      <slot />
+    </div>
   </div>
 </div>
 

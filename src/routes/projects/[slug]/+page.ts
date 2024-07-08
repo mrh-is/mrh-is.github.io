@@ -15,5 +15,10 @@ export const load = (({ params }) => {
   const otherProjects = projects
     .filter((proj) => proj.slug !== params.slug)
     .map(previewForProject);
-  return { project, otherProjects };
+  return {
+    title: `${project.title} | Michael Helmbrecht`,
+    colorScheme: project.colorScheme,
+    project,
+    otherProjects
+  };
 }) satisfies PageLoad;

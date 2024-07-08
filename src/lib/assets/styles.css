@@ -3,9 +3,12 @@
 }
 
 body {
+  --background-color: #fff;
+  --panel-background-color: #eee;
   --text-color: #222;
   --max-width: 940px;
 
+  background-color: var(--background-color);
   color: var(--text-color);
   font-size: 1.5rem;
   font-weight: 300;
@@ -22,13 +25,18 @@ p {
 }
 
 a {
-  color: #970049;
+  color: var(--link-color-light);
   text-decoration-color: transparent;
   transition: color 0.1s ease-in-out, text-decoration-color 0.1s ease-in-out;
 }
 
 a:hover {
   text-decoration-color: currentColor;
+}
+
+button {
+  font-weight: inherit;
+  color: inherit;
 }
 
 h1 {
@@ -49,4 +57,16 @@ h2 {
 img {
   display: inline-block;
   max-width: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --background-color: #181818;
+    --panel-background-color: #222;
+    --text-color: #ddd;
+  }
+
+  a {
+    color: var(--link-color-dark);
+  }
 }

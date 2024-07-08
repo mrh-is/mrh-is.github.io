@@ -42,7 +42,6 @@
   button {
     border: none;
     background-color: inherit;
-    font-weight: inherit;
     padding-bottom: 1rem;
   }
 
@@ -62,7 +61,13 @@
     margin: 0;
     border-radius: 0.25rem;
 
+    background-color: var(--panel-background-color);
     box-shadow: rgba(0, 0, 0, 0.25) 0 0.25rem 0.5rem;
+  }
+
+  div:hover > button,
+  div:focus > button {
+    color: var(--link-color-light);
   }
 
   div:hover > menu,
@@ -70,5 +75,12 @@
     visibility: visible;
     opacity: 1;
     transition-delay: 0s;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    div:hover > button,
+    div:focus > button {
+      color: var(--link-color-dark);
+    }
   }
 </style>
