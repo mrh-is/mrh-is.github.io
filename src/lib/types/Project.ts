@@ -62,6 +62,18 @@ export function previewForProject(project: Project): ProjectPreview {
   };
 }
 
+export interface ProjectNavLink {
+  title: string;
+  slug: string;
+}
+
+export function navLinkForProject(project: Project): ProjectNavLink {
+  return {
+    title: project.title,
+    slug: project.slug,
+  };
+}
+
 export const projects: Project[] = [
   archipelagoPlatform,
   archipelagoDataTooling,

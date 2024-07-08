@@ -4,6 +4,8 @@
 
 body {
   --text-color: #222;
+  --max-width: 940px;
+
   color: var(--text-color);
   font-size: 1.5rem;
   font-weight: 300;
@@ -21,11 +23,12 @@ p {
 
 a {
   color: #970049;
-  text-decoration: none;
+  text-decoration-color: transparent;
+  transition: color 0.1s ease-in-out, text-decoration-color 0.1s ease-in-out;
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration-color: currentColor;
 }
 
 h1 {

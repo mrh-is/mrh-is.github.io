@@ -40,12 +40,8 @@
 </Section>
 
 <style>
-  :root {
-    --link-color: #970049;
-  }
-
   .h-stack {
-    grid-column-gap: 5rem;
+    column-gap: 5rem;
     justify-content: space-between;
     align-items: center;
     margin-top: -1rem;
@@ -73,7 +69,7 @@
   }
 
   .project-tiles {
-    grid-row-gap: 5rem;
+    row-gap: 5rem;
     flex-direction: column;
     align-items: center;
     margin-top: 3rem;

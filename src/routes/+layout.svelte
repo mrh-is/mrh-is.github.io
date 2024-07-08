@@ -1,5 +1,7 @@
-<script>
+<script lang="ts">
   import NavBar from "$lib/components/NavBar.svelte";
+
+  export let data;
 
   import "$lib/assets/normalize.css";
   import "$lib/assets/styles.css";
@@ -10,7 +12,7 @@
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 </svelte:head>
 
-<NavBar />
+<NavBar projects={data.projects} />
 
 <div class="content">
   <div class="container">
@@ -25,7 +27,7 @@
   }
 
   .container {
-    max-width: 940px;
+    max-width: var(--max-width);
     margin-left: auto;
     margin-right: auto;
   }
