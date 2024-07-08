@@ -1,10 +1,35 @@
+<script lang="ts" context="module">
+  let instanceCount = 0;
+</script>
+
+<script lang="ts">
+  const idNumber = instanceCount;
+  instanceCount += 1;
+
+  const toggleId = `dropdownToggle${idNumber}`;
+  const menuId = `dropdownMenu${idNumber}`;
+
+  let expanded = false;
+</script>
+
 <div>
   <!-- Technique from https://svelte.dev/repl/2f5ab01c05f84790bcb94a0f79afee7b -->
-  <button>
+  <button
+    id={toggleId}
+    aria-controls={menuId}
+    aria-haspopup="menu"
+    aria-expanded={expanded}
+    on:mouseenter={() => {
+      expanded = true;
+    }}
+    on:mouseleave={() => {
+      expanded = false;
+    }}
+  >
     <slot name="toggle" />
   </button>
 
-  <menu>
+  <menu id={menuId} aria-labelledby={toggleId}>
     <slot />
   </menu>
 </div>
