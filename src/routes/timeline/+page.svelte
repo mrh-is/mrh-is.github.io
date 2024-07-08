@@ -26,9 +26,3 @@
     if you're into that sort of thing.
   </p>
 </Section>
-
-<style>
-  :root {
-    --link-color: #4b00b1;
-  }
-</style>
