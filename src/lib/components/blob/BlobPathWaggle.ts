@@ -51,7 +51,9 @@ export class BlobWaggler {
     };
 
     this.callback = callback;
-    this.handle = requestAnimationFrame(() => this.waggle());
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      this.handle = requestAnimationFrame(() => this.waggle());
+    }
   }
 
   stop() {
