@@ -10,8 +10,8 @@ export class BlobWaggler {
   private readonly waggleSize: number;
   private readonly wagglePeriod = 2.5 * MS_PER_S;
 
-  private readonly points: Blob.Path
-  private readonly offsets: Blob.Path
+  private readonly points: Blob.Path;
+  private readonly offsets: Blob.Path;
 
   private readonly startTime = Date.now();
 
@@ -36,12 +36,21 @@ export class BlobWaggler {
       control: this.waggledPoint(this.points.control, this.offsets.control),
       end: this.waggledPoint(this.points.end, this.offsets.end),
     };
-    const svgPath = svgCurvePath(waggledPath.start, waggledPath.control, waggledPath.end);
+    const svgPath = svgCurvePath(
+      waggledPath.start,
+      waggledPath.control,
+      waggledPath.end
+    );
     this.callback(svgPath);
     this.handle = requestAnimationFrame(() => this.waggle());
   }
 
-  constructor(safeAreaRect: Rect, waggleSize: number, seed: string, callback: BlobWagglerCallback) {
+  constructor(
+    safeAreaRect: Rect,
+    waggleSize: number,
+    seed: string,
+    callback: BlobWagglerCallback
+  ) {
     this.waggleSize = waggleSize;
     this.points = blobPath(safeAreaRect, seed);
     this.offsets = {

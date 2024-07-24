@@ -1,12 +1,12 @@
 interface Palette {
-  blob: string,
-  link: string,
-};
+  blob: string;
+  link: string;
+}
 
 export interface ColorScheme {
-  light: Palette,
-  dark: Palette,
-};
+  light: Palette;
+  dark: Palette;
+}
 
 export function styleStringFromScheme(scheme: ColorScheme): string {
   return `

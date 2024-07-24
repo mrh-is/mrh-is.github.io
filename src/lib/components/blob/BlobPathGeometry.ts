@@ -4,9 +4,9 @@ import { DeterministicVendor } from "../../DeterministicVendor";
 
 export namespace Blob {
   export interface Path {
-    start: Point,
-    control: Point,
-    end: Point,
+    start: Point;
+    control: Point;
+    end: Point;
   }
 }
 
@@ -31,15 +31,19 @@ class Path {
       return {
         x: scale(point.x, this.boundingBox.x, targetRect.x),
         y: scale(point.y, this.boundingBox.y, targetRect.y),
-      }
+      };
     });
   }
 }
 
-function pointByAddingVector(startPoint: Point, direction: number, length: number): Point {
+function pointByAddingVector(
+  startPoint: Point,
+  direction: number,
+  length: number
+): Point {
   return {
-    x: startPoint.x + (Math.cos(direction / 180 * Math.PI) * length),
-    y: startPoint.y - (Math.sin(direction / 180 * Math.PI) * length),
+    x: startPoint.x + Math.cos((direction / 180) * Math.PI) * length,
+    y: startPoint.y - Math.sin((direction / 180) * Math.PI) * length,
   };
 }
 

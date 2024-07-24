@@ -19,6 +19,6 @@ export const load = (({ params }) => {
     title: `${project.title} | Michael Helmbrecht`,
     colorScheme: project.colorScheme,
     project,
-    otherProjects
+    otherProjects,
   };
 }) satisfies PageLoad;

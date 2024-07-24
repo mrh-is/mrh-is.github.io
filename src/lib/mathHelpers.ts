@@ -16,5 +16,5 @@ export class Range {
 }
 export function scale(value: number, fromRange: Range, toRange: Range): number {
   const normalizedValue = (value - fromRange.min) / fromRange.size();
-  return (normalizedValue * toRange.size()) + toRange.min;
+  return normalizedValue * toRange.size() + toRange.min;
 }
