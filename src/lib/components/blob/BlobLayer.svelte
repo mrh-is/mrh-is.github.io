@@ -11,17 +11,20 @@
 
   const rand = new DeterministicVendor(seed);
 
-  onMount(() => {
+  function generateBlobs(seed: string): BlobPositionParams[] {
+    let data: BlobPositionParams[] = [];
     const blobCount = 7;
     for (let i = 1; i <= blobCount; i++) {
-      blobData.push({
+      data.push({
         seed: seed.repeat(i),
         top: rand.nextBetween(2, 12),
         left: rand.nextBetween(10, 90),
       });
     }
-    blobData = blobData;
-  });
+    return data;
+  }
+
+  $: blobData = generateBlobs(seed);
 </script>
 
 <div>

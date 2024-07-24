@@ -1,11 +1,13 @@
 <script lang="ts">
   import Section from "$lib/components/Section.svelte";
+  import type { Project } from "$lib/types/Project";
   import ProjectTile from "../../ProjectTile.svelte";
   import ContentBlock from "./blocks/ContentBlock.svelte";
 
   export let data;
+  let project: Project;
 
-  const project = data.project;
+  $: project = data.project;
 </script>
 
 <Section title={project.title} subtitle={project.tagline}>
