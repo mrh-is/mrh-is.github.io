@@ -67,7 +67,7 @@
 
   div:hover > button,
   div:focus > button {
-    color: var(--link-color-light);
+    color: var(--color-light-link);
   }
 
   div:hover > menu,
@@ -80,7 +80,7 @@
   @media (prefers-color-scheme: dark) {
     div:hover > button,
     div:focus > button {
-      color: var(--link-color-dark);
+      color: var(--color-dark-link);
     }
   }
 </style>

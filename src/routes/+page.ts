@@ -6,10 +6,12 @@ export const load = (() => {
     title: "Michael Helmbrecht 😎",
     colorScheme: {
       light: {
-        link: "#970049",
+        blob: "#EAC9D9",
+        link: "#684054",
       },
       dark: {
-        link: "#d5a2aa",
+        blob: "#684054",
+        link: "#EAC9D9",
       },
     },
     projects: projects.map(previewForProject),

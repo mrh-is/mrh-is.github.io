@@ -1,4 +1,5 @@
 interface Palette {
+  blob: string,
   link: string,
 };
 
@@ -9,7 +10,9 @@ export interface ColorScheme {
 
 export function styleStringFromScheme(scheme: ColorScheme): string {
   return `
-  --link-color-light: ${scheme.light.link};
-  --link-color-dark: ${scheme.dark.link};
+  --color-light-link: ${scheme.light.link};
+  --color-dark-link: ${scheme.dark.link};
+  --color-light-blob: ${scheme.light.blob};
+  --color-dark-blob: ${scheme.dark.blob};
   `;
 }

@@ -15,10 +15,12 @@ export const kidfund: Project = {
   },
   colorScheme: {
     light: {
-      link: "#b56e02",
+      blob: "#EFD8B6",
+      link: "#745629",
     },
     dark: {
-      link: "#f7c983",
+      blob: "#745629",
+      link: "#EFD8B6",
     },
   },
   tagline: "Save for your kids, with help from your friends",

@@ -6,10 +6,12 @@ export const load = (() => {
     title: "Timeline | Michael Helmbrecht",
     colorScheme: {
       light: {
-        link: "#4b00b1",
+        blob: "#E1BFE6",
+        link: "#5B3F5F",
       },
       dark: {
-        link: "#bd99ee",
+        blob: "#5B3F5F",
+        link: "#E1BFE6",
       },
     },
     work: [

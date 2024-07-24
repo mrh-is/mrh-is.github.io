@@ -27,10 +27,12 @@ export const archipelagoPlatform: Project = {
   },
   colorScheme: {
     light: {
-      link: "#0f766e",
+      blob: "#B4D9CB",
+      link: "#466559",
     },
     dark: {
-      link: "#83bf9b",
+      blob: "#466559",
+      link: "#B4D9CB",
     },
   },
   tagline: "Understand your building data, get better insurance",

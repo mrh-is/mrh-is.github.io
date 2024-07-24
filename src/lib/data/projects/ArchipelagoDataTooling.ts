@@ -15,10 +15,12 @@ export const archipelagoDataTooling: Project = {
   },
   colorScheme: {
     light: {
-      link: "#09569b",
+      blob: "#D3D0E8",
+      link: "#524E6C",
     },
     dark: {
-      link: "#98bfe4",
+      blob: "#524E6C",
+      link: "#D3D0E8",
     },
   },
   tagline: "Ingest building data from any spreadsheet or PDF",

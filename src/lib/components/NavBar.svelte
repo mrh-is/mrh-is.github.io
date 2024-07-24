@@ -7,7 +7,7 @@
 
 <div>
   <nav>
-    <a href="/" class="home">Michael Helmbrecht</a>
+    <a href="/" class="home header-font">Michael Helmbrecht</a>
     <div class="page-list">
       <ProjectsDropdown {projects} />
       <a href="/timeline">Timeline</a>
@@ -24,17 +24,22 @@
     justify-content: space-between;
   }
 
+  .home {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
   .page-list {
     display: flex;
     flex-direction: row;
     column-gap: 2rem;
   }
 
-  .home {
-    font-weight: 500;
-  }
-
   div :global(a):not(:hover) {
     color: var(--text-color);
+  }
+
+  div :global(a):hover {
+    text-decoration-color: transparent;
   }
 </style>
