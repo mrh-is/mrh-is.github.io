@@ -1,5 +1,13 @@
+import { projects } from "$lib/types/Project";
 import type { TimelineEntry } from "$lib/types/TimelineEntry";
 import type { PageLoad } from "./$types";
+
+const platformSlug = projects.find((proj) =>
+  proj.title.includes("platform")
+)?.slug;
+const toolingSlug = projects.find((proj) =>
+  proj.title.includes("tooling")
+)?.slug;
 
 export const load = (() => {
   return {
@@ -25,7 +33,7 @@ export const load = (() => {
         endDate: new Date(2022, 10),
         description: [
           "Designed & shepherded products, processes, & features for a new data-centric application for commercial real estate insurance.",
-          'See more details about my work on <a href="/projects/archipelago-platform">the customer-facing application</a> & <a href="/projects/archipelago-tooling">the internal data tooling</a>.',
+          `See more details about my work on <a href="/projects/${platformSlug}">the customer-facing application</a> & <a href="/projects/${toolingSlug}">the internal data tooling</a>.`,
           "Founded the design team! Led or advised almost all major projects for the first 4 years of the company, as both the product designer & the product manager.",
         ],
       },

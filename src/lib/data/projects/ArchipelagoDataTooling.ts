@@ -7,7 +7,7 @@ import jobState from "$lib/assets/projects/archipelago-data-tooling/Archipelago 
 
 export const archipelagoDataTooling: Project = {
   title: "Archipelago data tooling",
-  slug: "archipelago-data-tooling",
+  slug: "archipelago-tooling",
   tile: {
     subtitle: "Workflow & product design for internal data management",
     imageSrc:

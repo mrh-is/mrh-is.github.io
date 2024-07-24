@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Blob from "$lib/components/blob/Blob.svelte";
   import Section from "$lib/components/Section.svelte";
   import Entry from "./Entry.svelte";
-  import { page } from "$app/stores";
+
+  import resumeSrc from "$lib/assets/Michael Helmbrecht resume.pdf";
 
   export let data;
 </script>
@@ -21,7 +21,7 @@
 
 <Section>
   <p>
-    Also available <a href="/assets/resume.pdf">as a PDF</a>. Or you can read
+    Also available <a href={resumeSrc}>as a PDF</a>. Or you can read
     this on
     <a href="https://www.linkedin.com/in/michaelhelmbrecht/">LinkedIn</a>
     if you're into that sort of thing.
