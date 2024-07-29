@@ -9,21 +9,36 @@
   const toggleId = `dropdownToggle${idNumber}`;
   const menuId = `dropdownMenu${idNumber}`;
 
-  let expanded = false;
+  let mode: "hover" | "focus" | undefined = undefined;
 </script>
 
-<div>
+<div
+  class:expanded={!!mode}
+  on:mouseleave={() => {
+    if (mode !== "hover") return;
+    mode = undefined;
+  }}
+>
   <!-- Technique from https://svelte.dev/repl/2f5ab01c05f84790bcb94a0f79afee7b -->
   <button
     id={toggleId}
     aria-controls={menuId}
     aria-haspopup="menu"
-    aria-expanded={expanded}
+    aria-expanded={!!mode}
     on:mouseenter={() => {
-      expanded = true;
+      if (!!mode) return;
+      mode = "hover";
     }}
-    on:mouseleave={() => {
-      expanded = false;
+    on:click={(e) => {
+      if (mode === undefined) {
+        mode = "focus";
+      } else if (mode === "focus") {
+        e.currentTarget?.blur();
+      }
+    }}
+    on:blur={() => {
+      if (mode !== "focus") return;
+      mode = undefined;
     }}
   >
     <slot name="toggle" />
@@ -65,21 +80,18 @@
     box-shadow: rgba(0, 0, 0, 0.25) 0 0.25rem 0.5rem;
   }
 
-  div:hover > button,
-  div:focus > button {
+  :global(.expanded) button {
     color: var(--color-light-link);
   }
 
-  div:hover > menu,
-  div:focus > menu {
+  :global(.expanded) menu {
     visibility: visible;
     opacity: 1;
     transition-delay: 0s;
   }
 
   @media (prefers-color-scheme: dark) {
-    div:hover > button,
-    div:focus > button {
+    :global(.expanded) button {
       color: var(--color-dark-link);
     }
   }
