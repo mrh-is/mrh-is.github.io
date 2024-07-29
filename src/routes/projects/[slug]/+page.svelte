@@ -1,7 +1,7 @@
 <script lang="ts">
   import Section from "$lib/components/Section.svelte";
   import type { Project } from "$lib/types/Project";
-  import ProjectTile from "../../ProjectTile.svelte";
+  import ProjectTile from "../../../lib/components/ProjectTile.svelte";
   import ContentBlock from "./blocks/ContentBlock.svelte";
 
   export let data;
@@ -29,7 +29,14 @@
   .project-tiles {
     display: flex;
     column-gap: 5rem;
+    row-gap: 4rem;
     justify-content: center;
     margin-top: 3rem;
+  }
+
+  @media (max-width: 800px) {
+    .project-tiles {
+      flex-direction: column;
+    }
   }
 </style>

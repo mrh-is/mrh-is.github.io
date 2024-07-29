@@ -13,7 +13,7 @@
   {/each}
 </Section>
 
-<Section title="Education">
+<Section title="Edu&shy;cation">
   {#each data.education as entry}
     <Entry {entry} />
   {/each}

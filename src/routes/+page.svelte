@@ -1,6 +1,6 @@
 <script lang="ts">
   import Section from "$lib/components/Section.svelte";
-  import ProjectTile from "./ProjectTile.svelte";
+  import ProjectTile from "../lib/components/ProjectTile.svelte";
 
   import parque from "$lib/assets/Parque.jpg";
 
@@ -8,7 +8,7 @@
 </script>
 
 <Section>
-  <div class="h-stack">
+  <div class="main-stack">
     <div class="title-container">
       <h1>Hi! I'm Michael 👋🏻</h1>
       <p class="subtitle">I'm a product designer based in Pittsburgh, PA.</p>
@@ -40,7 +40,7 @@
 </Section>
 
 <style>
-  .h-stack {
+  .main-stack {
     column-gap: 5rem;
     justify-content: space-between;
     align-items: center;
@@ -58,7 +58,6 @@
     margin-top: 2rem;
     font-size: 2rem;
     font-weight: 500;
-    line-height: 150%;
   }
 
   img {
@@ -74,5 +73,25 @@
     align-items: center;
     margin-top: 3rem;
     display: flex;
+  }
+
+  @media (max-width: 1000px) {
+    .main-stack {
+      flex-direction: column;
+      row-gap: 3rem;
+      margin-bottom: 5rem;
+    }
+
+    img {
+      width: 80%;
+      height: 80%;
+    }
+  }
+
+  @media (max-width: 400px) {
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 </style>

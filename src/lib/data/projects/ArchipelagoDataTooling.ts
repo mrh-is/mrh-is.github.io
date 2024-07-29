@@ -6,7 +6,7 @@ import onboardingFlow from "$lib/assets/projects/archipelago-data-tooling/Archip
 import jobState from "$lib/assets/projects/archipelago-data-tooling/Archipelago job state.png";
 
 export const archipelagoDataTooling: Project = {
-  title: "Archipelago data tooling",
+  title: "Archi\u00ADpelago data tool\u00ADing",
   slug: "archipelago-tooling",
   tile: {
     subtitle: "Workflow & product design for internal data management",

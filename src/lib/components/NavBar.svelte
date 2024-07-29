@@ -42,4 +42,15 @@
   div :global(a):hover {
     text-decoration-color: transparent;
   }
+
+  @media (max-width: 800px) {
+    nav {
+      flex-direction: column;
+    }
+
+    .home {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+  }
 </style>

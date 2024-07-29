@@ -21,5 +21,8 @@
 
   .subtitle {
     font-weight: 400;
+    font-size: 2.5rem;
+    line-height: 1.3;
+    margin-bottom: 2rem;
   }
 </style>

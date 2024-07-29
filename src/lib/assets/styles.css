@@ -12,7 +12,7 @@ body {
   color: var(--text-color);
   font-size: 1.5rem;
   font-weight: 300;
-  line-height: 150%;
+  line-height: 1.5;
 
   font-family: Inter, sans-serif;
   font-feature-settings: "liga" 1, "calt" 1;
@@ -20,8 +20,8 @@ body {
 }
 
 p {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 a {
@@ -47,10 +47,11 @@ h1,
 
 h1 {
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 4rem;
   font-weight: bold;
-  line-height: 110%;
+  line-height: 1.1;
   font-size: 6rem;
+  hyphens: none;
 }
 
 h2 {
@@ -74,5 +75,12 @@ img {
 
   a {
     color: var(--color-dark-link);
+  }
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 4rem;
+    hyphens: auto;
   }
 }

@@ -45,15 +45,26 @@
   export let slides: ImageCarouselSlide[];
 </script>
 
-<a href={currentCover} bind:this={domElement} on:click|preventDefault={open}>
-  <img src={currentCover} alt="" />
-</a>
+<div>
+  <a href={currentCover} bind:this={domElement} on:click|preventDefault={open}>
+    <img src={currentCover} alt="" />
+  </a>
+</div>
 
 <p class="instructions">Click the image above to embiggen & see notes.</p>
 
 <style>
+  div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
   a {
     display: inline-block;
+  }
+
+  img {
+    max-height: 100vh;
   }
 
   .instructions {
@@ -62,6 +73,11 @@
     font-size: 1rem;
     font-style: italic;
     font-weight: 200;
-    line-height: 150%;
+  }
+
+  @media (max-width: 800px) {
+    a {
+      margin: 0 -5vw;
+    }
   }
 </style>

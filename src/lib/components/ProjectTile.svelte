@@ -28,13 +28,31 @@
     width: 100%;
   }
 
+  p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
   .title {
     font-size: 2rem;
     font-weight: 500;
-    line-height: 150%;
   }
 
   .subtitle {
     color: var(--text-color);
+  }
+
+  @media (max-width: 1000px) {
+    a.large,
+    a.small {
+      width: 90%;
+    }
+  }
+
+  @media (max-width: 400px) {
+    a.large,
+    a.small {
+      width: 100%;
+    }
   }
 </style>

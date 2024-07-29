@@ -19,7 +19,7 @@ import editingValidation from "$lib/assets/projects/archipelago-platform/editing
 import editingSuccess from "$lib/assets/projects/archipelago-platform/editing/Editing success.png";
 
 export const archipelagoPlatform: Project = {
-  title: "The Archipelago platform",
+  title: "The Archi\u00ADpelago plat\u00ADform",
   slug: "archipelago-platform",
   tile: {
     subtitle: "Product design for customer-facing web app",

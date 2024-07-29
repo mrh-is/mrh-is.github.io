@@ -36,8 +36,8 @@
 
 <style>
   .entry {
-    margin-top: 8vh;
-    margin-bottom: 16vh;
+    margin-top: 4rem;
+    margin-bottom: 8rem;
   }
 
   .subtitle {

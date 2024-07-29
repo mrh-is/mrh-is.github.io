@@ -57,7 +57,7 @@
   button {
     border: none;
     background-color: inherit;
-    padding-bottom: 1rem;
+    padding: 0 0 1rem;
   }
 
   menu {
@@ -90,9 +90,23 @@
     transition-delay: 0s;
   }
 
+  @media (max-width: 800px) {
+    menu {
+      right: unset;
+      left: 0;
+      max-width: 80vw;
+    }
+  }
+
   @media (prefers-color-scheme: dark) {
     :global(.expanded) button {
       color: var(--color-dark-link);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    menu {
+      transition: none;
     }
   }
 </style>
