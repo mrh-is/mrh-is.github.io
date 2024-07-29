@@ -3,6 +3,7 @@
   import Entry from "./Entry.svelte";
 
   import resumeSrc from "$lib/assets/Michael Helmbrecht resume.pdf";
+  import OutboundLink from "$lib/components/OutboundLink.svelte";
 
   export let data;
 </script>
@@ -21,8 +22,8 @@
 
 <Section>
   <p>
-    Also available <a href={resumeSrc}>as a PDF</a>. Or you can read this on
-    <a href="https://www.linkedin.com/in/michaelhelmbrecht/">LinkedIn</a>
+    Also available <OutboundLink href={resumeSrc}>as a PDF</OutboundLink>. Or you can read this on
+    <OutboundLink href="https://www.linkedin.com/in/michaelhelmbrecht/">LinkedIn</OutboundLink>
     if you're into that sort of thing.
   </p>
 </Section>
