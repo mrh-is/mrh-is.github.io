@@ -13,6 +13,7 @@
 </script>
 
 <div
+  role="region"
   class:expanded={!!mode}
   on:mouseleave={() => {
     if (mode !== "hover") return;
