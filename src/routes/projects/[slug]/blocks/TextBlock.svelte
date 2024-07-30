@@ -8,6 +8,8 @@
     <span class="title">{title}:</span>
   {/if}
 
+  <!-- Only I'm providing this data, should be safe -->
+  <!-- eslint-disable svelte/no-at-html-tags -->
   {@html text}
 </p>
 

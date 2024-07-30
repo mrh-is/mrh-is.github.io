@@ -29,6 +29,8 @@
 
   {#if entry.description}
     {#each entry.description as description}
+      <!-- Only I'm providing this data, should be safe -->
+      <!-- eslint-disable svelte/no-at-html-tags -->
       <p>{@html description}</p>
     {/each}
   {/if}

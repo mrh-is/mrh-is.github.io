@@ -4,6 +4,6 @@
   export let href: HTMLAnchorAttributes["href"];
 </script>
 
-<a href={href} target="_blank">
+<a {href} target="_blank">
   <slot /> ↗
 </a>

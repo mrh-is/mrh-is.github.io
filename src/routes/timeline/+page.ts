@@ -2,12 +2,12 @@ import { projects } from "$lib/types/Project";
 import type { TimelineEntry } from "$lib/types/TimelineEntry";
 import type { PageLoad } from "./$types";
 
-const platformSlug = projects.find((proj) =>
-  proj.slug.includes("platform")
-)?.slug ?? "COULDN'T FIND PLATFORM";
-const toolingSlug = projects.find((proj) =>
-  proj.slug.includes("tooling")
-)?.slug ?? "COULDN'T FIND TOOLING";
+const platformSlug =
+  projects.find((proj) => proj.slug.includes("platform"))?.slug ??
+  "COULDN'T FIND PLATFORM";
+const toolingSlug =
+  projects.find((proj) => proj.slug.includes("tooling"))?.slug ??
+  "COULDN'T FIND TOOLING";
 
 export const load = (() => {
   return {

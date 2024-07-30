@@ -1,5 +1,5 @@
 import type { Point, Rect } from "$lib/geometryHelpers";
-import { blobPath, type Blob } from "./BlobPathGeometry";
+import { blobPath, type BlobPath } from "./BlobPathGeometry";
 import { svgCurvePath } from "./SVGPath";
 
 const MS_PER_S = 1000;
@@ -10,8 +10,8 @@ export class BlobWaggler {
   private readonly waggleSize: number;
   private readonly wagglePeriod = 2.5 * MS_PER_S;
 
-  private readonly points: Blob.Path;
-  private readonly offsets: Blob.Path;
+  private readonly points: BlobPath;
+  private readonly offsets: BlobPath;
 
   private readonly startTime = Date.now();
 
@@ -31,7 +31,7 @@ export class BlobWaggler {
   }
 
   waggle() {
-    const waggledPath: Blob.Path = {
+    const waggledPath: BlobPath = {
       start: this.waggledPoint(this.points.start, this.offsets.start),
       control: this.waggledPoint(this.points.control, this.offsets.control),
       end: this.waggledPoint(this.points.end, this.offsets.end),
@@ -39,7 +39,7 @@ export class BlobWaggler {
     const svgPath = svgCurvePath(
       waggledPath.start,
       waggledPath.control,
-      waggledPath.end
+      waggledPath.end,
     );
     this.callback(svgPath);
     this.handle = requestAnimationFrame(() => this.waggle());
@@ -49,7 +49,7 @@ export class BlobWaggler {
     safeAreaRect: Rect,
     waggleSize: number,
     seed: string,
-    callback: BlobWagglerCallback
+    callback: BlobWagglerCallback,
   ) {
     this.waggleSize = waggleSize;
     this.points = blobPath(safeAreaRect, seed);

@@ -1,6 +1,5 @@
 <script lang="ts">
   import { DeterministicVendor } from "$lib/DeterministicVendor";
-  import { onMount } from "svelte";
   import BlobPositioner, {
     type BlobPositionParams,
   } from "./BlobPositioner.svelte";

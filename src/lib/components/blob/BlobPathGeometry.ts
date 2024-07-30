@@ -2,12 +2,10 @@ import { fittingInside, type Point, type Rect } from "$lib/geometryHelpers";
 import { Range, scale } from "$lib/mathHelpers";
 import { DeterministicVendor } from "../../DeterministicVendor";
 
-export namespace Blob {
-  export interface Path {
-    start: Point;
-    control: Point;
-    end: Point;
-  }
+export interface BlobPath {
+  start: Point;
+  control: Point;
+  end: Point;
 }
 
 class Path {
@@ -39,7 +37,7 @@ class Path {
 function pointByAddingVector(
   startPoint: Point,
   direction: number,
-  length: number
+  length: number,
 ): Point {
   return {
     x: startPoint.x + Math.cos((direction / 180) * Math.PI) * length,
@@ -47,13 +45,13 @@ function pointByAddingVector(
   };
 }
 
-export function blobPath(rect: Rect, seed: string): Blob.Path {
+export function blobPath(rect: Rect, seed: string): BlobPath {
   const sideLength = new Range(50, 100);
   const deflection = new Range(30, 90);
   const deflectionRange = deflection.max - deflection.min;
 
-  let rand = new DeterministicVendor(seed);
-  let path = new Path();
+  const rand = new DeterministicVendor(seed);
+  const path = new Path();
   let point = { x: 0, y: 0 } as Point;
   path.append(point);
 

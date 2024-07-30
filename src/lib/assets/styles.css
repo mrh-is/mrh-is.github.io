@@ -15,7 +15,9 @@ body {
   line-height: 1.5;
 
   font-family: Inter, sans-serif;
-  font-feature-settings: "liga" 1, "calt" 1;
+  font-feature-settings:
+    "liga" 1,
+    "calt" 1;
   /* fix for Chrome */
 }
 
@@ -27,7 +29,9 @@ p {
 a {
   color: var(--color-light-link);
   text-decoration-color: transparent;
-  transition: color 0.1s ease-in-out, text-decoration-color 0.1s ease-in-out;
+  transition:
+    color 0.1s ease-in-out,
+    text-decoration-color 0.1s ease-in-out;
 }
 
 a:hover {

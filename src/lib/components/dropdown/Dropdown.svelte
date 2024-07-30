@@ -27,7 +27,7 @@
     aria-haspopup="menu"
     aria-expanded={!!mode}
     on:mouseenter={() => {
-      if (!!mode) return;
+      if (mode) return;
       mode = "hover";
     }}
     on:click={(e) => {
@@ -69,7 +69,8 @@
     opacity: 0;
     /* Technique from https://greywyvern.com/337 */
     --fade-duration: 0.1s;
-    transition: visibility 0s linear var(--fade-duration),
+    transition:
+      visibility 0s linear var(--fade-duration),
       opacity var(--fade-duration) ease-in-out;
 
     list-style: none;

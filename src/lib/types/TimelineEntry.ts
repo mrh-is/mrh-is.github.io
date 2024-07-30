@@ -1,5 +1,5 @@
 export interface TimelineEntry {
-  title: String;
+  title: string;
   institution: {
     name: string;
     link?: string;

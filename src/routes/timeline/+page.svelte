@@ -22,8 +22,11 @@
 
 <Section>
   <p>
-    Also available <OutboundLink href={resumeSrc}>as a PDF</OutboundLink>. Or you can read this on
-    <OutboundLink href="https://www.linkedin.com/in/michaelhelmbrecht/">LinkedIn</OutboundLink>
+    Also available <OutboundLink href={resumeSrc}>as a PDF</OutboundLink>. Or
+    you can read this on
+    <OutboundLink href="https://www.linkedin.com/in/michaelhelmbrecht/">
+      LinkedIn
+    </OutboundLink>
     if you're into that sort of thing.
   </p>
 </Section>

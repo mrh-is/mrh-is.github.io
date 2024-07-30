@@ -24,5 +24,6 @@
     {/each}
   </Section>
 {:else}
+  <!-- eslint-disable svelte/no-at-debug-tags -->
   {@debug content}
 {/if}
