@@ -1,3 +1,7 @@
+<script lang="ts" context="module">
+  let hasBeenCarouselYet = false;
+</script>
+
 <script lang="ts">
   import type { ImageCarouselSlide } from "$lib/types/Project";
   import type { BiggerPictureInstance } from "bigger-picture";
@@ -39,6 +43,9 @@
     });
   };
 
+  const isFirstCarouselOnPage = !hasBeenCarouselYet;
+  hasBeenCarouselYet = true;
+
   $: currentCover = coverSrc ?? slides[0].src;
 
   export let coverSrc: string | undefined = undefined;
@@ -47,7 +54,11 @@
 
 <div>
   <a href={currentCover} bind:this={domElement} on:click|preventDefault={open}>
-    <img src={currentCover} alt="" />
+    <img
+      src={currentCover}
+      alt=""
+      fetchpriority={isFirstCarouselOnPage ? "high" : undefined}
+    />
   </a>
 </div>
 

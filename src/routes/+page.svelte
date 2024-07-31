@@ -13,7 +13,7 @@
       <h1>Hi! I'm Michael 👋🏻</h1>
       <p class="subtitle">I'm a product designer based in Pittsburgh, PA.</p>
     </div>
-    <img src={parque} alt="Me!" />
+    <img fetchpriority="high" src={parque} alt="Me!" />
   </div>
   <p>
     I've worked as a designer, a developer, a product manager, & even a
