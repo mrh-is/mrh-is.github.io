@@ -13,3 +13,5 @@ updates:
       versions:
         patterns:
           - "*"
+    reviewers:
+      - "mrh-is"
