@@ -8,6 +8,12 @@
 
   import "$lib/assets/normalize.css";
   import "$lib/assets/styles.css";
+  import { onMount } from "svelte";
+  import watchForColorSchemeChanges from "$lib/faviconWatcher";
+
+  onMount(() => {
+    watchForColorSchemeChanges();
+  });
 </script>
 
 <svelte:head>
