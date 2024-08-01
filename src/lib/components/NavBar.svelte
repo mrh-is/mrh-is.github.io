@@ -33,6 +33,7 @@
     display: flex;
     flex-direction: row;
     column-gap: 2rem;
+    margin-top: 0.5rem;
   }
 
   div :global(a):not(:hover) {
@@ -52,5 +53,9 @@
       font-size: 1.5rem;
       margin-bottom: 1rem;
     }
+
+    /* .page-list {
+      margin-top: 0;
+    } */
   }
 </style>
