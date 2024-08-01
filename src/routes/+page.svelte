@@ -17,8 +17,11 @@
   </div>
   <p>
     I've worked as a designer, a developer, a product manager, & even a
-    marketer. My superpower is bringing all of these perspectives to every
-    problem I tackle. I'd love to help your team make amazing things.
+    marketer.
+  </p>
+  <p>
+    My superpower is bringing all of these perspectives to every problem I
+    tackle. I'd love to help your team make amazing things.
   </p>
 </Section>
 
