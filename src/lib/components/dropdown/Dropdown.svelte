@@ -64,6 +64,7 @@
   menu {
     position: absolute;
     right: 0;
+    width: max-content;
 
     visibility: hidden;
     opacity: 0;
