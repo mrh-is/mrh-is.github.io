@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from "$app/stores";
+  import { PUBLIC_ORIGIN } from "$env/static/public";
   import { styleStringFromScheme } from "$lib/types/Colors";
   import BlobLayer from "$lib/components/blob/BlobLayer.svelte";
   import NavBar from "$lib/components/NavBar.svelte";
@@ -8,6 +9,7 @@
 
   import "$lib/assets/normalize.css";
   import "$lib/assets/styles.css";
+
   import { onMount } from "svelte";
   import watchForColorSchemeChanges from "$lib/faviconWatcher";
 
@@ -32,6 +34,7 @@
   />
 
   <title>{$page.data.title}</title>
+  <link rel="canonical" href="{PUBLIC_ORIGIN}{$page.url.pathname}" />
 </svelte:head>
 
 <div class="page" style={styleStringFromScheme($page.data.colorScheme)}>
