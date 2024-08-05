@@ -18,7 +18,7 @@ import editingSelectError from "$lib/assets/projects/archipelago-platform/editin
 import editingValidation from "$lib/assets/projects/archipelago-platform/editing/Editing validation.png";
 import editingSuccess from "$lib/assets/projects/archipelago-platform/editing/Editing success.png";
 
-export const archipelagoPlatform: Project = {
+const archipelagoPlatform: Project = {
   title: "The Archi\u00ADpelago plat\u00ADform",
   slug: "archipelago-platform",
   description:
@@ -195,3 +195,4 @@ export const archipelagoPlatform: Project = {
     },
   ],
 };
+export default archipelagoPlatform;

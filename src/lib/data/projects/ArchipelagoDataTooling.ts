@@ -7,7 +7,7 @@ import jobDetails from "$lib/assets/projects/archipelago-data-tooling/Archipelag
 import onboardingFlow from "$lib/assets/projects/archipelago-data-tooling/Archipelago onboarding flow.png";
 import jobState from "$lib/assets/projects/archipelago-data-tooling/Archipelago job state.png";
 
-export const archipelagoDataTooling: Project = {
+const archipelagoDataTooling: Project = {
   title: "Archi\u00ADpelago data tool\u00ADing",
   slug: "archipelago-tooling",
   description:
@@ -82,3 +82,4 @@ export const archipelagoDataTooling: Project = {
     },
   ],
 };
+export default archipelagoDataTooling;

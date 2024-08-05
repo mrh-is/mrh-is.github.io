@@ -6,7 +6,7 @@ import celebration from "$lib/assets/projects/kidfund/Kidfund celebration.png";
 import gifting from "$lib/assets/projects/kidfund/Kidfund gifting.png";
 import giftHistory from "$lib/assets/projects/kidfund/Kidfund gift history.png";
 
-export const kidfund: Project = {
+const kidfund: Project = {
   title: "Kidfund",
   slug: "kidfund",
   description:
@@ -85,3 +85,4 @@ export const kidfund: Project = {
     },
   ],
 };
+export default kidfund;

@@ -1,6 +1,3 @@
-import { archipelagoDataTooling } from "$lib/data/projects/ArchipelagoDataTooling";
-import { archipelagoPlatform } from "$lib/data/projects/ArchipelagoPlatform";
-import { kidfund } from "$lib/data/projects/Kidfund";
 import type { ColorScheme } from "./Colors";
 
 export interface TextBlock {
@@ -77,8 +74,10 @@ export function navLinkForProject(project: Project): ProjectNavLink {
   };
 }
 
-export const projects: Project[] = [
-  archipelagoPlatform,
-  archipelagoDataTooling,
-  kidfund,
-];
+const projectsRecord = import.meta.glob<Project>("../data/projects/*.ts", {
+  eager: true,
+  import: "default",
+});
+export const projects = Object.keys(projectsRecord).map(
+  (key) => projectsRecord[key],
+);
