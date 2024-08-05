@@ -1,5 +1,7 @@
 import type { Project } from "$lib/types/Project";
 
+import thumbnail from "$lib/assets/projects/archipelago-data-tooling/Archipelago tooling thumbnail.png";
+
 import myJobs from "$lib/assets/projects/archipelago-data-tooling/Archipelago My Jobs.png";
 import jobDetails from "$lib/assets/projects/archipelago-data-tooling/Archipelago job details.png";
 import onboardingFlow from "$lib/assets/projects/archipelago-data-tooling/Archipelago onboarding flow.png";
@@ -10,8 +12,7 @@ export const archipelagoDataTooling: Project = {
   slug: "archipelago-tooling",
   tile: {
     subtitle: "Workflow & product design for internal data management",
-    imageSrc:
-      "https://assets-global.website-files.com/644f069ff64cdc5300138063/64623c2876d640a4b6d28e61_Archipelago%20tooling%20thumbnail.png",
+    imageSrc: thumbnail,
   },
   colorScheme: {
     light: {
