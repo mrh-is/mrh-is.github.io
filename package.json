@@ -17,15 +17,15 @@
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.8.0",
     "@sveltejs/adapter-cloudflare": "^4.7.0",
-    "@sveltejs/kit": "^2.5.18",
+    "@sveltejs/kit": "^2.5.20",
     "@sveltejs/vite-plugin-svelte": "^3.1.1",
     "@types/md5": "^2.3.5",
-    "@typescript-eslint/eslint-plugin": "^8.0.0-alpha.62",
-    "@typescript-eslint/parser": "^8.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.1",
+    "@typescript-eslint/parser": "^8.0.1",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-svelte": "^2.43.0",
-    "globals": "^15.8.0",
+    "globals": "^15.9.0",
     "prettier": "^3.3.3",
     "prettier-plugin-svelte": "^3.2.6",
     "svelte": "^5.0.0-next.210",
@@ -33,7 +33,7 @@
     "tslib": "^2.6.3",
     "typescript": "^5.5.4",
     "vite": "^5.3.5",
-    "wrangler": "^3.67.1"
+    "wrangler": "^3.68.0"
   },
   "type": "module",
   "dependencies": {
