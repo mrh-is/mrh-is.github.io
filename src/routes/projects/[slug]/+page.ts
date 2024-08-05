@@ -17,6 +17,7 @@ export const load = (({ params }) => {
     .map(previewForProject);
   return {
     title: `${project.title} | Michael Helmbrecht`,
+    description: project.description,
     colorScheme: project.colorScheme,
     project,
     otherProjects,

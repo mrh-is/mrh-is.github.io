@@ -21,6 +21,8 @@ import editingSuccess from "$lib/assets/projects/archipelago-platform/editing/Ed
 export const archipelagoPlatform: Project = {
   title: "The Archi\u00ADpelago plat\u00ADform",
   slug: "archipelago-platform",
+  description:
+    "I started & helped grow the design team, & was the sole or lead designer on almost every major project for the company's first 4 years.",
   tile: {
     subtitle: "Product design for customer-facing web app",
     imageSrc: thumbnail,

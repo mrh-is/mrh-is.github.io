@@ -4,6 +4,8 @@ import type { PageLoad } from "./$types";
 export const load = (() => {
   return {
     title: "Michael Helmbrecht 😎",
+    description:
+      "The most fun designer you ever could meet! Also will make your product better.",
     colorScheme: {
       light: {
         blob: "#EAC9D9",

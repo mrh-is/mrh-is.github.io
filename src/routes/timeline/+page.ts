@@ -12,6 +12,7 @@ const toolingSlug =
 export const load = (() => {
   return {
     title: "Timeline | Michael Helmbrecht",
+    description: "My career history, including work experience & education.",
     colorScheme: {
       light: {
         blob: "#E1BFE6",

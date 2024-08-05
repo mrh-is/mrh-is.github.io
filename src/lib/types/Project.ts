@@ -39,6 +39,7 @@ export type ContentBlock =
 export interface Project {
   title: string;
   slug: string;
+  description: string;
   tile: {
     subtitle: string;
     imageSrc: string;

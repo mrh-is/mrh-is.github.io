@@ -10,6 +10,8 @@ import jobState from "$lib/assets/projects/archipelago-data-tooling/Archipelago 
 export const archipelagoDataTooling: Project = {
   title: "Archi\u00ADpelago data tool\u00ADing",
   slug: "archipelago-tooling",
+  description:
+    "I designed workflows and systems to ingest millions of data points across many parallel human & AI workers, plus most associated UIs.",
   tile: {
     subtitle: "Workflow & product design for internal data management",
     imageSrc: thumbnail,

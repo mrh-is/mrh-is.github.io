@@ -14,6 +14,7 @@ declare global {
     }
     interface PageData {
       title: string;
+      description: string;
       colorScheme: ColorScheme;
     }
   }

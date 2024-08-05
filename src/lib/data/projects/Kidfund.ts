@@ -9,6 +9,8 @@ import giftHistory from "$lib/assets/projects/kidfund/Kidfund gift history.png";
 export const kidfund: Project = {
   title: "Kidfund",
   slug: "kidfund",
+  description:
+    "I managed the entire customer-facing iOS app for a social savings app for parents.",
   tile: {
     subtitle: "Product design & development for consumer iOS app",
     imageSrc: thumbnail,
