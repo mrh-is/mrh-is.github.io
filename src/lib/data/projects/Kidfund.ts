@@ -84,5 +84,6 @@ const kidfund: Project = {
       text: "I boosted our onboarding completion by ~10% through research & iterative design. The app grew to over 30,000 users & was ultimately acquired.",
     },
   ],
+  priority: 1,
 };
 export default kidfund;

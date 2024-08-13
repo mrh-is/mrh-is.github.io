@@ -81,5 +81,6 @@ const archipelagoDataTooling: Project = {
       text: "This allowed the same number of workers to handle increasing amounts of customers data, maintaining response times even with a growing customer base.",
     },
   ],
+  priority: 11,
 };
 export default archipelagoDataTooling;

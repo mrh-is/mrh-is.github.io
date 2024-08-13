@@ -194,5 +194,6 @@ const archipelagoPlatform: Project = {
       ],
     },
   ],
+  priority: 12,
 };
 export default archipelagoPlatform;

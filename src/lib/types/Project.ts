@@ -44,6 +44,7 @@ export interface Project {
   colorScheme: ColorScheme;
   tagline: string;
   content: ContentBlock[];
+  priority?: number;
 }
 
 export interface ProjectPreview {
@@ -78,6 +79,8 @@ const projectsRecord = import.meta.glob<Project>("../data/projects/*.ts", {
   eager: true,
   import: "default",
 });
-export const projects = Object.keys(projectsRecord).map(
-  (key) => projectsRecord[key],
-);
+export const projects = Object.keys(projectsRecord)
+  .map((key) => projectsRecord[key])
+  .sort((a, b) => {
+    return (b.priority ?? 0) - (a.priority ?? 0);
+  });
