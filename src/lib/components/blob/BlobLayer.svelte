@@ -1,7 +1,7 @@
 <script lang="ts">
   import { DeterministicVendor } from "$lib/DeterministicVendor";
   import BlobPositioner, {
-    type BlobPositionParams,
+    type Props as BlobPositionerProps,
   } from "./BlobPositioner.svelte";
 
   interface Props {
@@ -10,12 +10,12 @@
 
   let { seed }: Props = $props();
 
-  let blobData: BlobPositionParams[] = $derived(generateBlobs(seed));
+  let blobData: BlobPositionerProps[] = $derived(generateBlobs(seed));
 
   const rand = new DeterministicVendor(seed);
 
-  function generateBlobs(seed: string): BlobPositionParams[] {
-    let data: BlobPositionParams[] = [];
+  function generateBlobs(seed: string): BlobPositionerProps[] {
+    let data: BlobPositionerProps[] = [];
     const blobCount = 7;
     for (let i = 1; i <= blobCount; i++) {
       data.push({
@@ -30,7 +30,7 @@
 
 <div>
   {#each blobData as blob}
-    <BlobPositioner params={blob} />
+    <BlobPositioner {...blob} />
   {/each}
 </div>
 

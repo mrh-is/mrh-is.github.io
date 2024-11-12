@@ -8,7 +8,7 @@
 
   let isDark = $state(false);
 
-  function updateTheme(e?: MediaQueryListEvent) {
+  function updateTheme() {
     isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   }
 

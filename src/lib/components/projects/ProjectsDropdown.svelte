@@ -12,7 +12,7 @@
 
 <Dropdown>
   {#snippet toggle()}
-    <span >Projects ↓</span>
+    <span>Projects ↓</span>
   {/snippet}
 
   {#each projects as project}

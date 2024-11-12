@@ -20,6 +20,8 @@
   xmlns="http://www.w3.org/2000/svg"
   aria-label={name}
 >
+  <!-- Only I'm providing this data, should be safe -->
+  <!-- eslint-disable svelte/no-at-html-tags -->
   {@html icons[name]}
 </svg>
 

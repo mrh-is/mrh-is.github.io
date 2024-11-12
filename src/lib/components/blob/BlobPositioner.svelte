@@ -1,11 +1,13 @@
-<script lang="ts">
-  import Blob from "./Blob.svelte";
-
-  interface Props {
+<script lang="ts" module>
+  export interface Props {
     seed: string;
     top: number;
     left: number;
   }
+</script>
+
+<script lang="ts">
+  import Blob from "./Blob.svelte";
 
   let { seed, top, left }: Props = $props();
 
