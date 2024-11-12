@@ -1,5 +1,9 @@
 <script lang="ts">
-  export let elements: string[];
+  interface Props {
+    elements: string[];
+  }
+
+  let { elements }: Props = $props();
 </script>
 
 <ul>

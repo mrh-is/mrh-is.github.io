@@ -1,7 +1,11 @@
 <script lang="ts">
   import type { TimelineEntry } from "$lib/types/TimelineEntry";
 
-  export let entry: TimelineEntry;
+  interface Props {
+    entry: TimelineEntry;
+  }
+
+  let { entry }: Props = $props();
 
   const formatDate = (date: Date) =>
     date.toLocaleDateString(undefined, {

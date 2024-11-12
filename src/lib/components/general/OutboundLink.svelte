@@ -1,9 +1,15 @@
 <script lang="ts">
+  import type { Snippet } from "svelte";
   import type { HTMLAnchorAttributes } from "svelte/elements";
 
-  export let href: HTMLAnchorAttributes["href"];
+  interface Props {
+    href: HTMLAnchorAttributes["href"];
+    children: Snippet;
+  }
+
+  let { href, children }: Props = $props();
 </script>
 
 <a {href} target="_blank">
-  <slot /> ↗
+  {@render children()} ↗
 </a>

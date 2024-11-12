@@ -1,6 +1,10 @@
 <script lang="ts">
-  export let title: string | undefined = undefined;
-  export let text: string;
+  interface Props {
+    title?: string;
+    text: string;
+  }
+
+  let { title, text }: Props = $props();
 </script>
 
 <p>

@@ -4,9 +4,13 @@
     type BlobPositionParams,
   } from "./BlobPositioner.svelte";
 
-  export let seed: string;
+  interface Props {
+    seed: string;
+  }
 
-  let blobData: BlobPositionParams[] = [];
+  let { seed }: Props = $props();
+
+  let blobData: BlobPositionParams[] = $derived(generateBlobs(seed));
 
   const rand = new DeterministicVendor(seed);
 
@@ -22,8 +26,6 @@
     }
     return data;
   }
-
-  $: blobData = generateBlobs(seed);
 </script>
 
 <div>

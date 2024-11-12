@@ -5,13 +5,19 @@
   import BlobLayer from "$lib/components/blob/BlobLayer.svelte";
   import NavBar from "$lib/components/NavBar.svelte";
 
-  export let data;
-
   import "$lib/assets/normalize.css";
   import "$lib/assets/styles.css";
 
-  import { onMount } from "svelte";
+  import { onMount, type Snippet } from "svelte";
   import watchForColorSchemeChanges from "$lib/faviconWatcher";
+  import type { LayoutData } from "./$types";
+
+  interface Props {
+    data: LayoutData;
+    children: Snippet;
+  }
+
+  let { data, children }: Props = $props();
 
   onMount(() => {
     watchForColorSchemeChanges();
@@ -45,7 +51,7 @@
 
   <div class="content">
     <div class="container">
-      <slot />
+      {@render children()}
     </div>
   </div>
 </div>

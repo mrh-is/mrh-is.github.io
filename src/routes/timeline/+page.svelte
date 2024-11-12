@@ -4,8 +4,13 @@
 
   import resumeSrc from "$lib/assets/Michael Helmbrecht resume.pdf";
   import OutboundLink from "$lib/components/general/OutboundLink.svelte";
+  import type { PageData } from "./$types";
 
-  export let data;
+  interface Props {
+    data: PageData;
+  }
+
+  let { data }: Props = $props();
 </script>
 
 <Section title="Work">

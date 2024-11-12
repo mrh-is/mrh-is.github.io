@@ -3,11 +3,17 @@
   import Dropdown from "../dropdown/Dropdown.svelte";
   import DropdownItem from "../dropdown/DropdownItem.svelte";
 
-  export let projects: ProjectNavLink[];
+  interface Props {
+    projects: ProjectNavLink[];
+  }
+
+  let { projects }: Props = $props();
 </script>
 
 <Dropdown>
-  <span slot="toggle">Projects ↓</span>
+  {#snippet toggle()}
+    <span >Projects ↓</span>
+  {/snippet}
 
   {#each projects as project}
     <DropdownItem>

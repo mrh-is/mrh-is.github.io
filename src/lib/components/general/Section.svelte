@@ -1,6 +1,13 @@
 <script lang="ts">
-  export let title: string | undefined = undefined;
-  export let subtitle: string | undefined = undefined;
+  import type { Snippet } from "svelte";
+
+  interface Props {
+    title?: string;
+    subtitle?: string;
+    children?: Snippet;
+  }
+
+  let { title, subtitle, children }: Props = $props();
 </script>
 
 <div class="section" id={title?.toLocaleLowerCase()}>
@@ -10,7 +17,7 @@
   {#if subtitle}
     <p class="subtitle">{subtitle}</p>
   {/if}
-  <slot />
+  {@render children?.()}
 </div>
 
 <style>

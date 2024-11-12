@@ -1,19 +1,25 @@
 <script lang="ts">
-  export let lightEmoji: string;
-  export let darkEmoji: string;
+  interface Props {
+    lightEmoji: string;
+    darkEmoji: string;
+  }
 
-  let isDark = false;
+  let { lightEmoji, darkEmoji }: Props = $props();
+
+  let isDark = $state(false);
 
   function updateTheme(e?: MediaQueryListEvent) {
     isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   }
 
   // Set initial value
-  $: if (typeof window !== "undefined") {
-    updateTheme();
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    mediaQuery.addEventListener("change", updateTheme);
-  }
+  $effect.pre(() => {
+    if (typeof window !== "undefined") {
+      updateTheme();
+      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+      mediaQuery.addEventListener("change", updateTheme);
+    }
+  });
 </script>
 
 {#if isDark}

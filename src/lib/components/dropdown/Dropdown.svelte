@@ -1,21 +1,29 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
   let instanceCount = 0;
 </script>
 
 <script lang="ts">
+  import type { Snippet } from "svelte";
+
+  interface Props {
+    toggle: Snippet;
+    children: Snippet;
+  }
+
+  let { toggle, children }: Props = $props();
   const idNumber = instanceCount;
   instanceCount += 1;
 
   const toggleId = `dropdownToggle${idNumber}`;
   const menuId = `dropdownMenu${idNumber}`;
 
-  let mode: "hover" | "focus" | undefined = undefined;
+  let mode: "hover" | "focus" | undefined = $state(undefined);
 </script>
 
 <div
   role="region"
   class:expanded={!!mode}
-  on:mouseleave={() => {
+  onmouseleave={() => {
     if (mode !== "hover") return;
     mode = undefined;
   }}
@@ -26,27 +34,27 @@
     aria-controls={menuId}
     aria-haspopup="menu"
     aria-expanded={!!mode}
-    on:mouseenter={() => {
+    onmouseenter={() => {
       if (mode) return;
       mode = "hover";
     }}
-    on:click={(e) => {
+    onclick={(e) => {
       if (mode === undefined) {
         mode = "focus";
       } else if (mode === "focus") {
         e.currentTarget?.blur();
       }
     }}
-    on:blur={() => {
+    onblur={() => {
       if (mode !== "focus") return;
       mode = undefined;
     }}
   >
-    <slot name="toggle" />
+    {@render toggle()}
   </button>
 
   <menu id={menuId} aria-labelledby={toggleId}>
-    <slot />
+    {@render children()}
   </menu>
 </div>
 

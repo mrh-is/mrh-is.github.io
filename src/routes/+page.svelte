@@ -1,14 +1,18 @@
 <script lang="ts">
   import Section from "$lib/components/general/Section.svelte";
-  import ProjectTile from "$lib/components/projects/ProjectTile.svelte";
 
   import parque from "$lib/assets/Parque.jpg";
   import Icon from "$lib/components/general/Icon.svelte";
   import Button from "$lib/components/general/Button.svelte";
   import EmojiSwitcher from "$lib/components/general/EmojiSwitcher.svelte";
   import ProjectTileList from "$lib/components/projects/ProjectTileList.svelte";
+  import type { PageData } from "./$types";
 
-  export let data;
+  interface Props {
+    data: PageData;
+  }
+
+  let { data }: Props = $props();
 </script>
 
 <Section>

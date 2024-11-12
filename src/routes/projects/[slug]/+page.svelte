@@ -3,11 +3,14 @@
   import type { Project } from "$lib/types/Project";
   import ContentBlock from "./blocks/ContentBlock.svelte";
   import ProjectTileList from "$lib/components/projects/ProjectTileList.svelte";
+  import type { PageData } from "./$types";
 
-  export let data;
-  let project: Project;
+  interface Props {
+    data: PageData;
+  }
 
-  $: project = data.project;
+  let { data }: Props = $props();
+  let project: Project = $derived(data.project);
 </script>
 
 <Section title={project.title} subtitle={project.tagline}>

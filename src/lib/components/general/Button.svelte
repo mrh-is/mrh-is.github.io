@@ -1,16 +1,24 @@
 <script lang="ts">
-  export let href: string | undefined = undefined;
+  import type { Snippet } from "svelte";
+
+  interface Props {
+    href?: string;
+    onclick?: (event: MouseEvent) => void;
+    children?: Snippet;
+  }
+
+  let { href = undefined, onclick, children }: Props = $props();
 </script>
 
 {#if href}
   <a {href}>
-    <button type="button" on:click>
-      <slot />
+    <button type="button" {onclick}>
+      {@render children?.()}
     </button>
   </a>
 {:else}
-  <button type="button" on:click>
-    <slot />
+  <button type="button" {onclick}>
+    {@render children?.()}
   </button>
 {/if}
 

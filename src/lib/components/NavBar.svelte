@@ -2,7 +2,11 @@
   import type { ProjectNavLink } from "$lib/types/Project";
   import ProjectsDropdown from "./projects/ProjectsDropdown.svelte";
 
-  export let projects: ProjectNavLink[];
+  interface Props {
+    projects: ProjectNavLink[];
+  }
+
+  let { projects }: Props = $props();
 </script>
 
 <div>
@@ -36,7 +40,7 @@
     margin-top: 0.5rem;
   }
 
-  div :global(a):not(:hover) {
+  div :global(a):not(:global(:hover)) {
     color: var(--text-color);
   }
 

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Self from "./ContentBlock.svelte";
   import Section from "$lib/components/general/Section.svelte";
   import ImageCarousel from "./ImageCarousel.svelte";
   import ListBlock from "./ListBlock.svelte";
@@ -6,7 +7,11 @@
   import TitleBlock from "./TitleBlock.svelte";
   import type { ContentBlock } from "$lib/types/Project";
 
-  export let content: ContentBlock;
+  interface Props {
+    content: ContentBlock;
+  }
+
+  let { content }: Props = $props();
 </script>
 
 {#if content.kind === "text"}
@@ -20,7 +25,7 @@
 {:else if content.kind === "subsection"}
   <Section>
     {#each content.content as subblock}
-      <svelte:self content={subblock} />
+      <Self content={subblock} />
     {/each}
   </Section>
 {:else}

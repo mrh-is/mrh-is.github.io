@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
   let hasBeenCarouselYet = false;
 </script>
 
@@ -16,9 +16,10 @@
     height: number;
     caption?: string;
   }[];
-  let domElement: HTMLElement;
+  let domElement: HTMLElement | undefined = $state();
 
   onMount(() => {
+    if (!domElement) return;
     bp = BiggerPicture({
       target: domElement.ownerDocument.body,
     });
@@ -36,7 +37,8 @@
     });
   });
 
-  const open = () => {
+  const open = (e: MouseEvent) => {
+    e.preventDefault();
     bp.open({
       items: bpItems,
       el: domElement,
@@ -46,14 +48,17 @@
   const isFirstCarouselOnPage = !hasBeenCarouselYet;
   hasBeenCarouselYet = true;
 
-  $: currentCover = coverSrc ?? slides[0].src;
+  interface Props {
+    coverSrc?: string | undefined;
+    slides: ImageCarouselSlide[];
+  }
 
-  export let coverSrc: string | undefined = undefined;
-  export let slides: ImageCarouselSlide[];
+  let { coverSrc = undefined, slides }: Props = $props();
+  let currentCover = $derived(coverSrc ?? slides[0].src);
 </script>
 
 <div>
-  <a href={currentCover} bind:this={domElement} on:click|preventDefault={open}>
+  <a href={currentCover} bind:this={domElement} onclick={open}>
     <img
       src={currentCover}
       alt=""

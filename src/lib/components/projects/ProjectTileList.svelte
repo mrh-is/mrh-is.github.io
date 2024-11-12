@@ -2,7 +2,11 @@
   import type { ProjectPreview } from "$lib/types/Project";
   import ProjectTile from "./ProjectTile.svelte";
 
-  export let projects: ProjectPreview[];
+  interface Props {
+    projects: ProjectPreview[];
+  }
+
+  let { projects }: Props = $props();
 </script>
 
 <div class="project-tiles">

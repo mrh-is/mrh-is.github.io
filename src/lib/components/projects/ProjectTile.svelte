@@ -1,10 +1,15 @@
 <script lang="ts">
   import type { ProjectPreview } from "$lib/types/Project";
 
-  export let project: ProjectPreview;
+  interface Props {
+    project: ProjectPreview;
+    class?: string;
+  }
+
+  let { project, class: className }: Props = $props();
 </script>
 
-<a class={$$props.class} href="/projects/{project.slug}">
+<a class={className} href="/projects/{project.slug}">
   <img src={project.imageSrc} alt="" />
   <p class="title">{project.title}</p>
   <p class="subtitle">{project.subtitle}</p>

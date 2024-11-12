@@ -5,10 +5,14 @@
   import { BlobWaggler } from "./BlobPathWaggle";
   import { fade } from "svelte/transition";
 
-  export let seed: string;
-  export let size = 600;
+  interface Props {
+    seed: string;
+    size?: number;
+  }
 
-  let pathElement: SVGPathElement;
+  let { seed, size = 600 }: Props = $props();
+
+  let pathElement: SVGPathElement | undefined = $state();
   let waggler: BlobWaggler;
 
   const blobWidth = size / 2;
@@ -22,7 +26,7 @@
     };
 
     waggler = new BlobWaggler(safeAreaRect, waggleSize, seed, (svgPath) => {
-      pathElement.setAttribute("d", svgPath);
+      pathElement?.setAttribute("d", svgPath);
     });
     return () => waggler.stop();
   });
