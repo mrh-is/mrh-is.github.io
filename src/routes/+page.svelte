@@ -1,8 +1,12 @@
 <script lang="ts">
-  import Section from "$lib/components/Section.svelte";
-  import ProjectTile from "../lib/components/ProjectTile.svelte";
+  import Section from "$lib/components/general/Section.svelte";
+  import ProjectTile from "$lib/components/projects/ProjectTile.svelte";
 
   import parque from "$lib/assets/Parque.jpg";
+  import Icon from "$lib/components/general/Icon.svelte";
+  import Button from "$lib/components/general/Button.svelte";
+  import EmojiSwitcher from "$lib/components/general/EmojiSwitcher.svelte";
+  import ProjectTileList from "$lib/components/projects/ProjectTileList.svelte";
 
   export let data;
 </script>
@@ -11,35 +15,57 @@
   <div class="main-stack">
     <div class="title-container">
       <h1>Hi! I'm Michael 👋🏻</h1>
-      <p class="subtitle">I'm a product designer based in Pittsburgh, PA.</p>
+      <p class="subtitle">
+        I'm a product designer & developer based in Pittsburgh, PA.
+      </p>
     </div>
     <img fetchpriority="high" src={parque} alt="Me!" />
   </div>
+  <p>I have a decade of experience helping startups build great products.</p>
   <p>
-    I've worked as a designer, a developer, a product manager, & even a
-    marketer.
+    I've been a designer, a developer (web & iOS), a product manager, & even a
+    marketer. A real jack of all trades, tbh pretty good at most of them! But
+    the synthesis is where the real magic happens.
   </p>
-  <p>
-    My superpower is bringing all of these perspectives to every problem I
-    tackle. I'd love to help your team make amazing things.
-  </p>
+  <p>I'd love to help your team make amazing things.</p>
+</Section>
+
+<Section title="Call me if you:">
+  <ul>
+    <li>Want to build The Right Thing™, The Right Way™, the first time</li>
+    <li>Want to work with one person who can do it all</li>
+    <li>
+      Like easy, clear communication and enjoy puns (you're getting them either
+      way)
+    </li>
+  </ul>
+</Section>
+
+<Section>
+  <div class="centerer">
+    <Button href="mailto:me@mrh.is?subject=Let's%20work%20together!"
+      >Let's talk! <EmojiSwitcher lightEmoji="💌" darkEmoji="📬" /></Button
+    >
+  </div>
 </Section>
 
 <Section>
   <p>Have a look at some of my work:</p>
-  <div class="project-tiles">
-    {#each data.projects as project}
-      <ProjectTile {project} size="large" />
-    {/each}
-  </div>
+  <ProjectTileList projects={data.projects} />
 </Section>
 
 <Section>
-  <p>
-    For more details on my history, check out <a href="/timeline">my timeline</a
-    >.
-  </p>
-  <p>My inbox is always open at <a href="mailto:me@mrh.is">me@mrh.is</a>!</p>
+  <div class="icon-set">
+    <a href="https://github.com/mrh-is">
+      <Icon name="GitHub" size={40} />
+    </a>
+    <a href="https://www.instagram.com/mrh_is/">
+      <Icon name="Instagram" size={40} />
+    </a>
+    <a href="https://www.linkedin.com/in/michaelhelmbrecht/">
+      <Icon name="LinkedIn" size={40} />
+    </a>
+  </div>
 </Section>
 
 <style>
@@ -70,11 +96,16 @@
     height: 20rem;
   }
 
-  .project-tiles {
-    row-gap: 5rem;
-    flex-direction: column;
+  .centerer {
+    justify-content: center;
+    display: flex;
+  }
+
+  .icon-set {
+    column-gap: 2rem;
+    flex-direction: row;
     align-items: center;
-    margin-top: 3rem;
+    justify-content: center;
     display: flex;
   }
 

@@ -1,9 +1,9 @@
 <script lang="ts">
-  import Section from "$lib/components/Section.svelte";
+  import Section from "$lib/components/general/Section.svelte";
   import Entry from "./Entry.svelte";
 
   import resumeSrc from "$lib/assets/Michael Helmbrecht resume.pdf";
-  import OutboundLink from "$lib/components/OutboundLink.svelte";
+  import OutboundLink from "$lib/components/general/OutboundLink.svelte";
 
   export let data;
 </script>

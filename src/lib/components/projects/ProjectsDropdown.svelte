@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { ProjectNavLink } from "$lib/types/Project";
-  import Dropdown from "./dropdown/Dropdown.svelte";
-  import DropdownItem from "./dropdown/DropdownItem.svelte";
+  import Dropdown from "../dropdown/Dropdown.svelte";
+  import DropdownItem from "../dropdown/DropdownItem.svelte";
 
   export let projects: ProjectNavLink[];
 </script>

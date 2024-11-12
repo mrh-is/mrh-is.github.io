@@ -3,9 +3,16 @@
 }
 
 body {
-  --background-color: #fff;
-  --panel-background-color: #eee;
-  --text-color: #222;
+  --color-light-text: #222;
+  --color-light-background: #fff;
+  --color-light-panel: #eee;
+  --color-dark-text: #ddd;
+  --color-dark-background: #181818;
+  --color-dark-panel: #222;
+
+  --background-color: var(--color-light-background);
+  --panel-background-color: var(--color-light-panel);
+  --text-color: var(--color-light-text);
   --max-width: 940px;
 
   background-color: var(--background-color);
@@ -24,6 +31,15 @@ body {
 p {
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+li {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+li::marker {
+  color: var(--color-light-link);
 }
 
 a {
@@ -45,7 +61,7 @@ button {
 
 h1,
 .header-font {
-  font-family: Sniglet, system-ui;
+  font-family: Sniglet, Inter, sans-serif;
   font-style: normal;
 }
 
@@ -72,9 +88,9 @@ img {
 
 @media (prefers-color-scheme: dark) {
   body {
-    --background-color: #181818;
-    --panel-background-color: #222;
-    --text-color: #ddd;
+    --background-color: var(--color-dark-background);
+    --panel-background-color: var(--color-dark-panel);
+    --text-color: var(--color-dark-text);
   }
 
   a {

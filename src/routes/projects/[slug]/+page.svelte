@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Section from "$lib/components/Section.svelte";
+  import Section from "$lib/components/general/Section.svelte";
   import type { Project } from "$lib/types/Project";
-  import ProjectTile from "../../../lib/components/ProjectTile.svelte";
   import ContentBlock from "./blocks/ContentBlock.svelte";
+  import ProjectTileList from "$lib/components/projects/ProjectTileList.svelte";
 
   export let data;
   let project: Project;
@@ -18,25 +18,5 @@
 
 <Section>
   <p>While you're here, check out some other projects:</p>
-  <div class="project-tiles">
-    {#each data.otherProjects as otherProject}
-      <ProjectTile project={otherProject} size="small" />
-    {/each}
-  </div>
+  <ProjectTileList projects={data.otherProjects} />
 </Section>
-
-<style>
-  .project-tiles {
-    display: flex;
-    column-gap: 5rem;
-    row-gap: 4rem;
-    justify-content: center;
-    margin-top: 3rem;
-  }
-
-  @media (max-width: 800px) {
-    .project-tiles {
-      flex-direction: column;
-    }
-  }
-</style>
