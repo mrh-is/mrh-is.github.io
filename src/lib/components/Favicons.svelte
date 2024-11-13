@@ -26,7 +26,6 @@
 {#key schemes}
   {#each schemes as scheme}
     {#each [196, 128, 96, 32, 16] as size}
-      {@debug scheme, size}
       {@render icon(scheme, size)}
     {/each}
   {/each}
