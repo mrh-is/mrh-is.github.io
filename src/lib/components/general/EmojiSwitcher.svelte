@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { KnownQueries, watchMediaQuery } from "$lib/MediaQueryWatcher";
+
   interface Props {
     lightEmoji: string;
     darkEmoji: string;
@@ -8,17 +10,10 @@
 
   let isDark = $state(false);
 
-  function updateTheme() {
-    isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  }
-
-  // Set initial value
   $effect.pre(() => {
-    if (typeof window !== "undefined") {
-      updateTheme();
-      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-      mediaQuery.addEventListener("change", updateTheme);
-    }
+    return watchMediaQuery(KnownQueries.DarkMode, (matches) => {
+      isDark = matches;
+    });
   });
 </script>
 
