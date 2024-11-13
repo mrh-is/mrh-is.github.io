@@ -1,3 +1,3 @@
 # Michael's website
 
-Now with ~blobs~
+Now with \~blobs\~
