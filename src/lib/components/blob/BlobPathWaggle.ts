@@ -1,4 +1,5 @@
 import type { Point, Rect } from "$lib/geometryHelpers";
+import { checkMediaQuery, KnownQueries } from "$lib/MediaQueryWatcher";
 import { blobPath, type BlobPath } from "./BlobPathGeometry";
 import { svgCurvePath } from "./SVGPath";
 
@@ -42,30 +43,42 @@ export class BlobWaggler {
       waggledPath.end,
     );
     this.callback(svgPath);
-    this.handle = requestAnimationFrame(() => this.waggle());
+    if (!checkMediaQuery(KnownQueries.ReducedMotion)) {
+      this.handle = safeRequestAnimationFrame(() => this.waggle()) ?? 0;
+    }
   }
 
   constructor(
     safeAreaRect: Rect,
     waggleSize: number,
-    seed: string,
+    randGen: () => number,
     callback: BlobWagglerCallback,
   ) {
     this.waggleSize = waggleSize;
-    this.points = blobPath(safeAreaRect, seed);
+    this.points = blobPath(safeAreaRect, randGen);
     this.offsets = {
-      start: { x: Math.random() * MS_PER_S, y: Math.random() * MS_PER_S },
-      control: { x: Math.random() * MS_PER_S, y: Math.random() * MS_PER_S },
-      end: { x: Math.random() * MS_PER_S, y: Math.random() * MS_PER_S },
+      start: { x: randGen() * MS_PER_S, y: randGen() * MS_PER_S },
+      control: { x: randGen() * MS_PER_S, y: randGen() * MS_PER_S },
+      end: { x: randGen() * MS_PER_S, y: randGen() * MS_PER_S },
     };
 
     this.callback = callback;
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      this.handle = requestAnimationFrame(() => this.waggle());
-    }
+    this.waggle();
   }
 
   stop() {
-    cancelAnimationFrame(this.handle);
+    safeCancelAnimationFrame(this.handle);
+  }
+}
+
+function safeRequestAnimationFrame(callback: () => void): number | undefined {
+  if (typeof window !== "undefined") {
+    return requestAnimationFrame(callback);
+  }
+}
+
+function safeCancelAnimationFrame(handle: number) {
+  if (typeof window !== "undefined") {
+    return cancelAnimationFrame(handle);
   }
 }

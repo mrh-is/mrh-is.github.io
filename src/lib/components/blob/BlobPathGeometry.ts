@@ -1,6 +1,5 @@
 import { fittingInside, type Point, type Rect } from "$lib/geometryHelpers";
 import { Range, scale } from "$lib/mathHelpers";
-import { DeterministicVendor } from "../../DeterministicVendor";
 
 export interface BlobPath {
   start: Point;
@@ -45,25 +44,24 @@ function pointByAddingVector(
   };
 }
 
-export function blobPath(rect: Rect, seed: string): BlobPath {
+export function blobPath(rect: Rect, randGen: () => number): BlobPath {
   const sideLength = new Range(50, 100);
   const deflection = new Range(30, 90);
   const deflectionRange = deflection.max - deflection.min;
 
-  const rand = new DeterministicVendor(seed);
   const path = new Path();
   let point = { x: 0, y: 0 } as Point;
   path.append(point);
 
-  let direction = rand.nextBetween(0, 360);
-  const initialLength = rand.nextIn(sideLength);
+  let direction = randGen() * 360;
+  const initialLength = randGen() * sideLength.max;
   point = pointByAddingVector(point, direction, initialLength);
   path.append(point);
 
-  let pointDeflection = rand.nextBetween(-deflectionRange, deflectionRange);
+  let pointDeflection = randGen() * deflectionRange;
   pointDeflection += Math.sign(pointDeflection) * deflection.min;
   direction += pointDeflection;
-  const length = rand.nextIn(sideLength);
+  const length = randGen() * sideLength.max;
   path.append(pointByAddingVector(point, direction, length));
 
   const scaledPath = path.pathInside(rect);

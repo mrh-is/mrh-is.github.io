@@ -10,20 +10,17 @@
 
   let { seed }: Props = $props();
 
-  const rand = new DeterministicVendor(seed);
-  let blobData: BlobPositionerProps[] = $derived(generateBlobs(seed));
+  const rand = $derived(new DeterministicVendor(seed));
+  let blobData: BlobPositionerProps[] = $derived(generateBlobs(rand));
 
-  function generateBlobs(seed: string): BlobPositionerProps[] {
-    let data: BlobPositionerProps[] = [];
-    const blobCount = 7;
-    for (let i = 1; i <= blobCount; i++) {
-      data.push({
-        seed: seed.repeat(i),
+  function generateBlobs(rand: DeterministicVendor): BlobPositionerProps[] {
+    return Array(7)
+      .fill(null)
+      .map(() => ({
+        randGen: () => rand.next(),
         top: rand.nextBetween(2, 12),
         left: rand.nextBetween(10, 90),
-      });
-    }
-    return data;
+      }));
   }
 </script>
 

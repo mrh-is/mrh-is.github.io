@@ -1,16 +1,15 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onDestroy } from "svelte";
   import type { Rect } from "$lib/geometryHelpers";
   import { Range } from "$lib/mathHelpers";
   import { BlobWaggler } from "./BlobPathWaggle";
-  import { fade } from "svelte/transition";
 
   interface Props {
-    seed: string;
+    randGen: () => number;
     size?: number;
   }
 
-  let { seed, size = 600 }: Props = $props();
+  let { randGen, size = 600 }: Props = $props();
 
   let pathElement: SVGPathElement | undefined = $state();
   let waggler: BlobWaggler;
@@ -18,25 +17,23 @@
   const blobWidth = size / 2;
   const waggleSize = size * 0.03;
 
-  onMount(() => {
-    const margin = waggleSize + blobWidth / 2;
-    const safeAreaRect: Rect = {
-      x: new Range(margin, size - margin),
-      y: new Range(margin, size - margin),
-    };
+  const margin = waggleSize + blobWidth / 2;
+  const safeAreaRect: Rect = {
+    x: new Range(margin, size - margin),
+    y: new Range(margin, size - margin),
+  };
 
-    waggler = new BlobWaggler(safeAreaRect, waggleSize, seed, (svgPath) => {
-      pathElement?.setAttribute("d", svgPath);
-    });
-    return () => waggler.stop();
+  let path = $state("");
+
+  waggler = new BlobWaggler(safeAreaRect, waggleSize, randGen, (svgPath) => {
+    path = svgPath;
   });
+
+  onDestroy(() => waggler.stop());
 </script>
 
-<svg
-  style="width: {size}px; height: {size}px"
-  transition:fade={{ duration: 200 }}
->
-  <path bind:this={pathElement} style="stroke-width: {blobWidth}" />
+<svg style="width: {size}px; height: {size}px">
+  <path bind:this={pathElement} style="stroke-width: {blobWidth}" d={path} />
 </svg>
 
 <style>
