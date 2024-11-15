@@ -1,27 +1,34 @@
-import { scale, Range } from "$lib/mathHelpers";
-import md5 from "md5";
+import { Range } from "$lib/mathHelpers";
 
-// Provide random–looking numbers, but based on an input
 export class DeterministicVendor {
-  private readonly bytes: number[];
-  private index = 0;
+  private state: number;
+
   constructor(seed: string) {
-    this.bytes = md5(seed, { asBytes: true });
+    // Create initial state from string seed
+    this.state =
+      Array.from(seed).reduce((acc, char) => {
+        return (acc << 5) - acc + char.charCodeAt(0);
+      }, 0) >>> 0; // Ensure 32-bit unsigned
+
+    // Avoid zero state
+    if (this.state === 0) this.state = 1;
   }
 
   next(): number {
-    const byte = this.bytes[this.index];
-    this.index = (this.index + 1) % this.bytes.length;
-    return byte;
+    // xorshift algorithm
+    this.state ^= this.state << 13;
+    this.state ^= this.state >> 17;
+    this.state ^= this.state << 5;
+
+    // Return value between 0 and 1
+    return (this.state >>> 0) / 4294967296;
   }
 
-  private readonly valueRange = new Range(0, 2 ** 8);
   nextBetween(min: number, max: number): number {
     return this.nextIn(new Range(min, max));
   }
 
   nextIn(range: Range): number {
-    const value = this.next();
-    return scale(value, this.valueRange, range);
+    return range.min + this.next() * (range.max - range.min);
   }
 }
