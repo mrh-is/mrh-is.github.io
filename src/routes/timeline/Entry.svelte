@@ -24,10 +24,12 @@
       {entry.institution.name}
     {/if}
     ·
-    {#if entry.startDate}
-      {formatDate(entry.startDate)}–{formatDate(entry.endDate)}
-    {:else}
-      {formatDate(entry.endDate)}
+    {#if entry.dates.type === "current"}
+      {formatDate(entry.dates.start)}–Now
+    {:else if entry.dates.type === "past"}
+      {formatDate(entry.dates.start)}–{formatDate(entry.dates.end)}
+    {:else if entry.dates.type === "graduation"}
+      {formatDate(entry.dates.date)}
     {/if}
   </p>
 

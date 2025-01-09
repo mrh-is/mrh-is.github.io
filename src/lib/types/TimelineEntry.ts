@@ -4,7 +4,9 @@ export interface TimelineEntry {
     name: string;
     link?: string;
   };
-  startDate?: Date;
-  endDate: Date;
+  dates:
+    | { type: "current"; start: Date }
+    | { type: "past"; start: Date; end: Date }
+    | { type: "graduation"; date: Date };
   description?: string[];
 }

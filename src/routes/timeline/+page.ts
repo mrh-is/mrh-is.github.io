@@ -12,7 +12,8 @@ const toolingSlug =
 export const load = (() => {
   return {
     title: "Timeline | Michael Helmbrecht",
-    description: "My career history, including work experience & education.",
+    description:
+      "My long, loooooooong career history, including work experience & education.",
     colorScheme: {
       light: {
         blob: "#E1BFE6",
@@ -25,13 +26,30 @@ export const load = (() => {
     },
     work: [
       {
+        title: "Adjunct instructor",
+        institution: {
+          name: "Carnegie Mellon HCII",
+          link: "https://hcii.cmu.edu/",
+        },
+        dates: {
+          type: "current",
+          start: new Date(2025, 0),
+        },
+        description: [
+          "Advising masters students' <a href='https://hcii.cmu.edu/academics/mhci/capstone' target='_blank'>Capstone projects</a>.",
+        ],
+      },
+      {
         title: "Lead designer / product manager",
         institution: {
           name: "Archipelago",
           link: "https://onarchipelago.com/",
         },
-        startDate: new Date(2019, 0),
-        endDate: new Date(2022, 10),
+        dates: {
+          type: "past",
+          start: new Date(2019, 0),
+          end: new Date(2022, 10),
+        },
         description: [
           "Designed & shepherded products, processes, & features for a new data-centric application for commercial real estate insurance.",
           `See more details about my work on <a href="/projects/${platformSlug}">the customer-facing application</a> & <a href="/projects/${toolingSlug}">the internal data tooling</a>.`,
@@ -44,8 +62,11 @@ export const load = (() => {
           name: "Kidfund",
           link: "https://www.kidfund.us/",
         },
-        startDate: new Date(2017, 0),
-        endDate: new Date(2019, 0),
+        dates: {
+          type: "past",
+          start: new Date(2017, 0),
+          end: new Date(2019, 0),
+        },
         description: [
           "Designed & developed new product features in collaboration with founders.",
           "Started with product vision and insights obtained from conducting user interviews. Defined new & updated features, then designed UX through visuals & wrote copy. Quickly validated designs with users. Finished by implementing changes to the iOS app & shipping to the App Store.",
@@ -57,8 +78,11 @@ export const load = (() => {
           name: "Realm",
           link: "https://realm.io/",
         },
-        startDate: new Date(2015, 6),
-        endDate: new Date(2017, 0),
+        dates: {
+          type: "past",
+          start: new Date(2015, 6),
+          end: new Date(2017, 0),
+        },
         description: [
           "Designed & built website, including marketing pages & developer documentation. Wrote website copy. Directed branding.",
           "Advised strategy for developer-focused content marketing. Edited blog posts for tone & technical correctness.",
@@ -70,8 +94,11 @@ export const load = (() => {
           name: "Motiv",
           link: "https://mymotiv.com/",
         },
-        startDate: new Date(2014, 4),
-        endDate: new Date(2015, 1),
+        dates: {
+          type: "past",
+          start: new Date(2014, 4),
+          end: new Date(2015, 1),
+        },
         description: ["Developed iOS apps & device SDK for wearable device."],
       },
       {
@@ -80,8 +107,11 @@ export const load = (() => {
           name: "Fino Consulting",
           link: "http://www.finoconsulting.com/",
         },
-        startDate: new Date(2013, 7),
-        endDate: new Date(2014, 4),
+        dates: {
+          type: "past",
+          start: new Date(2013, 7),
+          end: new Date(2014, 4),
+        },
         description: ["Designed iPad apps for teachers & energy salespersons."],
       },
     ] as TimelineEntry[],
@@ -91,14 +121,20 @@ export const load = (() => {
         institution: {
           name: "Carnegie Mellon University",
         },
-        endDate: new Date(2013, 8),
+        dates: {
+          type: "graduation",
+          date: new Date(2013, 8),
+        },
       },
       {
         title: "Bachelors in electrical engineering",
         institution: {
           name: "Mississippi State University",
         },
-        endDate: new Date(2012, 4),
+        dates: {
+          type: "graduation",
+          date: new Date(2012, 4),
+        },
         description: [
           "Minors in Spanish & mathematics, plus certificate in cognitive science",
         ],
