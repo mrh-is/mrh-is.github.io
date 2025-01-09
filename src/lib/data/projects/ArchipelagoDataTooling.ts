@@ -38,7 +38,7 @@ const archipelagoDataTooling: Project = {
         {
           src: myJobs,
           caption:
-            "The \"My jobs\" page is a worker's home base, where it's clear what's assigned to them and what to do next.",
+            "The “My jobs” page is a worker’s home base, where it’s clear what’s assigned to them and what to do next.",
         },
         {
           src: jobDetails,
@@ -48,18 +48,18 @@ const archipelagoDataTooling: Project = {
         {
           src: onboardingFlow,
           caption:
-            "The tooling is only a part of this larger process to get a new customer onto Archipelago. It was important that each player understand both their work and how it integrated with everyone else's.",
+            "The tooling is only a part of this larger process to get a new customer onto Archipelago. It was important that each player understand both their work and how it integrated with everyone else’s.",
         },
         {
           src: jobState,
           caption:
-            'Part of building out this system was defining a simple state machine for the fundamental unit of work, the "job". Being able to reason about each job enabled the team to confidently reason about higher-order abstractions.',
+            "Part of building out this system was defining a simple state machine for the fundamental unit of work, the “job”. Being able to reason about each job enabled the team to confidently reason about higher-order abstractions.",
         },
       ],
     },
     {
       kind: "text",
-      text: "A huge part of the <a href='https://onarchipelago.com/'>Archipelago</a> magic was standardizing & enhancing customers' data. This was all powered by a suite of internal tools that enabled ingesting data from all manner of customer Excel spreadsheets, and then enhancing and correcting that data with evidentiary documents like engineering reports.",
+      text: "A huge part of the <a href='https://onarchipelago.com/'>Archipelago</a> magic was standardizing & enhancing customers’ data. This was all powered by a suite of internal tools that enabled ingesting data from all manner of customer Excel spreadsheets, and then enhancing and correcting that data with evidentiary documents like engineering reports.",
     },
     {
       kind: "text",

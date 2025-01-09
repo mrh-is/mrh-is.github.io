@@ -33,12 +33,12 @@ const kidfund: Project = {
         {
           src: home,
           caption:
-            "The home page of the app gives parents an instant sense of how their kids' funds are growing, plus easy access to gifting for kids they follow.",
+            "The home page of the app gives parents an instant sense of how their kids’ funds are growing, plus easy access to gifting for kids they follow.",
         },
         {
           src: memoryBank,
           caption:
-            'Each kid has a "memory bank" for a super-private way to share photos with family & friends.',
+            "Each kid has a “memory bank” for a super-private way to share photos with family & friends.",
         },
         {
           src: gifting,
@@ -46,7 +46,7 @@ const kidfund: Project = {
         },
         {
           src: celebration,
-          caption: "Woohoo! You just helped a kid's future grow brighter.",
+          caption: "Woohoo! You just helped a kid’s future grow brighter.",
         },
         {
           src: giftHistory,
@@ -57,7 +57,7 @@ const kidfund: Project = {
     },
     {
       kind: "text",
-      text: "With <a href='https://www.kidfund.us/'>Kidfund</a> (now part of <a href='https://web.unest.co/us/acquisitions/kidfund'>UNest</a>), anyone could help parents save for their kids' futures, by giving the most flexible (and least space-intensive) gift of all: money.",
+      text: "With <a href='https://www.kidfund.us/'>Kidfund</a> (now part of <a href='https://web.unest.co/us/acquisitions/kidfund'>UNest</a>), anyone could help parents save for their kids’ futures, by giving the most flexible (and least space-intensive) gift of all: money.",
     },
     {
       kind: "text",
@@ -75,7 +75,7 @@ const kidfund: Project = {
         "Iterating several times on the onboarding flow, to improve retention",
         "A complete home screen redesign",
         "Easier integration with social networks for greater reach",
-        "Allowing gifts to be pledged to kids who didn't have accounts yet",
+        "Allowing gifts to be pledged to kids who didn’t have accounts yet",
       ],
     },
     {

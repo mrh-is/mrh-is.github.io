@@ -32,6 +32,6 @@
     <OutboundLink href="https://www.linkedin.com/in/michaelhelmbrecht/">
       LinkedIn
     </OutboundLink>
-    if you're into that sort of thing.
+    if you’re into that sort of thing.
   </p>
 </Section>

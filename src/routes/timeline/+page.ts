@@ -36,7 +36,7 @@ export const load = (() => {
           start: new Date(2025, 0),
         },
         description: [
-          "Advising masters students' <a href='https://hcii.cmu.edu/academics/mhci/capstone' target='_blank'>Capstone projects</a>.",
+          "Advising masters students’ <a href='https://hcii.cmu.edu/academics/mhci/capstone' target='_blank'>Capstone projects</a>.",
         ],
       },
       {

@@ -20,6 +20,6 @@
 </Section>
 
 <Section>
-  <p>While you're here, check out some other projects:</p>
+  <p>While you’re here, check out some other projects:</p>
   <ProjectTileList projects={data.otherProjects} />
 </Section>

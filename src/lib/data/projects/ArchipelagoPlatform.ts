@@ -22,7 +22,7 @@ const archipelagoPlatform: Project = {
   title: "The Archi\u00ADpelago plat\u00ADform",
   slug: "archipelago-platform",
   description:
-    "I started & helped grow the design team, & was the sole or lead designer on almost every major project for the company's first 4 years.",
+    "I started & helped grow the design team, & was the sole or lead designer on almost every major project for the company’s first 4 years.",
   tile: {
     subtitle: "Product design for customer-facing web app",
     imageSrc: thumbnail,
@@ -41,7 +41,7 @@ const archipelagoPlatform: Project = {
   content: [
     {
       kind: "text",
-      text: "I started & helped grow the design team, & was the sole or lead designer on almost every major project for the company's first 4 years.",
+      text: "I started & helped grow the design team, & was the sole or lead designer on almost every major project for the company’s first 4 years.",
     },
     {
       kind: "carousel",
@@ -49,7 +49,7 @@ const archipelagoPlatform: Project = {
         {
           src: stream,
           caption:
-            'The heart of the Archipelago platform. This page shows one "placement", the industry term for a group of buildings insured together.',
+            "The heart of the Archipelago platform. This page shows one “placement”, the industry term for a group of buildings insured together.",
         },
         {
           src: buildingDetails,
@@ -59,7 +59,7 @@ const archipelagoPlatform: Project = {
         {
           src: provenance,
           caption:
-            "Hovering over a data element shows its source, which increases confidence in the accuracy of the data. (You wouldn't believe how many typos there are in multi-million dollar spreadsheets.)",
+            "Hovering over a data element shows its source, which increases confidence in the accuracy of the data. (You wouldn’t believe how many typos there are in multi-million dollar spreadsheets.)",
         },
       ],
     },
@@ -69,7 +69,7 @@ const archipelagoPlatform: Project = {
     },
     {
       kind: "text",
-      text: "I started & helped grow the design team, & was involved in almost every major project for the company's first 4 years. I'd like to highlight a couple that I'm especially proud of:",
+      text: "I started & helped grow the design team, & was involved in almost every major project for the company’s first 4 years. I’d like to highlight a couple that I’m especially proud of:",
     },
     {
       kind: "subsection",
@@ -80,7 +80,7 @@ const archipelagoPlatform: Project = {
             {
               src: v1,
               caption:
-                "Ah, v1. Simpler times. Swap in a nicer UI library & a few extra capabilities, and you've got something pretty good.",
+                "Ah, v1. Simpler times. Swap in a nicer UI library & a few extra capabilities, and you’ve got something pretty good.",
             },
             {
               src: v1Building,
@@ -95,7 +95,7 @@ const archipelagoPlatform: Project = {
             {
               src: wireframeStreamSpaced,
               caption:
-                "After some whiteboarding sessions with the team (sadly not documented), I started working on some UIs. Things are getting a little crowded here, but we've got a lot of the right pieces in play.",
+                "After some whiteboarding sessions with the team (sadly not documented), I started working on some UIs. Things are getting a little crowded here, but we’ve got a lot of the right pieces in play.",
             },
             {
               src: wireframeBuildingSpaced,
@@ -111,7 +111,7 @@ const archipelagoPlatform: Project = {
         {
           kind: "text",
           title: "Project brief",
-          text: "Archipelago's founders had pitched investors on a concept; now turn that into working software. Critically, our pilot customer had a go-live date that could not be moved, which was a make-or-break event for Archipelago.",
+          text: "Archipelago’s founders had pitched investors on a concept; now turn that into working software. Critically, our pilot customer had a go-live date that could not be moved, which was a make-or-break event for Archipelago.",
         },
         {
           kind: "text",
@@ -121,7 +121,7 @@ const archipelagoPlatform: Project = {
         {
           kind: "text",
           title: "Outcome",
-          text: "A successful launch! The customer's go-live date went smoothly, and resulted in ~90% of potential insurer customers being introduced to Archipelago.",
+          text: "A successful launch! The customer’s go-live date went smoothly, and resulted in ~90% of potential insurer customers being introduced to Archipelago.",
         },
         {
           kind: "text",
@@ -142,7 +142,7 @@ const archipelagoPlatform: Project = {
             {
               src: editingWorkflow,
               caption:
-                "The basic editing workflow: Prevent conflicts by checking out the data you need to edit, then edit in the tool you already know. Ensure your changes are all valid, and you're done!",
+                "The basic editing workflow: Prevent conflicts by checking out the data you need to edit, then edit in the tool you already know. Ensure your changes are all valid, and you’re done!",
             },
             {
               src: editingSelect,

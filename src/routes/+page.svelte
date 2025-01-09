@@ -18,20 +18,20 @@
 <Section>
   <div class="main-stack">
     <div class="title-container">
-      <h1>Hi! I'm Michael 👋🏻</h1>
+      <h1>Hi! I’m Michael 👋🏻</h1>
       <p class="subtitle">
-        I'm a product designer & developer based in Pittsburgh, PA.
+        I’m a product designer & developer based in Pittsburgh, PA.
       </p>
     </div>
     <img fetchpriority="high" src={parque} alt="Me!" />
   </div>
   <p>I have a decade of experience helping startups build great products.</p>
   <p>
-    I've been a designer, a developer (web & iOS), a product manager, & even a
+    I’ve been a designer, a developer (web & iOS), a product manager, & even a
     marketer. A real jack of all trades, tbh pretty good at most of them! But
     the synthesis is where the real magic happens.
   </p>
-  <p>I'd love to help your team make amazing things.</p>
+  <p>I’d love to help your team make amazing things.</p>
 </Section>
 
 <Section title="Call me if you:">
@@ -39,7 +39,7 @@
     <li>Want to build The Right Thing™, The Right Way™, the first time</li>
     <li>Want to work with one person who can do it all</li>
     <li>
-      Like easy, clear communication and enjoy puns (you're getting them either
+      Like easy, clear communication and enjoy puns (you’re getting them either
       way)
     </li>
   </ul>
@@ -47,8 +47,8 @@
 
 <Section>
   <div class="centerer">
-    <Button href="mailto:me@mrh.is?subject=Let's%20work%20together!"
-      >Let's talk! <EmojiSwitcher lightEmoji="💌" darkEmoji="📬" /></Button
+    <Button href="mailto:me@mrh.is?subject=Let’s%20work%20together!"
+      >Let’s talk! <EmojiSwitcher lightEmoji="💌" darkEmoji="📬" /></Button
     >
   </div>
 </Section>
