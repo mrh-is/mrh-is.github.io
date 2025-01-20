@@ -16,24 +16,24 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.18.0",
-    "@sveltejs/adapter-cloudflare": "^5.0.0",
-    "@sveltejs/kit": "^2.15.1",
+    "@sveltejs/adapter-cloudflare": "^5.0.1",
+    "@sveltejs/kit": "^2.16.0",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "@types/md5": "^2.3.5",
-    "@typescript-eslint/eslint-plugin": "^8.20.0",
-    "@typescript-eslint/parser": "^8.20.0",
+    "@typescript-eslint/eslint-plugin": "^8.21.0",
+    "@typescript-eslint/parser": "^8.21.0",
     "eslint": "^9.18.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-svelte": "^2.46.1",
     "globals": "^15.14.0",
     "prettier": "^3.4.2",
     "prettier-plugin-svelte": "^3.3.3",
-    "svelte": "^5.16.3",
+    "svelte": "^5.19.0",
     "svelte-check": "^4.1.4",
     "tslib": "^2.8.1",
     "typescript": "^5.7.2",
-    "vite": "^6.0.7",
-    "wrangler": "^3.101.0"
+    "vite": "^6.0.10",
+    "wrangler": "^3.103.2"
   },
   "overrides": {
     "cookie": "^0.7.0"
