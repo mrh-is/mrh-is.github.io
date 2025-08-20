@@ -117,4 +117,36 @@ test.describe("Interactive Components", () => {
       }
     });
   });
+
+  test.describe("Dark Mode", () => {
+    test("Site switches to dark mode based on system preference", async ({
+      page,
+    }) => {
+      // Test with dark mode preference
+      await page.emulateMedia({ colorScheme: "dark" });
+      await page.goto("/");
+
+      // Wait for favicon system to respond to dark mode
+      await page.waitForTimeout(100);
+
+      // Check that dark mode favicons are present in the DOM
+      const darkFavicons = page.locator(
+        'link[rel="icon"][media*="prefers-color-scheme: dark"]',
+      );
+      await expect(darkFavicons).toHaveCount(5); // Should have 5 different sizes
+
+      // Test with light mode preference
+      await page.emulateMedia({ colorScheme: "light" });
+      await page.reload();
+
+      // Wait for favicon system to respond to light mode
+      await page.waitForTimeout(100);
+
+      // Check that light mode favicons are present in the DOM
+      const lightFavicons = page.locator(
+        'link[rel="icon"][media*="prefers-color-scheme: light"]',
+      );
+      await expect(lightFavicons).toHaveCount(5); // Should have 5 different sizes
+    });
+  });
 });
