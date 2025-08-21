@@ -3,11 +3,11 @@
     elements: string[];
   }
 
-  let { elements }: Props = $props();
+  const { elements }: Props = $props();
 </script>
 
 <ul>
-  {#each elements as element}
+  {#each elements as element, index (index)}
     <li>{element}</li>
   {/each}
 </ul>

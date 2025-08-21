@@ -9,7 +9,7 @@
     size?: number;
   }
 
-  let { randGen, size = 600 }: Props = $props();
+  const { randGen, size = 600 }: Props = $props();
 
   let pathElement: SVGPathElement | undefined = $state();
   let waggler: BlobWaggler;

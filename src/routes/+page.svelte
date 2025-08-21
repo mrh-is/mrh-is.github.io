@@ -12,7 +12,7 @@
     data: PageData;
   }
 
-  let { data }: Props = $props();
+  const { data }: Props = $props();
 </script>
 
 <Section>

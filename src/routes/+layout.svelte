@@ -17,7 +17,7 @@
     children: Snippet;
   }
 
-  let { data, children }: Props = $props();
+  const { data, children }: Props = $props();
 </script>
 
 <svelte:head>

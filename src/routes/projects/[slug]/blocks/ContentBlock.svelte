@@ -11,7 +11,7 @@
     content: ContentBlock;
   }
 
-  let { content }: Props = $props();
+  const { content }: Props = $props();
 </script>
 
 {#if content.kind === "text"}
@@ -24,7 +24,7 @@
   <ImageCarousel {...content} />
 {:else if content.kind === "subsection"}
   <Section>
-    {#each content.content as subblock}
+    {#each content.content as subblock, index (index)}
       <Self content={subblock} />
     {/each}
   </Section>

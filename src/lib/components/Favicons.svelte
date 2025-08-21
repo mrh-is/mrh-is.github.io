@@ -24,8 +24,8 @@
 {/snippet}
 
 {#key schemes}
-  {#each schemes as scheme}
-    {#each [196, 128, 96, 32, 16] as size}
+  {#each schemes as scheme (scheme)}
+    {#each [196, 128, 96, 32, 16] as size (size)}
       {@render icon(scheme, size)}
     {/each}
   {/each}

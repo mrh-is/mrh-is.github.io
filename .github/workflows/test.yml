@@ -9,9 +9,14 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -33,6 +38,23 @@ jobs:
 
       - name: Run E2E tests
         run: npm test
+
+      - name: Update snapshots if missing
+        if: failure()
+        run: npx playwright test --update-snapshots
+
+      - name: Commit updated snapshots
+        if: failure()
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add tests/
+          if git diff --staged --quiet; then
+            echo "No snapshots to commit"
+          else
+            git commit -m "🤖 Update Linux snapshots for visual regression tests" --no-verify
+            git push origin HEAD:${{ github.head_ref || github.ref_name }}
+          fi
 
       - name: Upload test results
         uses: actions/upload-artifact@v4

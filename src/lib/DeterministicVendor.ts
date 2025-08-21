@@ -11,7 +11,9 @@ export class DeterministicVendor {
       }, 0) >>> 0; // Ensure 32-bit unsigned
 
     // Avoid zero state
-    if (this.state === 0) this.state = 1;
+    if (this.state === 0) {
+      this.state = 1;
+    }
   }
 
   next(): number {

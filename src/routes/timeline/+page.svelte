@@ -10,17 +10,17 @@
     data: PageData;
   }
 
-  let { data }: Props = $props();
+  const { data }: Props = $props();
 </script>
 
 <Section title="Work">
-  {#each data.work as entry}
+  {#each data.work as entry (entry.title + entry.institution.name)}
     <Entry {entry} />
   {/each}
 </Section>
 
 <Section title="Edu&shy;cation">
-  {#each data.education as entry}
+  {#each data.education as entry (entry.title + entry.institution.name)}
     <Entry {entry} />
   {/each}
 </Section>
