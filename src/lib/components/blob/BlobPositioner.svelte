@@ -9,7 +9,7 @@
 <script lang="ts">
   import Blob from "./Blob.svelte";
 
-  let { randGen, top, left }: Props = $props();
+  const { randGen, top, left }: Props = $props();
 
   const size = 600;
 </script>

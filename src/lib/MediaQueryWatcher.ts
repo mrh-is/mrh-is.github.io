@@ -3,7 +3,9 @@ export function watchMediaQuery(
   callback: (matches: boolean) => void,
 ): () => void {
   if (typeof window === "undefined") {
-    return () => {};
+    return () => {
+      // No-op for server-side rendering
+    };
   }
   const mediaQuery = window.matchMedia(query);
   callback(mediaQuery.matches);

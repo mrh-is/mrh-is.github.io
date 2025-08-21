@@ -6,11 +6,11 @@
     projects: ProjectPreview[];
   }
 
-  let { projects }: Props = $props();
+  const { projects }: Props = $props();
 </script>
 
 <div class="project-tiles">
-  {#each projects as project}
+  {#each projects as project (project.slug)}
     <div class="tile-wrapper">
       <ProjectTile {project} class="hover-effect" />
     </div>

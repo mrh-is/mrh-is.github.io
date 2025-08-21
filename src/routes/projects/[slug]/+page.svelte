@@ -9,12 +9,12 @@
     data: PageData;
   }
 
-  let { data }: Props = $props();
-  let project: Project = $derived(data.project);
+  const { data }: Props = $props();
+  const project: Project = $derived(data.project);
 </script>
 
 <Section title={project.title} subtitle={project.tagline}>
-  {#each project.content as block}
+  {#each project.content as block, index (index)}
     <ContentBlock content={block} />
   {/each}
 </Section>

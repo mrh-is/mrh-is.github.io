@@ -7,7 +7,7 @@
     projects: ProjectNavLink[];
   }
 
-  let { projects }: Props = $props();
+  const { projects }: Props = $props();
 </script>
 
 <Dropdown>
@@ -15,7 +15,7 @@
     <span>Projects ↓</span>
   {/snippet}
 
-  {#each projects as project}
+  {#each projects as project (project.slug)}
     <DropdownItem>
       <a href="/projects/{project.slug}">{project.title}</a>
     </DropdownItem>

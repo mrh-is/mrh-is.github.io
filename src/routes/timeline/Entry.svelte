@@ -5,7 +5,7 @@
     entry: TimelineEntry;
   }
 
-  let { entry }: Props = $props();
+  const { entry }: Props = $props();
 
   const formatDate = (date: Date) =>
     date.toLocaleDateString(undefined, {
@@ -34,7 +34,7 @@
   </p>
 
   {#if entry.description}
-    {#each entry.description as description}
+    {#each entry.description as description, index (index)}
       <!-- Only I'm providing this data, should be safe -->
       <!-- eslint-disable svelte/no-at-html-tags -->
       <p>{@html description}</p>

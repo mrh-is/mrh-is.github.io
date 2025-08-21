@@ -7,7 +7,7 @@
     children?: Snippet;
   }
 
-  let { href = undefined, onclick, children }: Props = $props();
+  const { href = undefined, onclick, children }: Props = $props();
 </script>
 
 {#if href}

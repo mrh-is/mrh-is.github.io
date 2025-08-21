@@ -7,7 +7,7 @@
     children: Snippet;
   }
 
-  let { href, children }: Props = $props();
+  const { href, children }: Props = $props();
 </script>
 
 <a {href} target="_blank">

@@ -6,7 +6,7 @@
     darkEmoji: string;
   }
 
-  let { lightEmoji, darkEmoji }: Props = $props();
+  const { lightEmoji, darkEmoji }: Props = $props();
 
   let isDark = $state(false);
 
