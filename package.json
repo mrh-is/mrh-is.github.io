@@ -42,7 +42,8 @@
     "wrangler": "^4.31.0"
   },
   "overrides": {
-    "cookie": "^0.7.0"
+    "cookie": "^0.7.0",
+    "picomatch": "^4.0.0"
   },
   "type": "module",
   "dependencies": {
