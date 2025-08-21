@@ -10,7 +10,7 @@
     children: Snippet;
   }
 
-  let { toggle, children }: Props = $props();
+  const { toggle, children }: Props = $props();
   const idNumber = instanceCount;
   instanceCount += 1;
 
@@ -24,7 +24,9 @@
   role="region"
   class:expanded={!!mode}
   onmouseleave={() => {
-    if (mode !== "hover") return;
+    if (mode !== "hover") {
+      return;
+    }
     mode = undefined;
   }}
 >
@@ -35,7 +37,9 @@
     aria-haspopup="menu"
     aria-expanded={!!mode}
     onmouseenter={() => {
-      if (mode) return;
+      if (mode) {
+        return;
+      }
       mode = "hover";
     }}
     onclick={(e) => {
@@ -46,7 +50,9 @@
       }
     }}
     onblur={() => {
-      if (mode !== "focus") return;
+      if (mode !== "focus") {
+        return;
+      }
       mode = undefined;
     }}
   >

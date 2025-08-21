@@ -6,7 +6,7 @@
     projects: ProjectNavLink[];
   }
 
-  let { projects }: Props = $props();
+  const { projects }: Props = $props();
 </script>
 
 <div>

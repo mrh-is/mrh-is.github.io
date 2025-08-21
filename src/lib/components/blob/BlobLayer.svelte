@@ -8,10 +8,10 @@
     seed: string;
   }
 
-  let { seed }: Props = $props();
+  const { seed }: Props = $props();
 
   const rand = $derived(new DeterministicVendor(seed));
-  let blobData: BlobPositionerProps[] = $derived(generateBlobs(rand));
+  const blobData: BlobPositionerProps[] = $derived(generateBlobs(rand));
 
   function generateBlobs(rand: DeterministicVendor): BlobPositionerProps[] {
     return Array(7)
@@ -25,7 +25,7 @@
 </script>
 
 <div>
-  {#each blobData as blob}
+  {#each blobData as blob, index (index)}
     <BlobPositioner {...blob} />
   {/each}
 </div>

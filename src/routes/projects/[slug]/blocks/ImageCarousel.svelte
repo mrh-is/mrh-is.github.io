@@ -19,7 +19,9 @@
   let domElement: HTMLElement | undefined = $state();
 
   onMount(() => {
-    if (!domElement) return;
+    if (!domElement) {
+      return;
+    }
     bp = BiggerPicture({
       target: domElement.ownerDocument.body,
     });
@@ -53,8 +55,8 @@
     slides: ImageCarouselSlide[];
   }
 
-  let { coverSrc = undefined, slides }: Props = $props();
-  let currentCover = $derived(coverSrc ?? slides[0].src);
+  const { coverSrc = undefined, slides }: Props = $props();
+  const currentCover = $derived(coverSrc ?? slides[0].src);
 </script>
 
 <div>

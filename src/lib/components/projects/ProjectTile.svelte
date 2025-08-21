@@ -6,7 +6,7 @@
     class?: string;
   }
 
-  let { project, class: className }: Props = $props();
+  const { project, class: className }: Props = $props();
 </script>
 
 <a class={className} href="/projects/{project.slug}">

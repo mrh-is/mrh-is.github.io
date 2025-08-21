@@ -7,6 +7,7 @@ import globals from "globals";
 export default [
   js.configs.recommended,
   ...ts.configs.recommended,
+  ...ts.configs.stylistic,
   ...svelte.configs["flat/recommended"],
   prettier,
   ...svelte.configs["flat/prettier"],
@@ -17,6 +18,29 @@ export default [
         ...globals.node,
       },
     },
+    rules: {
+      // Best practices
+      "no-console": "warn",
+      "no-debugger": "error",
+      "no-alert": "error",
+      "no-eval": "error",
+      "no-implied-eval": "error",
+      "no-new-func": "error",
+      "no-script-url": "error",
+      "prefer-const": "error",
+      "no-var": "error",
+      eqeqeq: ["error", "always"],
+      curly: ["error", "all"],
+
+      // TypeScript specific
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+      ],
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "@typescript-eslint/no-explicit-any": "warn",
+    },
   },
   {
     files: ["**/*.svelte"],
@@ -24,6 +48,19 @@ export default [
       parserOptions: {
         parser: ts.parser,
       },
+    },
+    rules: {
+      // Svelte specific rules
+      "svelte/no-at-debug-tags": "error",
+      "svelte/no-reactive-functions": "error",
+      "svelte/no-reactive-literals": "error",
+    },
+  },
+  {
+    files: ["**/*.test.{js,ts}", "**/*.spec.{js,ts}", "**/tests/**/*"],
+    rules: {
+      "no-console": "off",
+      "@typescript-eslint/no-explicit-any": "off",
     },
   },
   {
@@ -34,6 +71,7 @@ export default [
       "node_modules/",
       "playwright-report/",
       "test-results/",
+      "*.config.{js,ts,mjs}",
     ],
   },
 ];

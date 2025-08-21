@@ -7,7 +7,7 @@
     children?: Snippet;
   }
 
-  let { title, subtitle, children }: Props = $props();
+  const { title, subtitle, children }: Props = $props();
 </script>
 
 <div class="section" id={title?.toLocaleLowerCase()}>
