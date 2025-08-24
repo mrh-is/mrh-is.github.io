@@ -22,6 +22,11 @@ export interface ImageCarousel {
   coverSrc?: string;
   slides: ImageCarouselSlide[];
 }
+export interface SingleImage {
+  kind: "image";
+  src: string;
+  caption: string;
+}
 export interface Subsection {
   kind: "subsection";
   content: ContentBlock[];
@@ -31,6 +36,7 @@ export type ContentBlock =
   | TitleBlock
   | ListBlock
   | ImageCarousel
+  | SingleImage
   | Subsection;
 
 export interface Project {

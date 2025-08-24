@@ -2,6 +2,7 @@
   import Self from "./ContentBlock.svelte";
   import Section from "$lib/components/general/Section.svelte";
   import ImageCarousel from "./ImageCarousel.svelte";
+  import SingleImage from "./SingleImage.svelte";
   import ListBlock from "./ListBlock.svelte";
   import TextBlock from "./TextBlock.svelte";
   import TitleBlock from "./TitleBlock.svelte";
@@ -22,6 +23,8 @@
   <ListBlock {...content} />
 {:else if content.kind === "carousel"}
   <ImageCarousel {...content} />
+{:else if content.kind === "image"}
+  <SingleImage {...content} />
 {:else if content.kind === "subsection"}
   <Section>
     {#each content.content as subblock, index (index)}
