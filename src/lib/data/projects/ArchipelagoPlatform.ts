@@ -10,14 +10,12 @@ const archipelagoPlatform: Project = {
   title: "The Archi­pelago plat­form",
   slug: "archipelago-platform",
   description:
-    "As founding designer at Archipelago, I transformed abstract " +
-    "concepts into tangible data visualization experiences that made " +
-    "complex insurance information intuitive and trustworthy for " +
-    "Fortune 500 companies.",
+    "I designed interactive systems that transformed commercial real estate " +
+    "insurance from Excel chaos into trusted, transparent experiences. " +
+    "This cross-disciplinary project bridged user psychology, operational " +
+    "constraints, and technical innovation to create industry-wide change.",
   tile: {
-    subtitle:
-      "Designing interactive data experiences for commercial real " +
-      "estate insurance",
+    subtitle: "Creative systems design for industry workflow transformation",
     imageSrc: thumbnail,
   },
   colorScheme: {
@@ -30,9 +28,7 @@ const archipelagoPlatform: Project = {
       link: "#B4D9CB",
     },
   },
-  tagline:
-    "Transforming industry workflows through interface design that " +
-    "makes complex business problems feel simple",
+  tagline: "Building trust through transparent data",
   content: [
     {
       kind: "carousel",
