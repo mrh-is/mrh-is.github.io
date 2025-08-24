@@ -36,7 +36,7 @@ const archipelagoPlatform: Project = {
         {
           src: stream,
           caption:
-            "Hero image showing the main placement grid interface - " +
+            "Hero image showing the main placement grid interface — " +
             "demonstrates the scope and complexity of data being managed",
         },
       ],
@@ -73,7 +73,7 @@ const archipelagoPlatform: Project = {
           kind: "text",
           title: "The design challenge",
           text:
-            "How do you design an entire industry's data workflow for " +
+            "How do you design an entire industry’s data workflow for " +
             "trust & understandability? How do you continuously improve " +
             "the data quality while lowering the workload?",
         },
@@ -84,7 +84,7 @@ const archipelagoPlatform: Project = {
               src: stream,
               caption:
                 "Process flow diagram showing the transformation from " +
-                "Excel chaos to Archipelago's systematic approach",
+                "Excel chaos to Archipelago’s systematic approach",
             },
           ],
         },
@@ -115,9 +115,9 @@ const archipelagoPlatform: Project = {
           text:
             "Working within significant constraints became creative drivers " +
             "that shaped innovative solutions. To work within limited " +
-            "end-user access, I positioned research as 'early access " +
-            "pilot programs' and joined customer success meetings. And " +
-            "those same users' tech setups drove innovative approaches to " +
+            "end-user access, I positioned research as ‘early access " +
+            "pilot programs’ and joined customer success meetings. And " +
+            "those same users’ tech setups drove innovative approaches to " +
             "data loading and grid performance optimization — one user " +
             "told me they waited for colleagues to leave at 5pm so they " +
             "could get more internet bandwidth.",
@@ -215,7 +215,7 @@ const archipelagoPlatform: Project = {
               src: stream,
               caption:
                 "Side-by-side workflow comparison showing Excel chaos vs. " +
-                "Archipelago's systematic approach",
+                "Archipelago’s systematic approach",
             },
           ],
         },
@@ -240,10 +240,10 @@ const archipelagoPlatform: Project = {
           kind: "text",
           title: "Excel mental models run deep",
           text:
-            "Users frequently talked about 'all the data', but their " +
+            "Users frequently talked about ‘all the data’, but their " +
             "actual workflows started with a set of Excel pivot tables " +
             "to quickly assess submissions. This led to designing the " +
-            "'Explorers', interactive widgets that provided instant " +
+            "‘Explorers’, interactive widgets that provided instant " +
             "visual breakdowns across multiple data dimensions, updating " +
             "dynamically as users filter & explore the data.",
         },
@@ -292,7 +292,7 @@ const archipelagoPlatform: Project = {
         {
           kind: "text",
           text:
-            "The platform didn't aim to simply improve individual " +
+            "The platform didn’t aim to simply improve individual " +
             "interfaces, it transformed an entire industry ecosystem. " +
             "By designing a shared schema developed with input from " +
             "structural experts, owners, brokers, and insurers, we " +
@@ -301,8 +301,8 @@ const archipelagoPlatform: Project = {
             "year-round rather than in frantic year-end pushes, brokers " +
             "access live data directly, and insurers receive trusted " +
             "submissions configured to match their specific processes. " +
-            "The shift from 'assume the worst for missing data' to " +
-            "'trust the transparent data' represented a fundamental " +
+            "The shift from ‘assume the worst for missing data’ to " +
+            "‘trust the transparent data’ represented a fundamental " +
             "change in industry relationships.",
         },
         {
@@ -313,7 +313,7 @@ const archipelagoPlatform: Project = {
             "Archipelago through the platform, leading to 2 major " +
             "insurer partnerships within a year of the launch. Customers " +
             "across the industry praised the platform for making complex " +
-            "insurance data 'understandable and trustable', and owners " +
+            "insurance data ‘understandable and trustable’, and owners " +
             "loved earning points (and lower rates) from insurers for " +
             "data transparency.",
         },
@@ -331,7 +331,7 @@ const archipelagoPlatform: Project = {
           text:
             "This project reinforced for me that the most impactful " +
             "design work often happens at the intersection of user " +
-            "experience and business operations. Early in Archipelago's " +
+            "experience and business operations. Early in Archipelago’s " +
             "life, creating something visually impressive was crucial — " +
             "the product demos closed sales. But as we grew, I learned " +
             "to focus design efforts on the operational improvements " +
