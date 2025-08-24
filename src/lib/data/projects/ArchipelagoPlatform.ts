@@ -31,15 +31,11 @@ const archipelagoPlatform: Project = {
   tagline: "Building trust through transparent data",
   content: [
     {
-      kind: "carousel",
-      slides: [
-        {
-          src: stream,
-          caption:
-            "Hero image showing the main placement grid interface — " +
-            "demonstrates the scope and complexity of data being managed",
-        },
-      ],
+      kind: "image",
+      src: stream,
+      caption:
+        "Hero image showing the main placement grid interface — " +
+        "demonstrates the scope and complexity of data being managed",
     },
     {
       kind: "subsection",
@@ -78,15 +74,11 @@ const archipelagoPlatform: Project = {
             "the data quality while lowering the workload?",
         },
         {
-          kind: "carousel",
-          slides: [
-            {
-              src: stream,
-              caption:
-                "Process flow diagram showing the transformation from " +
-                "Excel chaos to Archipelago’s systematic approach",
-            },
-          ],
+          kind: "image",
+          src: stream,
+          caption:
+            "Process flow diagram showing the transformation from " +
+            "Excel chaos to Archipelago's systematic approach",
         },
       ],
     },
@@ -149,15 +141,11 @@ const archipelagoPlatform: Project = {
             "bandwidth or lower-power hardware.",
         },
         {
-          kind: "carousel",
-          slides: [
-            {
-              src: stream,
-              caption:
-                "Property grid screenshot showing the data density and " +
-                "visual hierarchy, maybe grouping?",
-            },
-          ],
+          kind: "image",
+          src: stream,
+          caption:
+            "Property grid screenshot showing the data density and " +
+            "visual hierarchy, maybe grouping?",
         },
         {
           kind: "text",
@@ -169,15 +157,11 @@ const archipelagoPlatform: Project = {
             "property relationships.",
         },
         {
-          kind: "carousel",
-          slides: [
-            {
-              src: buildingDetails,
-              caption:
-                "Property modal screenshot showing the integrated map and " +
-                "data organization",
-            },
-          ],
+          kind: "image",
+          src: buildingDetails,
+          caption:
+            "Property modal screenshot showing the integrated map and " +
+            "data organization",
         },
         {
           kind: "text",
@@ -189,13 +173,9 @@ const archipelagoPlatform: Project = {
             "status immediately accessible.",
         },
         {
-          kind: "carousel",
-          slides: [
-            {
-              src: provenance,
-              caption: "Evidentiary document popover",
-            },
-          ],
+          kind: "image",
+          src: provenance,
+          caption: "Evidentiary document popover",
         },
         {
           kind: "text",
@@ -209,15 +189,11 @@ const archipelagoPlatform: Project = {
             "trust.",
         },
         {
-          kind: "carousel",
-          slides: [
-            {
-              src: stream,
-              caption:
-                "Side-by-side workflow comparison showing Excel chaos vs. " +
-                "Archipelago’s systematic approach",
-            },
-          ],
+          kind: "image",
+          src: stream,
+          caption:
+            "Side-by-side workflow comparison showing Excel chaos vs. " +
+            "Archipelago's systematic approach",
         },
       ],
     },
@@ -248,15 +224,11 @@ const archipelagoPlatform: Project = {
             "dynamically as users filter & explore the data.",
         },
         {
-          kind: "carousel",
-          slides: [
-            {
-              src: stream,
-              caption:
-                "Screenshot of the placement screen showing the explorers " +
-                "widgets on the right side",
-            },
-          ],
+          kind: "image",
+          src: stream,
+          caption:
+            "Screenshot of the placement screen showing the explorers " +
+            "widgets on the right side",
         },
         {
           kind: "text",
@@ -270,15 +242,11 @@ const archipelagoPlatform: Project = {
             "needed.",
         },
         {
-          kind: "carousel",
-          slides: [
-            {
-              src: provenance,
-              caption:
-                "Screenshot showing hover state with document preview, " +
-                "demonstrating the trust-building interface",
-            },
-          ],
+          kind: "image",
+          src: provenance,
+          caption:
+            "Screenshot showing hover state with document preview, " +
+            "demonstrating the trust-building interface",
         },
       ],
     },
