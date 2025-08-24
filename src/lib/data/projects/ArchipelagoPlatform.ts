@@ -6,25 +6,18 @@ import stream from "$lib/assets/projects/archipelago-platform/platform/Archipela
 import buildingDetails from "$lib/assets/projects/archipelago-platform/platform/Archipelago building details.png";
 import provenance from "$lib/assets/projects/archipelago-platform/platform/Archipelago provenance.png";
 
-import v1 from "$lib/assets/projects/archipelago-platform/v1/Archipelago v1.png";
-import v1Building from "$lib/assets/projects/archipelago-platform/v1/Archipelago v1 building.png";
-import ia from "$lib/assets/projects/archipelago-platform/v1/IA.png";
-import wireframeStreamSpaced from "$lib/assets/projects/archipelago-platform/v1/Wireframe stream spaced.png";
-import wireframeBuildingSpaced from "$lib/assets/projects/archipelago-platform/v1/Wireframe building spaced.png";
-
-import editingWorkflow from "$lib/assets/projects/archipelago-platform/editing/Editing workflow spaced.png";
-import editingSelect from "$lib/assets/projects/archipelago-platform/editing/Editing select.png";
-import editingSelectError from "$lib/assets/projects/archipelago-platform/editing/Editing select error.png";
-import editingValidation from "$lib/assets/projects/archipelago-platform/editing/Editing validation.png";
-import editingSuccess from "$lib/assets/projects/archipelago-platform/editing/Editing success.png";
-
 const archipelagoPlatform: Project = {
-  title: "The Archi\u00ADpelago plat\u00ADform",
+  title: "The Archi­pelago plat­form",
   slug: "archipelago-platform",
   description:
-    "I started & helped grow the design team, & was the sole or lead designer on almost every major project for the company’s first 4 years.",
+    "As founding designer at Archipelago, I transformed abstract " +
+    "concepts into tangible data visualization experiences that made " +
+    "complex insurance information intuitive and trustworthy for " +
+    "Fortune 500 companies.",
   tile: {
-    subtitle: "Product design for customer-facing web app",
+    subtitle:
+      "Designing interactive data experiences for commercial real " +
+      "estate insurance",
     imageSrc: thumbnail,
   },
   colorScheme: {
@@ -37,99 +30,18 @@ const archipelagoPlatform: Project = {
       link: "#B4D9CB",
     },
   },
-  tagline: "Understand your building data, get better insurance",
+  tagline:
+    "Transforming industry workflows through interface design that " +
+    "makes complex business problems feel simple",
   content: [
-    {
-      kind: "text",
-      text: "I started & helped grow the design team, & was the sole or lead designer on almost every major project for the company’s first 4 years.",
-    },
     {
       kind: "carousel",
       slides: [
         {
           src: stream,
           caption:
-            "The heart of the Archipelago platform. This page shows one “placement”, the industry term for a group of buildings insured together.",
-        },
-        {
-          src: buildingDetails,
-          caption:
-            "Clicking on a building brings up a detail modal. It starts by summarizing the property, then more granular data is available in the other tabs.",
-        },
-        {
-          src: provenance,
-          caption:
-            "Hovering over a data element shows its source, which increases confidence in the accuracy of the data. (You wouldn’t believe how many typos there are in multi-million dollar spreadsheets.)",
-        },
-      ],
-    },
-    {
-      kind: "text",
-      text: "<a href='https://onarchipelago.com'>Archipelago</a> provides an online platform for commercial real estate insurance, which serves both owners & insurers. Owners can record hundreds of data points on each of thousands of buildings, and insurers can trust the data due to evidentiary documents.",
-    },
-    {
-      kind: "text",
-      text: "I started & helped grow the design team, & was involved in almost every major project for the company’s first 4 years. I’d like to highlight a couple that I’m especially proud of:",
-    },
-    {
-      kind: "subsection",
-      content: [
-        {
-          kind: "carousel",
-          slides: [
-            {
-              src: v1,
-              caption:
-                "Ah, v1. Simpler times. Swap in a nicer UI library & a few extra capabilities, and you’ve got something pretty good.",
-            },
-            {
-              src: v1Building,
-              caption:
-                "Examining building details. Users told us the first thing they need to know is location, so I put that front and center.",
-            },
-            {
-              src: ia,
-              caption:
-                "My first step toward getting a handle on this new product was understanding the information architecture. I used this diagram to check my understanding with the executive team.",
-            },
-            {
-              src: wireframeStreamSpaced,
-              caption:
-                "After some whiteboarding sessions with the team (sadly not documented), I started working on some UIs. Things are getting a little crowded here, but we’ve got a lot of the right pieces in play.",
-            },
-            {
-              src: wireframeBuildingSpaced,
-              caption:
-                "An important question was always how to show the details of a specific building, since users need to understand both the portfolio & be able to examine details. This stacking navigation turned out to be too tricky to implement, so I moved to the modal seen in the other UIs.",
-            },
-          ],
-        },
-        {
-          kind: "title",
-          text: "Initial product launch",
-        },
-        {
-          kind: "text",
-          title: "Project brief",
-          text: "Archipelago’s founders had pitched investors on a concept; now turn that into working software. Critically, our pilot customer had a go-live date that could not be moved, which was a make-or-break event for Archipelago.",
-        },
-        {
-          kind: "text",
-          title: "My role",
-          text: "I transformed their vision into an MVP design. I held frequent meetings with Archipelago executives & flagship customers to understand the problem space and iterate on product directions. I was the sole designer at the company for the initial phase of this project, with a second designer joining partway through.",
-        },
-        {
-          kind: "text",
-          title: "Outcome",
-          text: "A successful launch! The customer’s go-live date went smoothly, and resulted in ~90% of potential insurer customers being introduced to Archipelago.",
-        },
-        {
-          kind: "text",
-          text: "We solicited feedback from our pilot customer, which was uniformly positive. They were receiving praise from insurers for making their data understandable & trustable, with specific notes given for how easy the Archipelago platform was to navigate.",
-        },
-        {
-          kind: "text",
-          text: "In addition, those insurers reached out directly to Archipelago, which led to signing deals with 2 of the largest insurers in the world over the following year.",
+            "Hero image showing the main placement grid interface - " +
+            "demonstrates the scope and complexity of data being managed",
         },
       ],
     },
@@ -137,59 +49,297 @@ const archipelagoPlatform: Project = {
       kind: "subsection",
       content: [
         {
+          kind: "title",
+          text: "The challenge",
+        },
+        {
+          kind: "text",
+          text:
+            "Commercial real estate insurance has had a decades-old " +
+            "problem built on broken workflows that breed mistrust. The " +
+            "entire industry operated on a fragile system of Excel " +
+            "spreadsheets passed through multiple hands, accumulating " +
+            "errors and assumptions at every step.",
+        },
+        {
+          kind: "text",
+          title: "The broken workflow",
+          text:
+            "Risk managers would frantically collect data from property " +
+            "managers in urgent, year-end pushes, often resulting in typos " +
+            "(accidental extra zeros were alarmingly common) and " +
+            "coordination failures. These inconsistent Excel files would " +
+            "pass through brokers who reformatted them, then to insurers " +
+            "who, faced with suspicious or blank data points, would assume " +
+            "the worst possible values.",
+        },
+        {
+          kind: "text",
+          title: "The design challenge",
+          text:
+            "How do you design an entire industry's data workflow for " +
+            "trust & understandability? How do you continuously improve " +
+            "the data quality while lowering the workload?",
+        },
+        {
           kind: "carousel",
           slides: [
             {
-              src: editingWorkflow,
+              src: stream,
               caption:
-                "The basic editing workflow: Prevent conflicts by checking out the data you need to edit, then edit in the tool you already know. Ensure your changes are all valid, and you’re done!",
+                "Process flow diagram showing the transformation from " +
+                "Excel chaos to Archipelago's systematic approach",
             },
+          ],
+        },
+      ],
+    },
+    {
+      kind: "subsection",
+      content: [
+        {
+          kind: "title",
+          text: "Design process",
+        },
+        {
+          kind: "text",
+          text:
+            "With no existing platform solutions in the market, I began " +
+            "by deeply understanding the problem space through executive " +
+            "stakeholder workshops with customer Chief Risk Officers, " +
+            "field research including site visits across multiple customer " +
+            "companies, and workflow mapping to understand existing " +
+            "Excel-based submission processes. I needed to balance " +
+            "executive-level clarity with the detailed data needs of " +
+            "technical users, while working across engineering teams with " +
+            "very different capabilities.",
+        },
+        {
+          kind: "text",
+          text:
+            "Working within significant constraints became creative drivers " +
+            "that shaped innovative solutions. To work within limited " +
+            "end-user access, I positioned research as 'early access " +
+            "pilot programs' and joined customer success meetings. And " +
+            "those same users' tech setups drove innovative approaches to " +
+            "data loading and grid performance optimization — one user " +
+            "told me they waited for colleagues to leave at 5pm so they " +
+            "could get more internet bandwidth.",
+        },
+      ],
+    },
+    {
+      kind: "subsection",
+      content: [
+        {
+          kind: "title",
+          text: "The solution",
+        },
+        {
+          kind: "text",
+          text:
+            "I designed several key interface concepts that transformed " +
+            "how the insurance industry approached building data:",
+        },
+        {
+          kind: "text",
+          title: "Multi-Level Data Grid",
+          text:
+            "An interactive property grid allows users to scan thousands " +
+            "of buildings at once, while maintaining quick access to " +
+            "detailed information. The grid offers both high-level " +
+            "scannability & drill-down capabilities, including " +
+            "performance optimizations for users with limited internet " +
+            "bandwidth or lower-power hardware.",
+        },
+        {
+          kind: "carousel",
+          slides: [
             {
-              src: editingSelect,
+              src: stream,
               caption:
-                "Start by checking out the data. Just pick which buildings (aka properties) & which data attributes you need.",
-            },
-            {
-              src: editingSelectError,
-              caption:
-                "Before edits can be applied, they are validated by the system, including expert– & AI–written rules.",
-            },
-            {
-              src: editingValidation,
-              caption: "",
-            },
-            {
-              src: editingSuccess,
-              caption: "",
+                "Property grid screenshot showing the data density and " +
+                "visual hierarchy, maybe grouping?",
             },
           ],
         },
         {
+          kind: "text",
+          title: "Integrated Geographic Context",
+          text:
+            "Embedded Google Maps, with satellite imagery and 3D building " +
+            "models directly within property details, provides spatial " +
+            "context that helps users understand location-based risks and " +
+            "property relationships.",
+        },
+        {
+          kind: "carousel",
+          slides: [
+            {
+              src: buildingDetails,
+              caption:
+                "Property modal screenshot showing the integrated map and " +
+                "data organization",
+            },
+          ],
+        },
+        {
+          kind: "text",
+          title: "Trust-Through-Transparency System",
+          text:
+            "Hovering over a data point reveals evidentiary documents, " +
+            "making the chain of custody visible. Rather than hiding " +
+            "complexity, the interface makes data sources and validation " +
+            "status immediately accessible.",
+        },
+        {
+          kind: "carousel",
+          slides: [
+            {
+              src: provenance,
+              caption: "Evidentiary document popover",
+            },
+          ],
+        },
+        {
+          kind: "text",
+          title: "Systematic Workflow Transformation",
+          text:
+            "A new industry process creates better data for less stress: " +
+            "Risk managers maintain data year-round on Archipelago, with " +
+            "property managers having direct access to update their own " +
+            "records. When submission time arrives, brokers access the " +
+            "platform directly, and insurers receive data they can " +
+            "trust.",
+        },
+        {
+          kind: "carousel",
+          slides: [
+            {
+              src: stream,
+              caption:
+                "Side-by-side workflow comparison showing Excel chaos vs. " +
+                "Archipelago's systematic approach",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      kind: "subsection",
+      content: [
+        {
           kind: "title",
-          text: "Editing",
+          text: "Key insights",
         },
         {
           kind: "text",
-          title: "Project brief",
-          text: "Enable customers to directly edit their own data. (Prior to this, all data management was done through our internal tooling.)",
+          text:
+            "Moving users from Excel to a web platform meant understanding " +
+            "not just what they needed, but how their existing mental " +
+            "models could be evolved. Two discoveries shaped how we " +
+            "bridged this transition:",
         },
         {
           kind: "text",
-          title: "My role",
-          text: "I was the sole designer (and sometimes PM!) on this project. I first gathered requirements from internal experts & customers, then identified a long-term vision & the shorter-term MVP.",
+          title: "Excel mental models run deep",
+          text:
+            "Users frequently talked about 'all the data', but their " +
+            "actual workflows started with a set of Excel pivot tables " +
+            "to quickly assess submissions. This led to designing the " +
+            "'Explorers', interactive widgets that provided instant " +
+            "visual breakdowns across multiple data dimensions, updating " +
+            "dynamically as users filter & explore the data.",
+        },
+        {
+          kind: "carousel",
+          slides: [
+            {
+              src: stream,
+              caption:
+                "Screenshot of the placement screen showing the explorers " +
+                "widgets on the right side",
+            },
+          ],
         },
         {
           kind: "text",
-          text: "Focused on the MVP scope, I outlined a workflow that would integrate with our existing infrastructure. I designed the accompanying interfaces & validated with customers. Finally, I worked closely with engineering to adjust designs to work with limited development bandwidth.",
+          title: "Trust through presence, not inspection",
+          text:
+            "Evidentiary documents were simultaneously absolutely " +
+            "critical and rarely viewed. New users would inspect a few " +
+            "initially, but once they understood the feature, they almost " +
+            "never opened documents again. The simple visual indicator, " +
+            "a dotted underline, was enough to generate the trust they " +
+            "needed.",
+        },
+        {
+          kind: "carousel",
+          slides: [
+            {
+              src: provenance,
+              caption:
+                "Screenshot showing hover state with document preview, " +
+                "demonstrating the trust-building interface",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      kind: "subsection",
+      content: [
+        {
+          kind: "title",
+          text: "Impact",
         },
         {
           kind: "text",
-          title: "Outcome",
-          text: "We deployed an MVP editing capability, which allowed customers to self-serve their most common use cases, an estimated 20% of all edits. This both reduced the workload on our internal data management team, and unblocked 10 sales motions.",
+          text:
+            "The platform didn't aim to simply improve individual " +
+            "interfaces, it transformed an entire industry ecosystem. " +
+            "By designing a shared schema developed with input from " +
+            "structural experts, owners, brokers, and insurers, we " +
+            "eliminated the format inconsistencies that plagued the old " +
+            "Excel-based system. Risk managers now maintain data " +
+            "year-round rather than in frantic year-end pushes, brokers " +
+            "access live data directly, and insurers receive trusted " +
+            "submissions configured to match their specific processes. " +
+            "The shift from 'assume the worst for missing data' to " +
+            "'trust the transparent data' represented a fundamental " +
+            "change in industry relationships.",
         },
         {
           kind: "text",
-          text: "Since I had designed the MVP with the longer-term vision in mind, the implementation was built to be forward-compatible, reducing the time for the upgrades shipped over the following year.",
+          title: "Business outcomes",
+          text:
+            ">90% of potential insurer customers were introduced to " +
+            "Archipelago through the platform, leading to 2 major " +
+            "insurer partnerships within a year of the launch. Customers " +
+            "across the industry praised the platform for making complex " +
+            "insurance data 'understandable and trustable', and owners " +
+            "loved earning points (and lower rates) from insurers for " +
+            "data transparency.",
+        },
+      ],
+    },
+    {
+      kind: "subsection",
+      content: [
+        {
+          kind: "title",
+          text: "Reflection",
+        },
+        {
+          kind: "text",
+          text:
+            "This project reinforced for me that the most impactful " +
+            "design work often happens at the intersection of user " +
+            "experience and business operations. Early in Archipelago's " +
+            "life, creating something visually impressive was crucial — " +
+            "the product demos closed sales. But as we grew, I learned " +
+            "to focus design efforts on the operational improvements " +
+            "that brought genuine business value.",
         },
       ],
     },
