@@ -44,10 +44,11 @@ jobs:
         run: npx playwright test --update-snapshots
 
       - name: Commit updated snapshots
-        if: failure()
+        if: failure() && contains(github.event.head_commit.message, '[update-snapshots]')
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          git pull --rebase origin ${{ github.head_ref || github.ref_name }}
           git add tests/
           if git diff --staged --quiet; then
             echo "No snapshots to commit"
