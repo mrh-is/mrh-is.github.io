@@ -90,6 +90,12 @@ h2::after {
   border-radius: 1px;
   background-color: var(--color-light-link);
   margin-top: 0.5rem;
+  width: 0;
+  transition: width 0.6s ease-out;
+}
+
+h2.animate-underline::after {
+  width: calc(100% + 2rem);
 }
 
 img {
