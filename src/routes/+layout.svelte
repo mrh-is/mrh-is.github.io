@@ -35,7 +35,7 @@
     rel="stylesheet"
   />
 
-  <title>{$page.data.title}</title>
+  <title>{$page.data.title.replace(/\u00AD/g, "")}</title>
   <meta name="description" content={$page.data.description} />
   <link rel="canonical" href="{PUBLIC_ORIGIN}{$page.url.pathname}" />
 

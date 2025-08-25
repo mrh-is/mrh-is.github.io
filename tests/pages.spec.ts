@@ -42,6 +42,23 @@ test.describe("Page Structure Tests", () => {
       await expect(browserPage.locator("main, body")).toBeVisible();
     });
   }
+
+  test("Page titles have invisible characters stripped", async ({ page }) => {
+    // Test the Archipelago Platform page which has soft hyphens in the source
+    await page.goto("/projects/archipelago-platform");
+
+    // Get the actual page title from the browser
+    const title = await page.title();
+
+    // Verify the title doesn't contain soft hyphens or other invisible Unicode characters
+    expect(title).not.toMatch(/\u00AD/); // Soft hyphen
+    expect(title).not.toMatch(/[\u200B-\u200D]/); // Zero-width spaces
+    expect(title).not.toMatch(/[\uFEFF]/); // Byte order mark
+
+    // Verify the title still contains the expected text
+    expect(title).toContain("The Archipelago platform");
+    expect(title).toContain("Michael Helmbrecht");
+  });
 });
 
 test.describe("Home Page Specific Tests", () => {
