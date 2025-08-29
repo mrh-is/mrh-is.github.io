@@ -47,9 +47,18 @@ jobs:
 
           # Direct prompt for automated review (no @claude mention needed)
           direct_prompt: |
-            Please review this pull request and provide feedback on:
+            Please review this pull request and provide feedback using collapsed sections for better organization.
+
+            Format your review using GitHub's collapsed sections syntax (see https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections):
+            <details>
+            <summary>Section Title</summary>
+            
+            Content here...
+            </details>
+
+            Review areas to cover:
             - Code quality and best practices
-            - Potential bugs or issues
+            - Potential bugs or issues  
             - Performance considerations
             - Security concerns
             - Test coverage
