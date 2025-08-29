@@ -103,17 +103,13 @@ test.describe("Interactive Components", () => {
       // Check that navigation is still accessible on mobile
       await expect(page.locator("nav")).toBeVisible();
 
-      // Check for mobile menu button if it exists
-      const mobileMenuButton = page
-        .locator('[data-testid="mobile-menu"], .mobile-menu-toggle, .hamburger')
-        .first();
+      // This site uses a simple responsive design without a mobile hamburger menu
+      // Verify that timeline link is visible and accessible on mobile
+      await expect(page.locator('a[href="/timeline"]')).toBeVisible();
 
-      if (await mobileMenuButton.isVisible()) {
-        await mobileMenuButton.click();
-
-        // Check that navigation items become visible
-        await expect(page.locator('a[href="/timeline"]')).toBeVisible();
-      }
+      // Test that navigation works on mobile
+      await page.locator('a[href="/timeline"]').click();
+      await expect(page).toHaveURL("/timeline");
     });
   });
 

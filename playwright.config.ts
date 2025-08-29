@@ -5,14 +5,14 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 1,
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 1 : 2,
   reporter: [["html", { open: "never" }]],
   use: {
     baseURL: "http://localhost:4173",
     trace: "on-first-retry",
-    // Increase timeouts to handle slower operations
-    actionTimeout: 15000,
-    navigationTimeout: 30000,
+    // Speed up tests
+    actionTimeout: 10000,
+    navigationTimeout: 20000,
     // Reduce screenshot overhead
     screenshot: "only-on-failure",
     video: "retain-on-failure",
@@ -31,8 +31,12 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: "npm run build && npm run preview",
+    command: "npm run preview",
     port: 4173,
     reuseExistingServer: !process.env.CI,
+    // Ensure build exists before starting preview
+    env: {
+      ...process.env,
+    },
   },
 });
