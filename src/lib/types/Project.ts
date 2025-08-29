@@ -1,4 +1,8 @@
 import type { ColorScheme } from "./Colors";
+import type { ImageSource } from "$lib/utils/imageUrl";
+
+// Re-export for convenience
+export type { ImageSource };
 
 export interface TextBlock {
   kind: "text";
@@ -14,17 +18,17 @@ export interface ListBlock {
   elements: string[];
 }
 export interface ImageCarouselSlide {
-  src: string;
+  src: ImageSource;
   caption: string;
 }
 export interface ImageCarousel {
   kind: "carousel";
-  coverSrc?: string;
+  coverSrc?: ImageSource;
   slides: ImageCarouselSlide[];
 }
 export interface SingleImage {
   kind: "image";
-  src: string;
+  src: ImageSource;
   caption: string;
   rounded?: boolean;
 }
@@ -46,7 +50,7 @@ export interface Project {
   description: string;
   tile: {
     subtitle: string;
-    imageSrc: string;
+    imageSrc: ImageSource;
   };
   colorScheme: ColorScheme;
   tagline: string;
@@ -58,7 +62,7 @@ export interface ProjectPreview {
   title: string;
   slug: string;
   subtitle: string;
-  imageSrc: string;
+  imageSrc: ImageSource;
 }
 
 export function previewForProject(project: Project): ProjectPreview {

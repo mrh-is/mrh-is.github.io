@@ -5,6 +5,7 @@
 <script lang="ts">
   import type { ImageCarouselSlide } from "$lib/types/Project";
   import type { BiggerPictureInstance } from "bigger-picture";
+  import { getImageUrl, type ImageSource } from "$lib/utils/imageUrl";
   import BiggerPicture from "bigger-picture";
   import "bigger-picture/css";
   import { onMount } from "svelte";
@@ -28,10 +29,11 @@
 
     const measurer = new Image();
     bpItems = slides.map((slide) => {
-      measurer.src = slide.src;
+      const slideUrl = getImageUrl(slide.src);
+      measurer.src = slideUrl;
 
       return {
-        img: slide.src,
+        img: slideUrl,
         width: measurer.naturalWidth,
         height: measurer.naturalHeight,
         caption: slide.caption,
@@ -51,18 +53,19 @@
   hasBeenCarouselYet = true;
 
   interface Props {
-    coverSrc?: string | undefined;
+    coverSrc?: ImageSource | undefined;
     slides: ImageCarouselSlide[];
   }
 
   const { coverSrc = undefined, slides }: Props = $props();
   const currentCover = $derived(coverSrc ?? slides[0].src);
+  const currentCoverUrl = $derived(getImageUrl(currentCover));
 </script>
 
 <div>
-  <a href={currentCover} bind:this={domElement} onclick={open}>
+  <a href={currentCoverUrl} bind:this={domElement} onclick={open}>
     <img
-      src={currentCover}
+      src={currentCoverUrl}
       alt=""
       fetchpriority={isFirstCarouselOnPage ? "high" : undefined}
     />
