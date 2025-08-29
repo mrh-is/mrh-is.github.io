@@ -58,13 +58,13 @@
   hasBeenImageYet = true;
 </script>
 
-<div class={{ hero: isFirstImageOnPage }}>
+<div class={isFirstImageOnPage ? "hero" : ""}>
   <a href={src} bind:this={domElement} onclick={open}>
     <img
       {src}
       alt=""
       fetchpriority={isFirstImageOnPage ? "high" : undefined}
-      class={{ rounded }}
+      class={rounded ? "rounded" : ""}
     />
   </a>
 </div>
