@@ -38,6 +38,14 @@
     ];
   });
 
+  interface Props {
+    src: string;
+    caption: string;
+    rounded?: boolean;
+  }
+
+  const { src, caption, rounded }: Props = $props();
+
   const open = (e: MouseEvent) => {
     e.preventDefault();
     bp.open({
@@ -48,23 +56,15 @@
 
   const isFirstImageOnPage = !hasBeenImageYet;
   hasBeenImageYet = true;
-
-  interface Props {
-    src: string;
-    caption: string;
-    rounded?: boolean;
-  }
-
-  const { src, caption, rounded }: Props = $props();
 </script>
 
-<div>
+<div class={{ hero: isFirstImageOnPage }}>
   <a href={src} bind:this={domElement} onclick={open}>
     <img
       {src}
       alt=""
       fetchpriority={isFirstImageOnPage ? "high" : undefined}
-      class={rounded ? "rounded" : ""}
+      class={{ rounded }}
     />
   </a>
 </div>
@@ -87,6 +87,12 @@
 
   img.rounded {
     border-radius: 2rem;
+  }
+
+  .hero {
+    margin-left: -8vw;
+    margin-right: -8vw;
+    width: calc(100% + 16vw);
   }
 
   .caption {
