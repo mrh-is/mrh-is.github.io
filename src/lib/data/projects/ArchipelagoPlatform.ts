@@ -38,8 +38,9 @@ const archipelagoPlatform: Project = {
       kind: "image",
       src: hero,
       caption:
-        "Floating interface components showing the systematic design " +
-        "approach — main data grid, analytics dashboard, and trust transparency system",
+        "The Archipelago platform's core interfaces — property data grid, " +
+        "analytics dashboard, and transparency system — designed to transform " +
+        "industry-wide Excel chaos into trusted, systematic workflows",
     },
     {
       kind: "subsection",
@@ -73,8 +74,8 @@ const archipelagoPlatform: Project = {
           kind: "image",
           src: preWorkflow,
           caption:
-            "Process flow diagram showing the transformation from " +
-            "Excel chaos to Archipelago's systematic approach",
+            "The broken workflow: Excel spreadsheets passed through multiple " +
+            "hands, accumulating errors and breeding mistrust at every step",
           rounded: true,
         },
         {
@@ -149,8 +150,8 @@ const archipelagoPlatform: Project = {
           kind: "image",
           src: stream,
           caption:
-            "Property grid screenshot showing the data density and " +
-            "visual hierarchy, maybe grouping?",
+            "Multi-level data grid enabling users to scan thousands of " +
+            "buildings at once while maintaining quick access to detailed information",
         },
         {
           kind: "text",
@@ -165,8 +166,8 @@ const archipelagoPlatform: Project = {
           kind: "image",
           src: buildingDetails,
           caption:
-            "Property modal with satellite imagery, building highlight, and " +
-            "risk zone overlays showing geographic context integration",
+            "Geographic context integration: satellite imagery and 3D building " +
+            "models provide spatial understanding of location-based risks",
         },
         {
           kind: "text",
@@ -180,7 +181,9 @@ const archipelagoPlatform: Project = {
         {
           kind: "image",
           src: provenance,
-          caption: "Evidentiary document popover",
+          caption:
+            "Trust through transparency: hovering reveals document sources, " +
+            "making data provenance immediately accessible without hiding complexity",
         },
         {
           kind: "text",
@@ -197,8 +200,8 @@ const archipelagoPlatform: Project = {
           kind: "image",
           src: postWorkflow,
           caption:
-            "Side-by-side workflow comparison showing Excel chaos vs. " +
-            "Archipelago's systematic approach",
+            "Industry transformation: from frantic year-end Excel pushes to " +
+            "year-round systematic data maintenance with direct stakeholder access",
           rounded: true,
         },
       ],
@@ -233,8 +236,8 @@ const archipelagoPlatform: Project = {
           kind: "image",
           src: explorers,
           caption:
-            "Interactive explorers widgets providing dynamic data breakdowns " +
-            "that replace traditional Excel pivot table workflows",
+            "Explorers widgets: interactive data breakdowns that evolved users " +
+            "from Excel pivot table mental models to web-native analysis tools",
         },
         {
           kind: "text",
@@ -251,8 +254,8 @@ const archipelagoPlatform: Project = {
           kind: "image",
           src: provenance,
           caption:
-            "Screenshot showing hover state with document preview, " +
-            "demonstrating the trust-building interface",
+            "Document preview on hover: the simple visual indicator generates " +
+            "trust through presence rather than requiring constant inspection",
         },
       ],
     },
