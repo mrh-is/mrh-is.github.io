@@ -13,7 +13,11 @@ test.describe("Page Structure Tests", () => {
     test(`${page.name} page loads and has correct structure`, async ({
       page: browserPage,
     }) => {
-      await browserPage.goto(page.url);
+      // Increase timeout for slower pages and wait for network to be idle
+      await browserPage.goto(page.url, {
+        waitUntil: "networkidle",
+        timeout: 30000,
+      });
 
       // Check that the page loads successfully
       await expect(browserPage).toHaveTitle(/Michael Helmbrecht/);
@@ -45,7 +49,10 @@ test.describe("Page Structure Tests", () => {
 
   test("Page titles have invisible characters stripped", async ({ page }) => {
     // Test the Archipelago Platform page which has soft hyphens in the source
-    await page.goto("/projects/archipelago-platform");
+    await page.goto("/projects/archipelago-platform", {
+      waitUntil: "networkidle",
+      timeout: 30000,
+    });
 
     // Get the actual page title from the browser
     const title = await page.title();
@@ -63,7 +70,7 @@ test.describe("Page Structure Tests", () => {
 
 test.describe("Home Page Specific Tests", () => {
   test("Contact email link works", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/", { waitUntil: "networkidle" });
 
     const emailLink = page.locator('a[href*="mailto:me@mrh.is"]');
     await expect(emailLink).toBeVisible();
@@ -71,7 +78,7 @@ test.describe("Home Page Specific Tests", () => {
   });
 
   test("Social media links are present", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/", { waitUntil: "networkidle" });
 
     // Check for social media links
     await expect(page.locator('a[href*="github.com/mrh-is"]')).toBeVisible();
@@ -84,6 +91,9 @@ test.describe("Home Page Specific Tests", () => {
 
     const profileImg = page.locator('img[alt="Me!"]');
     await expect(profileImg).toBeVisible();
+
+    // Check that image has expected attributes
+    await expect(profileImg).toHaveAttribute("src");
     await expect(profileImg).toHaveAttribute("fetchpriority", "high");
   });
 });
