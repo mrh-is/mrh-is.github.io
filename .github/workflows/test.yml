@@ -17,6 +17,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -43,11 +44,29 @@ jobs:
         if: failure()
         run: npx playwright test --update-snapshots
 
-      - name: Commit updated snapshots
+      - name: Check for commit message trigger
+        id: check-trigger
         if: failure()
+        env:
+          TRIGGER_PHRASE: "[update-snapshots]"
+        run: |
+          echo "Checking for trigger phrase: $TRIGGER_PHRASE"
+          COMMIT_MSG=$(git log -1 --pretty=%B)
+          echo "Commit message: $COMMIT_MESSAGE"
+          if echo "$COMMIT_MESSAGE" | grep -q "$TRIGGER_PHRASE"; then
+            echo "trigger=true" >> $GITHUB_OUTPUT
+            echo "✅ Found trigger phrase in commit message"
+          else
+            echo "trigger=false" >> $GITHUB_OUTPUT
+            echo "❌ Trigger phrase not found"
+          fi
+
+      - name: Commit updated snapshots
+        if: failure() && steps.check-trigger.outputs.trigger == 'true'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          git pull --rebase origin ${{ github.head_ref || github.ref_name }}
           git add tests/
           if git diff --staged --quiet; then
             echo "No snapshots to commit"

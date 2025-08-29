@@ -79,6 +79,24 @@ h2 {
   margin-bottom: 1rem;
   font-size: 2rem;
   font-weight: 500;
+  display: inline-block;
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: calc(100% + 0.5rem);
+  height: 2px;
+  border-radius: 1px;
+  background-color: var(--color-light-link);
+  width: 0;
+  transition: width 0.6s ease-out;
+}
+
+h2.animate-underline::after {
+  width: min(calc(100% + 2rem), calc(100vw - 10vw - 10vw));
 }
 
 img {
@@ -95,6 +113,10 @@ img {
 
   a {
     color: var(--color-dark-link);
+  }
+
+  h2::after {
+    background-color: var(--color-dark-link);
   }
 }
 
