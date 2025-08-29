@@ -2,9 +2,13 @@ import type { Project } from "$lib/types/Project";
 
 import thumbnail from "$lib/assets/projects/archipelago-platform/Archipelago platform thumbnail.png";
 
-import stream from "$lib/assets/projects/archipelago-platform/platform/Archipelago stream.png";
-import buildingDetails from "$lib/assets/projects/archipelago-platform/platform/Archipelago building details.png";
-import provenance from "$lib/assets/projects/archipelago-platform/platform/Archipelago provenance.png";
+import hero from "$lib/assets/projects/archipelago-platform/Archipelago webapp.png";
+import stream from "$lib/assets/projects/archipelago-platform/Archipelago stream.png";
+import buildingDetails from "$lib/assets/projects/archipelago-platform/Archipelago building details.png";
+import provenance from "$lib/assets/projects/archipelago-platform/Archipelago provenance.png";
+import explorers from "$lib/assets/projects/archipelago-platform/Archipelago explorers.png";
+import preWorkflow from "$lib/assets/projects/archipelago-platform/Pre-Archipelago workflow.png";
+import postWorkflow from "$lib/assets/projects/archipelago-platform/Post-Archipelago workflow.png";
 
 const archipelagoPlatform: Project = {
   title: "The Archi­pelago plat­form",
@@ -32,10 +36,10 @@ const archipelagoPlatform: Project = {
   content: [
     {
       kind: "image",
-      src: stream,
+      src: hero,
       caption:
-        "Hero image showing the main placement grid interface — " +
-        "demonstrates the scope and complexity of data being managed",
+        "Floating interface components showing the systematic design " +
+        "approach — main data grid, analytics dashboard, and trust transparency system",
     },
     {
       kind: "subsection",
@@ -66,19 +70,19 @@ const archipelagoPlatform: Project = {
             "the worst possible values.",
         },
         {
+          kind: "image",
+          src: preWorkflow,
+          caption:
+            "Process flow diagram showing the transformation from " +
+            "Excel chaos to Archipelago's systematic approach",
+        },
+        {
           kind: "text",
           title: "The design challenge",
           text:
             "How do you design an entire industry’s data workflow for " +
             "trust & understandability? How do you continuously improve " +
             "the data quality while lowering the workload?",
-        },
-        {
-          kind: "image",
-          src: stream,
-          caption:
-            "Process flow diagram showing the transformation from " +
-            "Excel chaos to Archipelago's systematic approach",
         },
       ],
     },
@@ -160,8 +164,8 @@ const archipelagoPlatform: Project = {
           kind: "image",
           src: buildingDetails,
           caption:
-            "Property modal screenshot showing the integrated map and " +
-            "data organization",
+            "Property modal with satellite imagery, building highlight, and " +
+            "risk zone overlays showing geographic context integration",
         },
         {
           kind: "text",
@@ -190,7 +194,7 @@ const archipelagoPlatform: Project = {
         },
         {
           kind: "image",
-          src: stream,
+          src: postWorkflow,
           caption:
             "Side-by-side workflow comparison showing Excel chaos vs. " +
             "Archipelago's systematic approach",
@@ -225,10 +229,10 @@ const archipelagoPlatform: Project = {
         },
         {
           kind: "image",
-          src: stream,
+          src: explorers,
           caption:
-            "Screenshot of the placement screen showing the explorers " +
-            "widgets on the right side",
+            "Interactive explorers widgets providing dynamic data breakdowns " +
+            "that replace traditional Excel pivot table workflows",
         },
         {
           kind: "text",
