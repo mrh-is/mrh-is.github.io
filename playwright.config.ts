@@ -31,12 +31,8 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: "npm run preview",
+    command: "npm run build && npm run preview",
     port: 4173,
     reuseExistingServer: !process.env.CI,
-    // Ensure build exists before starting preview
-    env: {
-      ...process.env,
-    },
   },
 });
