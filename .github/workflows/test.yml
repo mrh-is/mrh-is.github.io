@@ -17,6 +17,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -43,25 +44,25 @@ jobs:
         if: failure()
         run: npx playwright test --update-snapshots
 
-      - name: Debug GitHub event
+      - name: Check for commit message trigger
+        id: check-trigger
         if: failure()
+        env:
+          TRIGGER_PHRASE: "[update-snapshots]"
         run: |
-          echo "=== GITHUB EVENT DEBUG ==="
-          echo "Event name: ${{ github.event_name }}"
-          echo "Head commit message: ${{ github.event.head_commit.message }}"
-          echo "Head commit SHA: ${{ github.event.head_commit.id }}"
-          echo "PR head SHA: ${{ github.event.pull_request.head.sha }}"
-          echo "PR title: ${{ github.event.pull_request.title }}"
-          echo "PR body: ${{ github.event.pull_request.body }}"
-          echo "=== COMMIT MESSAGES ==="
-          git log --oneline -3
-          echo "=== CHECK CONDITIONS ==="
-          echo "Contains in head_commit: ${{ contains(github.event.head_commit.message, '[update-snapshots]') }}"
-          echo "Contains in PR title: ${{ contains(github.event.pull_request.title, '[update-snapshots]') }}"
-          echo "Contains in PR body: ${{ contains(github.event.pull_request.body, '[update-snapshots]') }}"
+          echo "Checking for trigger phrase: $TRIGGER_PHRASE"
+          COMMIT_MSG=$(git log -1 --pretty=%B)
+          echo "Commit message: $COMMIT_MESSAGE"
+          if echo "$COMMIT_MESSAGE" | grep -q "$TRIGGER_PHRASE"; then
+            echo "trigger=true" >> $GITHUB_OUTPUT
+            echo "✅ Found trigger phrase in commit message"
+          else
+            echo "trigger=false" >> $GITHUB_OUTPUT
+            echo "❌ Trigger phrase not found"
+          fi
 
       - name: Commit updated snapshots
-        if: failure() && (contains(github.event.head_commit.message, '[update-snapshots]') || contains(github.event.pull_request.title, '[update-snapshots]') || contains(github.event.pull_request.body, '[update-snapshots]'))
+        if: failure() && steps.check-trigger.outputs.trigger == 'true'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
