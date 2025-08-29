@@ -52,14 +52,20 @@
   interface Props {
     src: string;
     caption: string;
+    rounded?: boolean;
   }
 
-  const { src, caption }: Props = $props();
+  const { src, caption, rounded }: Props = $props();
 </script>
 
 <div>
   <a href={src} bind:this={domElement} onclick={open}>
-    <img {src} alt="" fetchpriority={isFirstImageOnPage ? "high" : undefined} />
+    <img
+      {src}
+      alt=""
+      fetchpriority={isFirstImageOnPage ? "high" : undefined}
+      class={rounded ? "rounded" : ""}
+    />
   </a>
 </div>
 
@@ -77,6 +83,10 @@
 
   img {
     max-height: 100vh;
+  }
+
+  img.rounded {
+    border-radius: 2rem;
   }
 
   .caption {

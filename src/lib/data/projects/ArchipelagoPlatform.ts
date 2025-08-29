@@ -75,6 +75,7 @@ const archipelagoPlatform: Project = {
           caption:
             "Process flow diagram showing the transformation from " +
             "Excel chaos to Archipelago's systematic approach",
+          rounded: true,
         },
         {
           kind: "text",
@@ -198,6 +199,7 @@ const archipelagoPlatform: Project = {
           caption:
             "Side-by-side workflow comparison showing Excel chaos vs. " +
             "Archipelago's systematic approach",
+          rounded: true,
         },
       ],
     },

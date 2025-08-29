@@ -26,6 +26,7 @@ export interface SingleImage {
   kind: "image";
   src: string;
   caption: string;
+  rounded?: boolean;
 }
 export interface Subsection {
   kind: "subsection";
