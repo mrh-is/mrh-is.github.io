@@ -1,14 +1,14 @@
 import type { Project } from "$lib/types/Project";
 
-import thumbnail from "$lib/assets/projects/archipelago-platform/Archipelago platform thumbnail.png";
+import thumbnail from "$lib/assets/projects/archipelago-platform/Archipelago platform thumbnail.png?enhanced";
 
-import hero from "$lib/assets/projects/archipelago-platform/Archipelago webapp.png";
-import stream from "$lib/assets/projects/archipelago-platform/Archipelago stream.png";
-import buildingDetails from "$lib/assets/projects/archipelago-platform/Archipelago building details.png";
-import provenance from "$lib/assets/projects/archipelago-platform/Archipelago provenance.png";
-import explorers from "$lib/assets/projects/archipelago-platform/Archipelago explorers.png";
-import preWorkflow from "$lib/assets/projects/archipelago-platform/Pre-Archipelago workflow.png";
-import postWorkflow from "$lib/assets/projects/archipelago-platform/Post-Archipelago workflow.png";
+import hero from "$lib/assets/projects/archipelago-platform/Archipelago webapp.png?enhanced";
+import stream from "$lib/assets/projects/archipelago-platform/Archipelago stream.png?enhanced";
+import buildingDetails from "$lib/assets/projects/archipelago-platform/Archipelago building details.png?enhanced";
+import provenance from "$lib/assets/projects/archipelago-platform/Archipelago provenance.png?enhanced";
+import explorers from "$lib/assets/projects/archipelago-platform/Archipelago explorers.png?enhanced";
+import preWorkflow from "$lib/assets/projects/archipelago-platform/Pre-Archipelago workflow.png?enhanced";
+import postWorkflow from "$lib/assets/projects/archipelago-platform/Post-Archipelago workflow.png?enhanced";
 
 const archipelagoPlatform: Project = {
   title: "The Archi­pelago plat­form",

@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { ProjectPreview } from "$lib/types/Project";
+  import { getImageUrl } from "$lib/utils/imageUrl";
 
   interface Props {
     project: ProjectPreview;
@@ -7,10 +8,11 @@
   }
 
   const { project, class: className }: Props = $props();
+  const imageUrl = getImageUrl(project.imageSrc);
 </script>
 
 <a class={className} href="/projects/{project.slug}">
-  <img src={project.imageSrc} alt="" />
+  <img src={imageUrl} alt="" />
   <p class="title">{project.title}</p>
   <p class="subtitle">{project.subtitle}</p>
 </a>

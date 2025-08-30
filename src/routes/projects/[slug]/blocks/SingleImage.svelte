@@ -3,6 +3,7 @@
 </script>
 
 <script lang="ts">
+  import { getImageUrl, type ImageSource } from "$lib/utils/imageUrl";
   import type { BiggerPictureInstance } from "bigger-picture";
   import BiggerPicture from "bigger-picture";
   import "bigger-picture/css";
@@ -26,11 +27,11 @@
     });
 
     const measurer = new Image();
-    measurer.src = src;
+    measurer.src = imageUrl;
 
     bpItems = [
       {
-        img: src,
+        img: imageUrl,
         width: measurer.naturalWidth,
         height: measurer.naturalHeight,
         caption: caption,
@@ -39,12 +40,13 @@
   });
 
   interface Props {
-    src: string;
+    src: ImageSource;
     caption: string;
     rounded?: boolean;
   }
 
   const { src, caption, rounded }: Props = $props();
+  const imageUrl = getImageUrl(src);
 
   const open = (e: MouseEvent) => {
     e.preventDefault();
@@ -59,12 +61,18 @@
 </script>
 
 <div class={isFirstImageOnPage ? "hero" : ""}>
-  <a href={src} bind:this={domElement} onclick={open}>
-    <img
+  <a
+    href={imageUrl}
+    bind:this={domElement}
+    onclick={open}
+    aria-label="Open image in lightbox"
+  >
+    <enhanced:img
       {src}
       alt=""
       fetchpriority={isFirstImageOnPage ? "high" : undefined}
       class={rounded ? "rounded" : ""}
+      sizes="(max-width: 800px) 90vw, (max-width: 1200px) 70vw, 60vw"
     />
   </a>
 </div>
@@ -78,14 +86,17 @@
     justify-content: center;
   }
   a {
-    display: inline-block;
+    display: block;
+    width: 100%;
   }
 
-  img {
+  enhanced\:img {
     max-height: 100vh;
+    width: 100%;
+    height: auto;
   }
 
-  img.rounded {
+  enhanced\:img.rounded {
     border-radius: 2rem;
   }
 

@@ -10,7 +10,11 @@ node_modules
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
+/.claude/
+CLAUDE.md
+
 # Playwright test results
 /test-results/
 /playwright-report/
 /playwright/.cache/
+/.playwright-mcp/
