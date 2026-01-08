@@ -46,7 +46,7 @@
   }
 
   const { src, caption, rounded }: Props = $props();
-  const imageUrl = getImageUrl(src);
+  const imageUrl = $derived(getImageUrl(src));
 
   const open = (e: MouseEvent) => {
     e.preventDefault();

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onDestroy } from "svelte";
+  import { onMount } from "svelte";
   import type { Rect } from "$lib/geometryHelpers";
   import { Range } from "$lib/mathHelpers";
   import { BlobWaggler } from "./BlobPathWaggle";
@@ -12,24 +12,26 @@
   const { randGen, size = 600 }: Props = $props();
 
   let pathElement: SVGPathElement | undefined = $state();
-  let waggler: BlobWaggler;
+  let waggler: BlobWaggler | undefined = $state();
 
-  const blobWidth = size / 2;
-  const waggleSize = size * 0.03;
+  const blobWidth = $derived(size / 2);
+  const waggleSize = $derived(size * 0.03);
 
-  const margin = waggleSize + blobWidth / 2;
-  const safeAreaRect: Rect = {
+  const margin = $derived(waggleSize + blobWidth / 2);
+  const safeAreaRect = $derived<Rect>({
     x: new Range(margin, size - margin),
     y: new Range(margin, size - margin),
-  };
+  });
 
   let path = $state("");
 
-  waggler = new BlobWaggler(safeAreaRect, waggleSize, randGen, (svgPath) => {
-    path = svgPath;
-  });
+  onMount(() => {
+    waggler = new BlobWaggler(safeAreaRect, waggleSize, randGen, (svgPath) => {
+      path = svgPath;
+    });
 
-  onDestroy(() => waggler.stop());
+    return () => waggler?.stop();
+  });
 </script>
 
 <svg style="width: {size}px; height: {size}px">

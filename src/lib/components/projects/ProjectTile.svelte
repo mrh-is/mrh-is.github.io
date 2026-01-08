@@ -8,7 +8,7 @@
   }
 
   const { project, class: className }: Props = $props();
-  const imageUrl = getImageUrl(project.imageSrc);
+  const imageUrl = $derived(getImageUrl(project.imageSrc));
 </script>
 
 <a class={className} href="/projects/{project.slug}">
