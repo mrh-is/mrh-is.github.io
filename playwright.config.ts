@@ -8,7 +8,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : 2,
   reporter: [["html", { open: "never" }]],
   use: {
-    baseURL: "http://localhost:4173",
+    baseURL: "http://localhost:8788",
     trace: "on-first-retry",
     // Speed up tests
     actionTimeout: 10000,
@@ -31,8 +31,12 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: "npm run build && npm run preview",
-    port: 4173,
+    command:
+      "npm run build && npx wrangler pages dev .svelte-kit/cloudflare --compatibility-date=2023-10-30 --port=8788",
+    port: 8788,
+    timeout: 120000, // 2 minutes for build + start
     reuseExistingServer: !process.env.CI,
+    stdout: "pipe",
+    stderr: "pipe",
   },
 });
