@@ -54,6 +54,8 @@ export default [
       "svelte/no-at-debug-tags": "error",
       "svelte/no-reactive-functions": "error",
       "svelte/no-reactive-literals": "error",
+      // @see https://github.com/sveltejs/eslint-plugin-svelte/issues/1353
+      "svelte/no-navigation-without-resolve": "off",
     },
   },
   {

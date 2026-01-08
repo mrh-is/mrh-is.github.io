@@ -52,7 +52,7 @@ jobs:
             Format your review using GitHub's collapsed sections syntax (see https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections):
             <details>
             <summary>Section Title</summary>
-            
+
             Content here...
             </details>
 
