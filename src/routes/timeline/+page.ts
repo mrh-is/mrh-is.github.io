@@ -1,6 +1,4 @@
 import { projects } from "$lib/types/Project";
-import type { TimelineEntry } from "$lib/types/TimelineEntry";
-import type { PageLoad } from "./$types";
 
 const platformSlug =
   projects.find((proj) => proj.slug.includes("platform"))?.slug ??
@@ -9,7 +7,7 @@ const toolingSlug =
   projects.find((proj) => proj.slug.includes("tooling"))?.slug ??
   "COULDN'T FIND TOOLING";
 
-export const load = (() => {
+export const load = () => {
   return {
     title: "Timeline | Michael Helmbrecht",
     description:
@@ -114,7 +112,7 @@ export const load = (() => {
         },
         description: ["Designed iPad apps for teachers & energy salespersons."],
       },
-    ] as TimelineEntry[],
+    ],
     education: [
       {
         title: "Master of human-computer interaction",
@@ -139,6 +137,6 @@ export const load = (() => {
           "Minors in Spanish & mathematics, plus certificate in cognitive science",
         ],
       },
-    ] as TimelineEntry[],
+    ],
   };
-}) satisfies PageLoad;
+};

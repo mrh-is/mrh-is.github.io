@@ -1,7 +1,6 @@
 import { previewForProject, projects } from "$lib/types/Project";
-import type { PageLoad } from "./$types";
 
-export const load = (() => {
+export const load = () => {
   return {
     title: "Michael Helmbrecht 😎",
     description:
@@ -18,4 +17,4 @@ export const load = (() => {
     },
     projects: projects.map(previewForProject),
   };
-}) satisfies PageLoad;
+};

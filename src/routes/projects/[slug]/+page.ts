@@ -1,14 +1,13 @@
 import { previewForProject, projects } from "$lib/types/Project";
 import { error } from "@sveltejs/kit";
-import type { PageLoad } from "./$types";
 
-export const load = (({ params }) => {
+export const load = ({ params }) => {
   const project = projects.find((proj) => proj.slug === params.slug);
 
   if (!project) {
     error(404, {
       message:
-        "I hate to say it, I hope I don’t sound ridiculous, I don’t know who this project is. I mean, it could be walking down the street, and I wouldn’t know a thing. Sorry to this project.",
+        "I hate to say it, I hope I don't sound ridiculous, I don't know who this project is. I mean, it could be walking down the street, and I wouldn't know a thing. Sorry to this project.",
     });
   }
 
@@ -22,4 +21,4 @@ export const load = (({ params }) => {
     project,
     otherProjects,
   };
-}) satisfies PageLoad;
+};
