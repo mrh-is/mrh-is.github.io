@@ -30,7 +30,7 @@ export const load = () => {
           link: "https://hcii.cmu.edu/",
         },
         dates: {
-          type: "current",
+          type: "current" as const,
           start: new Date(2025, 0),
         },
         description: [
@@ -44,7 +44,7 @@ export const load = () => {
           link: "https://onarchipelago.com/",
         },
         dates: {
-          type: "past",
+          type: "past" as const,
           start: new Date(2019, 0),
           end: new Date(2022, 10),
         },
@@ -61,7 +61,7 @@ export const load = () => {
           link: "https://www.kidfund.us/",
         },
         dates: {
-          type: "past",
+          type: "past" as const,
           start: new Date(2017, 0),
           end: new Date(2019, 0),
         },
@@ -77,7 +77,7 @@ export const load = () => {
           link: "https://realm.io/",
         },
         dates: {
-          type: "past",
+          type: "past" as const,
           start: new Date(2015, 6),
           end: new Date(2017, 0),
         },
@@ -93,7 +93,7 @@ export const load = () => {
           link: "https://mymotiv.com/",
         },
         dates: {
-          type: "past",
+          type: "past" as const,
           start: new Date(2014, 4),
           end: new Date(2015, 1),
         },
@@ -106,7 +106,7 @@ export const load = () => {
           link: "http://www.finoconsulting.com/",
         },
         dates: {
-          type: "past",
+          type: "past" as const,
           start: new Date(2013, 7),
           end: new Date(2014, 4),
         },
@@ -120,7 +120,7 @@ export const load = () => {
           name: "Carnegie Mellon University",
         },
         dates: {
-          type: "graduation",
+          type: "graduation" as const,
           date: new Date(2013, 8),
         },
       },
@@ -130,7 +130,7 @@ export const load = () => {
           name: "Mississippi State University",
         },
         dates: {
-          type: "graduation",
+          type: "graduation" as const,
           date: new Date(2012, 4),
         },
         description: [
