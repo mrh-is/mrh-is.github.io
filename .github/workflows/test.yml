@@ -39,41 +39,6 @@ jobs:
       - name: Run E2E tests
         run: npm test
 
-      - name: Update snapshots if missing
-        if: failure()
-        run: npx playwright test --update-snapshots
-
-      - name: Check for commit message trigger
-        id: check-trigger
-        if: failure()
-        env:
-          TRIGGER_PHRASE: "[update-snapshots]"
-        run: |
-          echo "Checking for trigger phrase: $TRIGGER_PHRASE"
-          COMMIT_MSG=$(git log -1 --pretty=%B)
-          echo "Commit message: $COMMIT_MSG"
-          if echo "$COMMIT_MSG" | grep -q "$TRIGGER_PHRASE"; then
-            echo "trigger=true" >> $GITHUB_OUTPUT
-            echo "✅ Found trigger phrase in commit message"
-          else
-            echo "trigger=false" >> $GITHUB_OUTPUT
-            echo "❌ Trigger phrase not found"
-          fi
-
-      - name: Commit updated snapshots
-        if: failure() && steps.check-trigger.outputs.trigger == 'true'
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git pull --rebase origin ${{ github.head_ref || github.ref_name }}
-          git add tests/
-          if git diff --staged --quiet; then
-            echo "No snapshots to commit"
-          else
-            git commit -m "🤖 Update Linux snapshots for visual regression tests" --no-verify
-            git push origin HEAD:${{ github.head_ref || github.ref_name }}
-          fi
-
       - name: Upload test results
         uses: actions/upload-artifact@v4
         if: always()
