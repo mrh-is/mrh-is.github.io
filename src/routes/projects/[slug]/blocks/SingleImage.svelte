@@ -27,16 +27,17 @@
     });
 
     const measurer = new Image();
+    measurer.onload = () => {
+      bpItems = [
+        {
+          img: imageUrl,
+          width: measurer.naturalWidth,
+          height: measurer.naturalHeight,
+          caption: caption,
+        },
+      ];
+    };
     measurer.src = imageUrl;
-
-    bpItems = [
-      {
-        img: imageUrl,
-        width: measurer.naturalWidth,
-        height: measurer.naturalHeight,
-        caption: caption,
-      },
-    ];
   });
 
   interface Props {

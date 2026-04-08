@@ -19,7 +19,7 @@
   }[];
   let domElement: HTMLElement | undefined = $state();
 
-  onMount(() => {
+  onMount(async () => {
     if (!domElement) {
       return;
     }
@@ -27,18 +27,29 @@
       target: domElement.ownerDocument.body,
     });
 
-    const measurer = new Image();
-    bpItems = slides.map((slide) => {
-      const slideUrl = getImageUrl(slide.src);
-      measurer.src = slideUrl;
-
-      return {
-        img: slideUrl,
-        width: measurer.naturalWidth,
-        height: measurer.naturalHeight,
-        caption: slide.caption,
-      };
-    });
+    bpItems = await Promise.all(
+      slides.map(
+        (slide) =>
+          new Promise<{
+            img: string;
+            width: number;
+            height: number;
+            caption?: string;
+          }>((resolve) => {
+            const slideUrl = getImageUrl(slide.src);
+            const measurer = new Image();
+            measurer.onload = () => {
+              resolve({
+                img: slideUrl,
+                width: measurer.naturalWidth,
+                height: measurer.naturalHeight,
+                caption: slide.caption,
+              });
+            };
+            measurer.src = slideUrl;
+          }),
+      ),
+    );
   });
 
   const open = (e: MouseEvent) => {
