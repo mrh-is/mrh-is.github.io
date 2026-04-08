@@ -11,8 +11,8 @@
   }
 
   const { toggle, children }: Props = $props();
-  const idNumber = instanceCount;
-  instanceCount += 1;
+  // eslint-disable-next-line no-useless-assignment
+  const idNumber = instanceCount++;
 
   const toggleId = `dropdownToggle${idNumber}`;
   const menuId = `dropdownMenu${idNumber}`;

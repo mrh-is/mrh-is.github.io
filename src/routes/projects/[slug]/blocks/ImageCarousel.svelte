@@ -50,6 +50,7 @@
   };
 
   const isFirstCarouselOnPage = !hasBeenCarouselYet;
+  // eslint-disable-next-line no-useless-assignment
   hasBeenCarouselYet = true;
 
   interface Props {

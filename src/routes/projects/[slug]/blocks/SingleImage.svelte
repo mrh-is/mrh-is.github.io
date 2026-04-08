@@ -57,6 +57,7 @@
   };
 
   const isFirstImageOnPage = !hasBeenImageYet;
+  // eslint-disable-next-line no-useless-assignment
   hasBeenImageYet = true;
 </script>
 
