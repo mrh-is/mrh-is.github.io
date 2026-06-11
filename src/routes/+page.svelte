@@ -87,13 +87,25 @@
 
 <Section>
   <div class="icon-set">
-    <a href="https://github.com/mrh-is">
+    <a
+      href="https://github.com/mrh-is"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <Icon name="GitHub" size={40} />
     </a>
-    <a href="https://www.instagram.com/mrh_is/">
+    <a
+      href="https://www.instagram.com/mrh_is/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <Icon name="Instagram" size={40} />
     </a>
-    <a href="https://www.linkedin.com/in/michaelhelmbrecht/">
+    <a
+      href="https://www.linkedin.com/in/michaelhelmbrecht/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <Icon name="LinkedIn" size={40} />
     </a>
   </div>

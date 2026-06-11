@@ -19,7 +19,9 @@
 
   <p class="subtitle">
     {#if entry.institution.link}
-      <a href={entry.institution.link}>{entry.institution.name}</a>
+      <a href={entry.institution.link} target="_blank" rel="noopener noreferrer"
+        >{entry.institution.name}</a
+      >
     {:else}
       {entry.institution.name}
     {/if}
