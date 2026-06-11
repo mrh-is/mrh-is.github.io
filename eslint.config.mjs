@@ -20,7 +20,7 @@ export default [
     },
     rules: {
       // Best practices
-      "no-console": "warn",
+      "no-console": "error",
       "no-debugger": "error",
       "no-alert": "error",
       "no-eval": "error",
@@ -39,7 +39,11 @@ export default [
       ],
       "@typescript-eslint/explicit-function-return-type": "off",
       "@typescript-eslint/explicit-module-boundary-types": "off",
-      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/no-explicit-any": "error",
+      "@typescript-eslint/consistent-type-imports": [
+        "error",
+        { prefer: "type-imports", fixStyle: "inline-type-imports" },
+      ],
     },
   },
   {
@@ -54,6 +58,8 @@ export default [
       "svelte/no-at-debug-tags": "error",
       "svelte/no-reactive-functions": "error",
       "svelte/no-reactive-literals": "error",
+      "svelte/no-unused-svelte-ignore": "error",
+      "svelte/valid-compile": "error",
       // @see https://github.com/sveltejs/eslint-plugin-svelte/issues/1353
       "svelte/no-navigation-without-resolve": "off",
     },
