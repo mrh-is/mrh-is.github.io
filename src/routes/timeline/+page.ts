@@ -1,11 +1,14 @@
 import { projects } from "$lib/types/Project";
 
-const platformSlug =
-  projects.find((proj) => proj.slug.includes("platform"))?.slug ??
-  "COULDN'T FIND PLATFORM";
-const toolingSlug =
-  projects.find((proj) => proj.slug.includes("tooling"))?.slug ??
-  "COULDN'T FIND TOOLING";
+function requireSlug(slug: string): string {
+  if (!projects.some((proj) => proj.slug === slug)) {
+    throw new Error(`Timeline references unknown project slug "${slug}"`);
+  }
+  return slug;
+}
+
+const platformSlug = requireSlug("archipelago-platform");
+const toolingSlug = requireSlug("archipelago-tooling");
 
 export const load = () => {
   return {

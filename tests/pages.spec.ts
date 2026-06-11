@@ -114,6 +114,16 @@ test.describe("Page Structure Tests", () => {
     // Home page dark link color is #EAC9D9
     expect(markerColor).toBe("rgb(234, 201, 217)");
   });
+
+  test("timeline links to project pages", async ({ page: browserPage }) => {
+    await browserPage.goto("/timeline", { waitUntil: "networkidle" });
+    await expect(
+      browserPage.locator('main a[href="/projects/archipelago-platform"]'),
+    ).toBeAttached();
+    await expect(
+      browserPage.locator('main a[href="/projects/archipelago-tooling"]'),
+    ).toBeAttached();
+  });
 });
 
 test.describe("Home Page Specific Tests", () => {
