@@ -1,4 +1,5 @@
 import { previewForProject, projects } from "$lib/types/Project";
+import parque from "$lib/assets/Parque.jpg";
 
 export const load = () => {
   return {
@@ -15,6 +16,7 @@ export const load = () => {
         link: "#EAC9D9",
       },
     },
+    ogImage: parque,
     projects: projects.map(previewForProject),
   };
 };

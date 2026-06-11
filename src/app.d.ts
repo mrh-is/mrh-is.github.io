@@ -6,6 +6,7 @@ declare global {
       title?: string;
       description?: string;
       colorScheme?: ColorScheme;
+      ogImage?: string;
     }
   }
 }

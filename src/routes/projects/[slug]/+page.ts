@@ -1,5 +1,6 @@
 import { previewForProject, projects } from "$lib/types/Project";
 import { error } from "@sveltejs/kit";
+import { getImageUrl } from "$lib/utils/imageUrl";
 
 export const load = ({ params }) => {
   const project = projects.find((proj) => proj.slug === params.slug);
@@ -18,6 +19,7 @@ export const load = ({ params }) => {
     title: `${project.title} | Michael Helmbrecht`,
     description: project.description,
     colorScheme: project.colorScheme,
+    ogImage: getImageUrl(project.tile.imageSrc),
     project,
     otherProjects,
   };

@@ -20,6 +20,14 @@
 
   const { data, children }: Props = $props();
 
+  const pageTitle = $derived(
+    ($page.data.title ?? "Michael Helmbrecht").replace(/­/g, ""),
+  );
+  const pageDescription = $derived(
+    $page.data.description ??
+      "Michael Helmbrecht — product designer & developer.",
+  );
+
   onMount(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -62,15 +70,21 @@
     rel="stylesheet"
   />
 
-  <title>
-    {($page.data.title ?? "Michael Helmbrecht").replace(/\u00AD/g, "")}
-  </title>
-  <meta
-    name="description"
-    content={$page.data.description ??
-      "Michael Helmbrecht \u2014 product designer & developer."}
-  />
+  <title>{pageTitle}</title>
+  <meta name="description" content={pageDescription} />
   <link rel="canonical" href="{PUBLIC_ORIGIN}{$page.url.pathname}" />
+
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={pageDescription} />
+  <meta property="og:url" content="{PUBLIC_ORIGIN}{$page.url.pathname}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Michael Helmbrecht" />
+  {#if $page.data.ogImage}
+    <meta property="og:image" content="{PUBLIC_ORIGIN}{$page.data.ogImage}" />
+    <meta name="twitter:card" content="summary_large_image" />
+  {:else}
+    <meta name="twitter:card" content="summary" />
+  {/if}
 
   <Favicons />
 </svelte:head>
