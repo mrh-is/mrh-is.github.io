@@ -36,9 +36,9 @@
       },
     );
 
-    // Observe all h2 elements
-    document.querySelectorAll("h2").forEach((h2) => {
-      observer.observe(h2);
+    // Observe all h2/h3 elements
+    document.querySelectorAll("h2, h3").forEach((heading) => {
+      observer.observe(heading);
     });
 
     return () => {

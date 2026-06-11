@@ -30,6 +30,16 @@ test.describe("Page Structure Tests", () => {
       await expect(browserPage.locator("a button")).toHaveCount(0);
     });
 
+    test(`${page.name} page has exactly one h1`, async ({
+      page: browserPage,
+    }) => {
+      await browserPage.goto(page.url, {
+        waitUntil: "networkidle",
+        timeout: 30000,
+      });
+      await expect(browserPage.locator("h1")).toHaveCount(1);
+    });
+
     test(`${page.name} page loads and has correct structure`, async ({
       page: browserPage,
     }) => {

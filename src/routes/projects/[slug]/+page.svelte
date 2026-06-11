@@ -13,7 +13,7 @@
   const project: Project = $derived(data.project);
 </script>
 
-<Section title={project.title} subtitle={project.tagline}>
+<Section title={project.title} subtitle={project.tagline} headingLevel={1}>
   {#each project.content as block, index (index)}
     <ContentBlock content={block} />
   {/each}

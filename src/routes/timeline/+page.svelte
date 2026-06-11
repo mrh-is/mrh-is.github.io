@@ -13,6 +13,7 @@
   const { data }: Props = $props();
 </script>
 
+<h1 class="visually-hidden">Timeline</h1>
 <Section title="Work">
   {#each data.work as entry (entry.title + entry.institution.name)}
     <Entry {entry} />

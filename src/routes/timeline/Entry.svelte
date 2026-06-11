@@ -15,7 +15,7 @@
 </script>
 
 <div class="entry">
-  <h2>{entry.title}</h2>
+  <h3>{entry.title}</h3>
 
   <p class="subtitle">
     {#if entry.institution.link}
