@@ -37,6 +37,7 @@
     {#each entry.description as paragraph, index (index)}
       <p>
         {#each paragraph as segment, segmentIndex (segmentIndex)}
+          <!-- hrefs are absolute (https://...) or root-relative (/...) — no protocol-relative, hash, or bare-relative paths -->
           {#if typeof segment === "string"}{segment}{:else if segment.href.startsWith("/")}<a
               href={segment.href}>{segment.text}</a
             >{:else}<a
