@@ -76,11 +76,13 @@
 </svelte:head>
 
 <div class="page" style={styleStringFromScheme($page.data.colorScheme)}>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <BlobLayer seed={$page.url.pathname} />
 
   <NavBar projects={data.projects} />
 
-  <main class="content">
+  <main class="content" id="main-content">
     <div class="container">
       {@render children()}
     </div>
@@ -103,5 +105,19 @@
     max-width: var(--max-width);
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 10;
+    padding: 0.5rem 1.5rem;
+    background: var(--background-color);
+    border-radius: 0.5rem;
+  }
+
+  .skip-link:focus-visible {
+    top: 1rem;
   }
 </style>
