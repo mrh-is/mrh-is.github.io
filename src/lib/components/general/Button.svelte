@@ -11,19 +11,18 @@
 </script>
 
 {#if href}
-  <a {href}>
-    <button type="button" {onclick}>
-      {@render children?.()}
-    </button>
+  <a class="button" {href}>
+    {@render children?.()}
   </a>
 {:else}
-  <button type="button" {onclick}>
+  <button class="button" type="button" {onclick}>
     {@render children?.()}
   </button>
 {/if}
 
 <style>
-  button {
+  .button {
+    display: inline-block;
     font-size: 2rem;
     padding: 1.5rem 3rem;
     background: var(--color-dark-blob);
@@ -31,27 +30,23 @@
     border: none;
     border-radius: 3rem;
     cursor: pointer;
+    text-decoration: none;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
   }
 
-  button:hover {
+  .button:hover {
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   }
 
-  button:active {
+  .button:active {
     transform: scale(0.95);
   }
 
-  a {
-    text-decoration: none;
-    display: inline-block;
-  }
-
   @media (prefers-color-scheme: dark) {
-    button {
+    .button {
       background: var(--color-light-blob);
       color: var(--color-light-text);
     }
