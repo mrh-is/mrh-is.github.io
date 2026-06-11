@@ -1,6 +1,6 @@
 import type { Project } from "$lib/types/Project";
 
-import thumbnail from "$lib/assets/projects/archipelago-platform/Archipelago platform thumbnail.png?enhanced";
+import thumbnail from "$lib/assets/projects/archipelago-platform/Archipelago platform thumbnail.png";
 
 import hero from "$lib/assets/projects/archipelago-platform/Archipelago webapp.png?enhanced";
 import stream from "$lib/assets/projects/archipelago-platform/Archipelago stream.png?enhanced";
