@@ -57,9 +57,5 @@
       font-size: 1.5rem;
       margin-bottom: 1rem;
     }
-
-    /* .page-list {
-      margin-top: 0;
-    } */
   }
 </style>
