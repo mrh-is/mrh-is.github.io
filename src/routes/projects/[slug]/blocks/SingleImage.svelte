@@ -43,10 +43,11 @@
   interface Props {
     src: ImageSource;
     caption: string;
+    alt?: string;
     rounded?: boolean;
   }
 
-  const { src, caption, rounded }: Props = $props();
+  const { src, caption, alt, rounded }: Props = $props();
   const imageUrl = $derived(getImageUrl(src));
 
   const open = (e: MouseEvent) => {
@@ -71,7 +72,7 @@
   >
     <enhanced:img
       {src}
-      alt=""
+      alt={alt ?? caption}
       fetchpriority={isFirstImageOnPage ? "high" : undefined}
       class={rounded ? "rounded" : ""}
       sizes="(max-width: 800px) 90vw, (max-width: 1200px) 70vw, 60vw"

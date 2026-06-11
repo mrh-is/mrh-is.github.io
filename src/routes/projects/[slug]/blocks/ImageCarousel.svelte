@@ -66,19 +66,28 @@
 
   interface Props {
     coverSrc?: ImageSource | undefined;
+    coverAlt?: string;
     slides: ImageCarouselSlide[];
   }
 
-  const { coverSrc = undefined, slides }: Props = $props();
+  const { coverSrc = undefined, coverAlt, slides }: Props = $props();
   const currentCover = $derived(coverSrc ?? slides[0].src);
   const currentCoverUrl = $derived(getImageUrl(currentCover));
+  const currentCoverAlt = $derived(
+    coverAlt ?? slides[0].alt ?? slides[0].caption,
+  );
 </script>
 
 <div>
-  <a href={currentCoverUrl} bind:this={domElement} onclick={open}>
+  <a
+    href={currentCoverUrl}
+    bind:this={domElement}
+    onclick={open}
+    aria-label="View image gallery"
+  >
     <img
       src={currentCoverUrl}
-      alt=""
+      alt={currentCoverAlt}
       fetchpriority={isFirstCarouselOnPage ? "high" : undefined}
     />
   </a>

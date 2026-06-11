@@ -20,16 +20,22 @@ export interface ListBlock {
 export interface ImageCarouselSlide {
   src: ImageSource;
   caption: string;
+  /** Defaults to caption when omitted */
+  alt?: string;
 }
 export interface ImageCarousel {
   kind: "carousel";
   coverSrc?: ImageSource;
+  /** Defaults to the first slide's alt/caption when omitted */
+  coverAlt?: string;
   slides: ImageCarouselSlide[];
 }
 export interface SingleImage {
   kind: "image";
   src: ImageSource;
   caption: string;
+  /** Defaults to caption when omitted */
+  alt?: string;
   rounded?: boolean;
 }
 export interface Subsection {
