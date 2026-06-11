@@ -16,7 +16,6 @@
         "parser": "svelte",
         "bracketSameLine": false,
         "svelteSortOrder": "options-scripts-markup-styles",
-        "svelteStrictMode": false,
         "svelteAllowShorthand": true,
         "svelteIndentScriptAndStyle": true
       }
