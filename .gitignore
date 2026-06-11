@@ -8,7 +8,7 @@ node_modules
 *.local.*
 .env
 .env.*
-!.env.example
+!.env.example  # negation must stay after .env.* above
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
