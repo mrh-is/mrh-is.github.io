@@ -13,28 +13,23 @@
   }
 
   const { data }: Props = $props();
-
-  const personSchema = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Michael Helmbrecht",
-    url: "https://mrh.is",
-    jobTitle: "Product designer & developer",
-    sameAs: [
-      "https://github.com/mrh-is",
-      "https://www.instagram.com/mrh_is/",
-      "https://www.linkedin.com/in/michaelhelmbrecht/",
-    ],
-  };
-  // Split the closing tag so the .svelte parser doesn't end the script block early
-  const jsonLd = `<script type="application/ld+json">${JSON.stringify(
-    personSchema,
-  )}</${"script"}>`;
 </script>
 
 <svelte:head>
-  <!-- eslint-disable-next-line svelte/no-at-html-tags -->
-  {@html jsonLd}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Michael Helmbrecht",
+      "url": "https://mrh.is",
+      "jobTitle": "Product designer & developer",
+      "sameAs": [
+        "https://github.com/mrh-is",
+        "https://www.instagram.com/mrh_is/",
+        "https://www.linkedin.com/in/michaelhelmbrecht/"
+      ]
+    }
+  </script>
 </svelte:head>
 
 <Section>
