@@ -1,7 +1,7 @@
 <script lang="ts">
   import Section from "$lib/components/general/Section.svelte";
 
-  import parque from "$lib/assets/Parque.jpg";
+  import parque from "$lib/assets/Parque.jpg?enhanced";
   import Icon from "$lib/components/general/Icon.svelte";
   import Button from "$lib/components/general/Button.svelte";
   import EmojiSwitcher from "$lib/components/general/EmojiSwitcher.svelte";
@@ -45,7 +45,12 @@
         I’m a product designer & developer based in Pittsburgh, PA.
       </p>
     </div>
-    <img fetchpriority="high" src={parque} alt="Me!" />
+    <enhanced:img
+      fetchpriority="high"
+      src={parque}
+      alt="Me!"
+      sizes="(max-width: 400px) 100vw, (max-width: 1000px) 80vw, 320px"
+    />
   </div>
   <p>I have a decade of experience helping startups build great products.</p>
   <p>
@@ -115,11 +120,12 @@
     font-weight: 500;
   }
 
-  img {
+  enhanced\:img {
     border-radius: 100%;
     flex: none;
     width: 20rem;
     height: 20rem;
+    object-fit: cover;
   }
 
   .centerer {
@@ -142,16 +148,16 @@
       margin-bottom: 5rem;
     }
 
-    img {
+    enhanced\:img {
       width: 80%;
-      height: 80%;
+      height: auto;
+      aspect-ratio: 1;
     }
   }
 
   @media (max-width: 400px) {
-    img {
+    enhanced\:img {
       width: 100%;
-      height: 100%;
     }
   }
 </style>
