@@ -1,10 +1,10 @@
 import type { Project } from "$lib/types/Project";
-import thumbnail from "$lib/assets/projects/kidfund/Kidfund thumbnail.png";
-import home from "$lib/assets/projects/kidfund/Kidfund home.png";
-import memoryBank from "$lib/assets/projects/kidfund/Kidfund memory bank.png";
-import celebration from "$lib/assets/projects/kidfund/Kidfund celebration.png";
-import gifting from "$lib/assets/projects/kidfund/Kidfund gifting.png";
-import giftHistory from "$lib/assets/projects/kidfund/Kidfund gift history.png";
+import thumbnail from "$lib/assets/projects/kidfund/Kidfund thumbnail.png?enhanced";
+import home from "$lib/assets/projects/kidfund/Kidfund home.png?enhanced";
+import memoryBank from "$lib/assets/projects/kidfund/Kidfund memory bank.png?enhanced";
+import celebration from "$lib/assets/projects/kidfund/Kidfund celebration.png?enhanced";
+import gifting from "$lib/assets/projects/kidfund/Kidfund gifting.png?enhanced";
+import giftHistory from "$lib/assets/projects/kidfund/Kidfund gift history.png?enhanced";
 
 const kidfund: Project = {
   title: "Kidfund",
