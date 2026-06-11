@@ -96,6 +96,24 @@ test.describe("Page Structure Tests", () => {
     expect(title).toContain("The Archipelago platform");
     expect(title).toContain("Michael Helmbrecht");
   });
+
+  test("list markers use the dark link color in dark mode", async ({
+    page: browserPage,
+    browserName,
+  }) => {
+    test.skip(
+      browserName !== "chromium",
+      "::marker computed styles are only reliable in Chromium",
+    );
+    await browserPage.emulateMedia({ colorScheme: "dark" });
+    await browserPage.goto("/", { waitUntil: "networkidle" });
+    const markerColor = await browserPage
+      .locator("li")
+      .first()
+      .evaluate((el) => getComputedStyle(el, "::marker").color);
+    // Home page dark link color is #EAC9D9
+    expect(markerColor).toBe("rgb(234, 201, 217)");
+  });
 });
 
 test.describe("Home Page Specific Tests", () => {

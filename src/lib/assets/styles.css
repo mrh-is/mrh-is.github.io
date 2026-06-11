@@ -118,6 +118,10 @@ img {
     color: var(--color-dark-link);
   }
 
+  li::marker {
+    color: var(--color-dark-link);
+  }
+
   h2::after,
   h3::after {
     background-color: var(--color-dark-link);
