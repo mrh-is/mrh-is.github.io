@@ -15,5 +15,6 @@ test.describe("Error pages", () => {
     expect(response?.status()).toBe(404);
     await expect(page.locator("nav")).toBeVisible();
     await expect(page.locator("h1")).toContainText("Page not found");
+    await expect(page.locator('main a[href="/"]')).toBeVisible();
   });
 });
