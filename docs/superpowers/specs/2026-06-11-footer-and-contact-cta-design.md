@@ -59,31 +59,34 @@ Wraps `Button` + `EmojiSwitcher` in a centered layout. Takes one optional prop:
 
 ```ts
 interface Props {
-  copy?: string; // defaults to "Let's talk! "
+  leadIn?: string;
 }
 ```
 
-Renders as:
+If `leadIn` is provided, renders a `<p>` above the button:
 
 ```
-[Button] {copy} <EmojiSwitcher lightEmoji="💌" darkEmoji="📬" /> [/Button]
+Want results like this for your product?
+        [ Let's talk! 💌 ]
 ```
 
-centered via flexbox (same `.centerer` pattern currently on the home page).
+If absent, renders just the button — matching the current home page behavior. Button text is always fixed: "Let's talk! " + `<EmojiSwitcher lightEmoji="💌" darkEmoji="📬" />`.
+
+Centered via flexbox (same `.centerer` pattern currently on the home page).
 
 ### Project type
 
 `src/lib/types/Project.ts` gets a new optional field:
 
 ```ts
-ctaCopy?: string;
+ctaLeadIn?: string;
 ```
 
-If absent, `ContactCTA` uses the default "Let's talk! " copy. Project data files can supply a context-aware line, e.g. `"Want results like this for your product? Let's talk! "`.
+If absent, `ContactCTA` renders just the button. Project data files can supply a lead-in line, e.g. `"Want results like this for your product?"`.
 
 ### Project page
 
-`src/routes/projects/[slug]/+page.svelte` adds `<ContactCTA copy={project.ctaCopy} />` between the content `Section` and the other-projects `Section`:
+`src/routes/projects/[slug]/+page.svelte` adds `<ContactCTA leadIn={project.ctaLeadIn} />` between the content `Section` and the other-projects `Section`:
 
 ```svelte
 <Section title={project.title} subtitle={project.tagline} headingLevel={1}>
@@ -92,7 +95,7 @@ If absent, `ContactCTA` uses the default "Let's talk! " copy. Project data files
   {/each}
 </Section>
 
-<ContactCTA copy={project.ctaCopy} />
+<ContactCTA leadIn={project.ctaLeadIn} />
 <!-- new -->
 
 <Section>
@@ -114,7 +117,7 @@ If absent, `ContactCTA` uses the default "Let's talk! " copy. Project data files
 | `src/lib/components/Footer.svelte`        | New component                                       |
 | `src/lib/components/ContactCTA.svelte`    | New component                                       |
 | `src/lib/components/general/Icon.svelte`  | Add `"Mail"` icon                                   |
-| `src/lib/types/Project.ts`                | Add optional `ctaCopy?: string`                     |
+| `src/lib/types/Project.ts`                | Add optional `ctaLeadIn?: string`                   |
 | `src/routes/+layout.svelte`               | Import and render `Footer` after `</main>`          |
 | `src/routes/+page.svelte`                 | Replace inline CTA + remove social icons Section    |
 | `src/routes/projects/[slug]/+page.svelte` | Add `ContactCTA` between content and other-projects |
@@ -123,5 +126,5 @@ If absent, `ContactCTA` uses the default "Let's talk! " copy. Project data files
 
 ## Out of scope
 
-- Context-aware `ctaCopy` values for existing projects — these can be added to project data files independently, any time. The component renders the default copy if the field is absent.
+- `ctaLeadIn` values for existing projects — these can be added to project data files independently, any time. The component renders just the button if the field is absent.
 - Footer dark/light mode visual testing beyond inheriting CSS custom properties.
