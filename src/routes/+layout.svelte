@@ -119,5 +119,7 @@
 
   .skip-link:focus-visible {
     top: 1rem;
+    outline: 3px solid var(--color-light-link);
+    outline-offset: 3px;
   }
 </style>
