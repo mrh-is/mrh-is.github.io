@@ -34,10 +34,18 @@
   </p>
 
   {#if entry.description}
-    {#each entry.description as description, index (index)}
-      <!-- Only I'm providing this data, should be safe -->
-      <!-- eslint-disable svelte/no-at-html-tags -->
-      <p>{@html description}</p>
+    {#each entry.description as paragraph, index (index)}
+      <p>
+        {#each paragraph as segment, segmentIndex (segmentIndex)}
+          {#if typeof segment === "string"}{segment}{:else if segment.href.startsWith("/")}<a
+              href={segment.href}>{segment.text}</a
+            >{:else}<a
+              href={segment.href}
+              target="_blank"
+              rel="noopener noreferrer">{segment.text}</a
+            >{/if}
+        {/each}
+      </p>
     {/each}
   {/if}
 </div>
