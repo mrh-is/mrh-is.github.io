@@ -54,6 +54,11 @@ a:hover {
   text-decoration-color: currentColor;
 }
 
+:focus-visible {
+  outline: 3px solid var(--color-light-link);
+  outline-offset: 3px;
+}
+
 button {
   font-weight: inherit;
   color: inherit;
@@ -125,6 +130,10 @@ img {
   h2::after,
   h3::after {
     background-color: var(--color-dark-link);
+  }
+
+  :focus-visible {
+    outline-color: var(--color-dark-link);
   }
 }
 
