@@ -10,6 +10,8 @@
   const { href, children }: Props = $props();
 </script>
 
-<a {href} target="_blank">
-  {@render children()} ↗
+<a {href} target="_blank" rel="noopener noreferrer">
+  {@render children()} <span aria-hidden="true">↗</span><span
+    class="visually-hidden">(opens in new tab)</span
+  >
 </a>
