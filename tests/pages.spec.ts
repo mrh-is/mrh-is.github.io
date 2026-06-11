@@ -10,6 +10,16 @@ const pages = [
 
 test.describe("Page Structure Tests", () => {
   for (const page of pages) {
+    test(`${page.name} page has a main landmark`, async ({
+      page: browserPage,
+    }) => {
+      await browserPage.goto(page.url, {
+        waitUntil: "networkidle",
+        timeout: 30000,
+      });
+      await expect(browserPage.locator("main")).toHaveCount(1);
+    });
+
     test(`${page.name} page loads and has correct structure`, async ({
       page: browserPage,
     }) => {

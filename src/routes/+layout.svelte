@@ -74,11 +74,11 @@
 
   <NavBar projects={data.projects} />
 
-  <div class="content">
+  <main class="content">
     <div class="container">
       {@render children()}
     </div>
-  </div>
+  </main>
 </div>
 
 <style>
