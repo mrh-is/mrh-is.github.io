@@ -110,7 +110,7 @@
   }
 
   .caption {
-    opacity: 60%;
+    opacity: 80%;
     margin-top: 0.25rem;
     font-size: 1rem;
     font-style: italic;
