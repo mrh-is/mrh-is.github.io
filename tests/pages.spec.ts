@@ -73,7 +73,7 @@ test.describe("Page Structure Tests", () => {
       }
 
       // Check main content area exists
-      await expect(browserPage.locator("main, body")).toBeVisible();
+      await expect(browserPage.locator("main")).toBeVisible();
     });
   }
 
