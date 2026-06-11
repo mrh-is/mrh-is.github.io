@@ -1,4 +1,6 @@
 <script lang="ts">
+  import FormattedText from "$lib/components/general/FormattedText.svelte";
+
   interface Props {
     title?: string;
     text: string;
@@ -12,9 +14,7 @@
     <span class="title">{title}:</span>
   {/if}
 
-  <!-- Only I'm providing this data, should be safe -->
-  <!-- eslint-disable svelte/no-at-html-tags -->
-  {@html text}
+  <FormattedText {text} />
 </p>
 
 <style>

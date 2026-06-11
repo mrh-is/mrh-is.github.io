@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { TimelineEntry } from "$lib/types/TimelineEntry";
+  import FormattedText from "$lib/components/general/FormattedText.svelte";
 
   interface Props {
     entry: TimelineEntry;
@@ -38,16 +39,7 @@
   {#if entry.description}
     {#each entry.description as paragraph, index (index)}
       <p>
-        {#each paragraph as segment, segmentIndex (segmentIndex)}
-          <!-- hrefs are absolute (https://...) or root-relative (/...) — no protocol-relative, hash, or bare-relative paths -->
-          {#if typeof segment === "string"}{segment}{:else if segment.href.startsWith("/")}<a
-              href={segment.href}>{segment.text}</a
-            >{:else}<a
-              href={segment.href}
-              target="_blank"
-              rel="noopener noreferrer">{segment.text}</a
-            >{/if}
-        {/each}
+        <FormattedText text={paragraph} />
       </p>
     {/each}
   {/if}

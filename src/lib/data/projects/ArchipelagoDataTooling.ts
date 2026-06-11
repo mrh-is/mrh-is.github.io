@@ -59,7 +59,7 @@ const archipelagoDataTooling: Project = {
     },
     {
       kind: "text",
-      text: "A huge part of the <a href='https://onarchipelago.com/'>Archipelago</a> magic was standardizing & enhancing customers’ data. This was all powered by a suite of internal tools that enabled ingesting data from all manner of customer Excel spreadsheets, and then enhancing and correcting that data with evidentiary documents like engineering reports.",
+      text: "A huge part of the [Archipelago](https://onarchipelago.com/) magic was standardizing & enhancing customers’ data. This was all powered by a suite of internal tools that enabled ingesting data from all manner of customer Excel spreadsheets, and then enhancing and correcting that data with evidentiary documents like engineering reports.",
     },
     {
       kind: "text",

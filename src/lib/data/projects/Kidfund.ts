@@ -57,7 +57,7 @@ const kidfund: Project = {
     },
     {
       kind: "text",
-      text: "With <a href='https://www.kidfund.us/'>Kidfund</a> (now part of <a href='https://web.unest.co/us/acquisitions/kidfund'>UNest</a>), anyone could help parents save for their kids’ futures, by giving the most flexible (and least space-intensive) gift of all: money.",
+      text: "With [Kidfund](https://www.kidfund.us/) (now part of [UNest](https://web.unest.co/us/acquisitions/kidfund)), anyone could help parents save for their kids’ futures, by giving the most flexible (and least space-intensive) gift of all: money.",
     },
     {
       kind: "text",

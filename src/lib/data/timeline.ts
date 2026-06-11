@@ -23,14 +23,7 @@ export const work: TimelineEntry[] = [
       start: new Date(2025, 0),
     },
     description: [
-      [
-        "Advising masters students' ",
-        {
-          text: "Capstone projects",
-          href: "https://hcii.cmu.edu/academics/mhci/capstone",
-        },
-        ".",
-      ],
+      "Advising masters students' [Capstone projects](https://hcii.cmu.edu/academics/mhci/capstone).",
     ],
   },
   {
@@ -45,25 +38,9 @@ export const work: TimelineEntry[] = [
       end: new Date(2022, 10),
     },
     description: [
-      [
-        "Designed & shepherded products, processes, & features for a new data-centric application for commercial real estate insurance.",
-      ],
-      [
-        "See more details about my work on ",
-        {
-          text: "the customer-facing application",
-          href: `/projects/${platformSlug}`,
-        },
-        " & ",
-        {
-          text: "the internal data tooling",
-          href: `/projects/${toolingSlug}`,
-        },
-        ".",
-      ],
-      [
-        "Founded the design team! Led or advised almost all major projects for the first 4 years of the company, as both the product designer & the product manager.",
-      ],
+      "Designed & shepherded products, processes, & features for a new data-centric application for commercial real estate insurance.",
+      `See more details about my work on [the customer-facing application](/projects/${platformSlug}) & [the internal data tooling](/projects/${toolingSlug}).`,
+      "Founded the design team! Led or advised almost all major projects for the first 4 years of the company, as both the product designer & the product manager.",
     ],
   },
   {
@@ -78,12 +55,8 @@ export const work: TimelineEntry[] = [
       end: new Date(2019, 0),
     },
     description: [
-      [
-        "Designed & developed new product features in collaboration with founders.",
-      ],
-      [
-        "Started with product vision and insights obtained from conducting user interviews. Defined new & updated features, then designed UX through visuals & wrote copy. Quickly validated designs with users. Finished by implementing changes to the iOS app & shipping to the App Store.",
-      ],
+      "Designed & developed new product features in collaboration with founders.",
+      "Started with product vision and insights obtained from conducting user interviews. Defined new & updated features, then designed UX through visuals & wrote copy. Quickly validated designs with users. Finished by implementing changes to the iOS app & shipping to the App Store.",
     ],
   },
   {
@@ -98,12 +71,8 @@ export const work: TimelineEntry[] = [
       end: new Date(2017, 0),
     },
     description: [
-      [
-        "Designed & built website, including marketing pages & developer documentation. Wrote website copy. Directed branding.",
-      ],
-      [
-        "Advised strategy for developer-focused content marketing. Edited blog posts for tone & technical correctness.",
-      ],
+      "Designed & built website, including marketing pages & developer documentation. Wrote website copy. Directed branding.",
+      "Advised strategy for developer-focused content marketing. Edited blog posts for tone & technical correctness.",
     ],
   },
   {
@@ -117,7 +86,7 @@ export const work: TimelineEntry[] = [
       start: new Date(2014, 4),
       end: new Date(2015, 1),
     },
-    description: [["Developed iOS apps & device SDK for wearable device."]],
+    description: ["Developed iOS apps & device SDK for wearable device."],
   },
   {
     title: "Designer",
@@ -130,7 +99,7 @@ export const work: TimelineEntry[] = [
       start: new Date(2013, 7),
       end: new Date(2014, 4),
     },
-    description: [["Designed iPad apps for teachers & energy salespersons."]],
+    description: ["Designed iPad apps for teachers & energy salespersons."],
   },
 ];
 
@@ -155,9 +124,7 @@ export const education: TimelineEntry[] = [
       date: new Date(2012, 4),
     },
     description: [
-      [
-        "Minors in Spanish & mathematics, plus certificate in cognitive science",
-      ],
+      "Minors in Spanish & mathematics, plus certificate in cognitive science",
     ],
   },
 ];

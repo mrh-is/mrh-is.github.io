@@ -1,6 +1,3 @@
-/** A piece of a description paragraph: plain text, or a link. */
-export type RichTextSegment = string | { text: string; href: string };
-
 export interface TimelineEntry {
   title: string;
   institution: {
@@ -11,6 +8,6 @@ export interface TimelineEntry {
     | { type: "current"; start: Date }
     | { type: "past"; start: Date; end: Date }
     | { type: "graduation"; date: Date };
-  /** Paragraphs, each a sequence of segments. */
-  description?: RichTextSegment[][];
+  /** Paragraphs as simple markdown strings. */
+  description?: string[];
 }
