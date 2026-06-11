@@ -8,7 +8,21 @@ export interface ColorScheme {
   dark: Palette;
 }
 
-export function styleStringFromScheme(scheme: ColorScheme): string {
+// Matches the home page scheme; used when a page provides none (e.g. error pages).
+export const defaultColorScheme: ColorScheme = {
+  light: {
+    blob: "#EAC9D9",
+    link: "#684054",
+  },
+  dark: {
+    blob: "#684054",
+    link: "#EAC9D9",
+  },
+};
+
+export function styleStringFromScheme(
+  scheme: ColorScheme = defaultColorScheme,
+): string {
   return `
   --color-light-link: ${scheme.light.link};
   --color-dark-link: ${scheme.dark.link};

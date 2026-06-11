@@ -62,8 +62,14 @@
     rel="stylesheet"
   />
 
-  <title>{$page.data.title.replace(/\u00AD/g, "")}</title>
-  <meta name="description" content={$page.data.description} />
+  <title>
+    {($page.data.title ?? "Michael Helmbrecht").replace(/\u00AD/g, "")}
+  </title>
+  <meta
+    name="description"
+    content={$page.data.description ??
+      "Michael Helmbrecht \u2014 product designer & developer."}
+  />
   <link rel="canonical" href="{PUBLIC_ORIGIN}{$page.url.pathname}" />
 
   <Favicons />
