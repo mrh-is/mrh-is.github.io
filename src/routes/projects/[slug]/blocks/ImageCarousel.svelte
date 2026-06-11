@@ -1,11 +1,11 @@
-<script lang="ts" module>
-  let hasBeenCarouselYet = false;
-</script>
-
 <script lang="ts">
   import type { ImageCarouselSlide } from "$lib/types/Project";
   import type { BiggerPictureInstance } from "bigger-picture";
-  import { getImageUrl, type ImageSource } from "$lib/utils/imageUrl";
+  import {
+    getImageUrl,
+    getLargestImageUrl,
+    type ImageSource,
+  } from "$lib/utils/imageUrl";
   import BiggerPicture from "bigger-picture";
   import "bigger-picture/css";
   import { onMount } from "svelte";
@@ -36,7 +36,7 @@
             height: number;
             caption?: string;
           }>((resolve) => {
-            const slideUrl = getImageUrl(slide.src);
+            const slideUrl = getLargestImageUrl(slide.src);
             const measurer = new Image();
             measurer.onload = () => {
               resolve({
@@ -60,17 +60,19 @@
     });
   };
 
-  const isFirstCarouselOnPage = !hasBeenCarouselYet;
-  // eslint-disable-next-line no-useless-assignment
-  hasBeenCarouselYet = true;
-
   interface Props {
     coverSrc?: ImageSource | undefined;
     coverAlt?: string;
     slides: ImageCarouselSlide[];
+    hero?: boolean;
   }
 
-  const { coverSrc = undefined, coverAlt, slides }: Props = $props();
+  const {
+    coverSrc = undefined,
+    coverAlt,
+    slides,
+    hero = false,
+  }: Props = $props();
   const currentCover = $derived(coverSrc ?? slides[0].src);
   const currentCoverUrl = $derived(getImageUrl(currentCover));
   const currentCoverAlt = $derived(
@@ -88,7 +90,8 @@
     <img
       src={currentCoverUrl}
       alt={currentCoverAlt}
-      fetchpriority={isFirstCarouselOnPage ? "high" : undefined}
+      fetchpriority={hero ? "high" : undefined}
+      loading={hero ? undefined : "lazy"}
     />
   </a>
 </div>

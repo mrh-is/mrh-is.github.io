@@ -1,9 +1,5 @@
-<script lang="ts" module>
-  let hasBeenImageYet = false;
-</script>
-
 <script lang="ts">
-  import { getImageUrl, type ImageSource } from "$lib/utils/imageUrl";
+  import { getLargestImageUrl, type ImageSource } from "$lib/utils/imageUrl";
   import type { BiggerPictureInstance } from "bigger-picture";
   import BiggerPicture from "bigger-picture";
   import "bigger-picture/css";
@@ -45,10 +41,11 @@
     caption: string;
     alt?: string;
     rounded?: boolean;
+    hero?: boolean;
   }
 
-  const { src, caption, alt, rounded }: Props = $props();
-  const imageUrl = $derived(getImageUrl(src));
+  const { src, caption, alt, rounded, hero = false }: Props = $props();
+  const imageUrl = $derived(getLargestImageUrl(src));
 
   const open = (e: MouseEvent) => {
     e.preventDefault();
@@ -57,13 +54,9 @@
       el: domElement,
     });
   };
-
-  const isFirstImageOnPage = !hasBeenImageYet;
-  // eslint-disable-next-line no-useless-assignment
-  hasBeenImageYet = true;
 </script>
 
-<div class={isFirstImageOnPage ? "hero" : ""}>
+<div class={hero ? "hero" : ""}>
   <a
     href={imageUrl}
     bind:this={domElement}
@@ -73,7 +66,8 @@
     <enhanced:img
       {src}
       alt={alt ?? caption}
-      fetchpriority={isFirstImageOnPage ? "high" : undefined}
+      fetchpriority={hero ? "high" : undefined}
+      loading={hero ? undefined : "lazy"}
       class={rounded ? "rounded" : ""}
       sizes="(max-width: 800px) 90vw, (max-width: 1200px) 70vw, 60vw"
     />

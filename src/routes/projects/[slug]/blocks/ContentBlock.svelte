@@ -10,9 +10,11 @@
 
   interface Props {
     content: ContentBlock;
+    /** True for the first content block on the page — its image is the LCP candidate */
+    hero?: boolean;
   }
 
-  const { content }: Props = $props();
+  const { content, hero = false }: Props = $props();
 </script>
 
 {#if content.kind === "text"}
@@ -22,13 +24,13 @@
 {:else if content.kind === "list"}
   <ListBlock {...content} />
 {:else if content.kind === "carousel"}
-  <ImageCarousel {...content} />
+  <ImageCarousel {...content} {hero} />
 {:else if content.kind === "image"}
-  <SingleImage {...content} />
+  <SingleImage {...content} {hero} />
 {:else if content.kind === "subsection"}
   <Section>
     {#each content.content as subblock, index (index)}
-      <Self content={subblock} />
+      <Self content={subblock} hero={hero && index === 0} />
     {/each}
   </Section>
 {:else}

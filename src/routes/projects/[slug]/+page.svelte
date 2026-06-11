@@ -15,7 +15,7 @@
 
 <Section title={project.title} subtitle={project.tagline} headingLevel={1}>
   {#each project.content as block, index (index)}
-    <ContentBlock content={block} />
+    <ContentBlock content={block} hero={index === 0} />
   {/each}
 </Section>
 

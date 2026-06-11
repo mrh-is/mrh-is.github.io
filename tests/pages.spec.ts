@@ -57,8 +57,8 @@ test.describe("Page Structure Tests", () => {
       await expect(browserPage.locator('a[href="/"]')).toBeVisible(); // Home link
       await expect(browserPage.locator('a[href="/timeline"]')).toBeVisible(); // Timeline link
 
-      // Check no broken images
-      const images = browserPage.locator("img");
+      // Check no broken images (skip lazy-loaded off-screen images — they intentionally defer loading)
+      const images = browserPage.locator("img:not([loading='lazy'])");
       const imageCount = await images.count();
 
       for (let i = 0; i < imageCount; i++) {
