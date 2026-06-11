@@ -1,5 +1,5 @@
 import type { Project } from "$lib/types/Project";
-import thumbnail from "$lib/assets/projects/kidfund/Kidfund thumbnail.png?enhanced";
+import thumbnail from "$lib/assets/projects/kidfund/Kidfund thumbnail.png";
 import home from "$lib/assets/projects/kidfund/Kidfund home.png?enhanced";
 import memoryBank from "$lib/assets/projects/kidfund/Kidfund memory bank.png?enhanced";
 import celebration from "$lib/assets/projects/kidfund/Kidfund celebration.png?enhanced";

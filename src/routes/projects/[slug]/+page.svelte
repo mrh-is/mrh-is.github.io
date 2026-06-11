@@ -11,11 +11,16 @@
 
   const { data }: Props = $props();
   const project: Project = $derived(data.project);
+  const firstImageIndex = $derived(
+    project.content.findIndex(
+      (b) => b.kind === "image" || b.kind === "carousel",
+    ),
+  );
 </script>
 
 <Section title={project.title} subtitle={project.tagline} headingLevel={1}>
   {#each project.content as block, index (index)}
-    <ContentBlock content={block} hero={index === 0} />
+    <ContentBlock content={block} hero={index === firstImageIndex} />
   {/each}
 </Section>
 
