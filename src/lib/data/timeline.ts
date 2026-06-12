@@ -23,7 +23,7 @@ export const work: TimelineEntry[] = [
       start: new Date(2025, 0),
     },
     description: [
-      "Advising masters students' [Capstone projects](https://hcii.cmu.edu/academics/mhci/capstone).",
+      "Advising masters students’ [Capstone projects](https://hcii.cmu.edu/academics/mhci/capstone).",
     ],
   },
   {

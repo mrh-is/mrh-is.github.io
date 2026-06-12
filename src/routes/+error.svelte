@@ -11,6 +11,6 @@
   {#if $page.error?.message && $page.error.message !== "Not Found"}
     <p>{$page.error.message}</p>
   {/if}
-  <p>Let's get you back to safety:</p>
+  <p>Let’s get you back to safety:</p>
   <Button href="/">Take me home 🏠</Button>
 </Section>

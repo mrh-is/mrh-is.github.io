@@ -16,7 +16,7 @@
   {/if}
   <div class="centerer">
     <Button href="mailto:me@mrh.is?subject=Let's%20work%20together!"
-      >Let's talk! <EmojiSwitcher lightEmoji="💌" darkEmoji="📬" /></Button
+      >Let’s talk! <EmojiSwitcher lightEmoji="💌" darkEmoji="📬" /></Button
     >
   </div>
 </Section>

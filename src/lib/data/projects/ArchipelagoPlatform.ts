@@ -38,7 +38,7 @@ const archipelagoPlatform: Project = {
       kind: "image",
       src: hero,
       caption:
-        "The Archipelago platform's core interfaces — property data grid, " +
+        "The Archipelago platform’s core interfaces — property data grid, " +
         "analytics dashboard, and transparency system — designed to transform " +
         "industry-wide Excel chaos into trusted, systematic workflows",
     },
