@@ -130,18 +130,9 @@ test.describe("Home Page Specific Tests", () => {
   test("Contact email link works", async ({ page }) => {
     await page.goto("/", { waitUntil: "networkidle" });
 
-    const emailLink = page.locator('a[href*="mailto:me@mrh.is"]');
+    const emailLink = page.locator('main a[href*="mailto:me@mrh.is"]');
     await expect(emailLink).toBeVisible();
     await expect(emailLink).toHaveAttribute("href", /mailto:me@mrh\.is/);
-  });
-
-  test("Social media links are present", async ({ page }) => {
-    await page.goto("/", { waitUntil: "networkidle" });
-
-    // Check for social media links
-    await expect(page.locator('a[href*="github.com/mrh-is"]')).toBeVisible();
-    await expect(page.locator('a[href*="instagram.com"]')).toBeVisible();
-    await expect(page.locator('a[href*="linkedin.com"]')).toBeVisible();
   });
 
   test("Profile image loads with correct attributes", async ({ page }) => {
@@ -150,10 +141,37 @@ test.describe("Home Page Specific Tests", () => {
     const profileImg = page.locator('img[alt="Me!"]');
     await expect(profileImg).toBeVisible();
 
-    // Check that image has expected attributes
     await expect(profileImg).toHaveAttribute("src");
     await expect(profileImg).toHaveAttribute("fetchpriority", "high");
   });
+});
+
+test.describe("Footer", () => {
+  for (const url of ["/", "/timeline", "/projects/kidfund"]) {
+    test(`footer is present on ${url}`, async ({ page }) => {
+      await page.goto(url, { waitUntil: "networkidle" });
+      await expect(page.locator("footer")).toBeVisible();
+    });
+
+    test(`footer has mail and LinkedIn links on ${url}`, async ({ page }) => {
+      await page.goto(url, { waitUntil: "networkidle" });
+      await expect(
+        page.locator('footer a[href*="mailto:me@mrh.is"]'),
+      ).toBeAttached();
+      await expect(
+        page.locator('footer a[href*="linkedin.com"]'),
+      ).toBeAttached();
+    });
+
+    test(`footer view-source link is present on ${url}`, async ({ page }) => {
+      await page.goto(url, { waitUntil: "networkidle" });
+      await expect(
+        page.locator(
+          'footer a[href="https://github.com/mrh-is/mrh-is.github.io"]',
+        ),
+      ).toBeAttached();
+    });
+  }
 });
 
 test.describe("Project Pages Specific Tests", () => {
