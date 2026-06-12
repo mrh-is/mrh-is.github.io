@@ -66,4 +66,18 @@ test.describe("Accessibility", () => {
       .evaluate((el) => getComputedStyle(el, "::after").transitionDuration);
     expect(parseFloat(duration)).toBeLessThan(0.001);
   });
+
+  test("section ids are slug-safe (no spaces, colons, or empty strings)", async ({
+    page,
+  }) => {
+    await page.goto("/timeline", { waitUntil: "networkidle" });
+    const sections = page.locator("[id]");
+    const count = await sections.count();
+    expect(count).toBeGreaterThan(0);
+    for (let i = 0; i < count; i++) {
+      const id = await sections.nth(i).getAttribute("id");
+      expect(id).toBeTruthy(); // no empty strings
+      expect(id).toMatch(/^[a-z0-9-]+$/); // only slug-safe chars
+    }
+  });
 });

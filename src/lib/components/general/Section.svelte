@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
+  import { slugify } from "$lib/utils/slugify";
 
   interface Props {
     title?: string;
@@ -11,7 +12,7 @@
   const { title, subtitle, headingLevel = 2, children }: Props = $props();
 </script>
 
-<div class="section" id={title?.toLocaleLowerCase()}>
+<div class="section" id={slugify(title)}>
   {#if title}
     <svelte:element this={`h${headingLevel}`} class="section-title header-font">
       {title}
