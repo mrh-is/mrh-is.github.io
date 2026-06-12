@@ -89,7 +89,7 @@
   >
     <img
       src={currentCoverUrl}
-      alt={currentCoverAlt}
+      alt={currentCoverAlt ?? ""}
       fetchpriority={hero ? "high" : undefined}
       loading={hero ? undefined : "lazy"}
     />

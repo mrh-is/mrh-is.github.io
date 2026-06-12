@@ -17,8 +17,10 @@
   });
 </script>
 
-{#if isDark}
-  {darkEmoji}
-{:else}
-  {lightEmoji}
-{/if}
+<span aria-hidden="true">
+  {#if isDark}
+    {darkEmoji}
+  {:else}
+    {lightEmoji}
+  {/if}
+</span>

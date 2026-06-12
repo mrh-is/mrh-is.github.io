@@ -10,7 +10,7 @@
 </script>
 
 <div>
-  <nav>
+  <nav aria-label="Main">
     <a href="/" class="home header-font">Michael Helmbrecht</a>
     <div class="page-list">
       <ProjectsDropdown {projects} />
