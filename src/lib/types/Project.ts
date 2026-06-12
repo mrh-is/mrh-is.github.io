@@ -62,6 +62,7 @@ export interface Project {
   tagline: string;
   content: ContentBlock[];
   priority?: number;
+  ctaLeadIn?: string;
 }
 
 export interface ProjectPreview {
