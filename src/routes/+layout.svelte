@@ -4,6 +4,7 @@
   import { styleStringFromScheme } from "$lib/types/Colors";
   import BlobLayer from "$lib/components/blob/BlobLayer.svelte";
   import NavBar from "$lib/components/NavBar.svelte";
+  import Footer from "$lib/components/Footer.svelte";
 
   import "$lib/assets/normalize.css";
   import "$lib/assets/styles.css";
@@ -101,6 +102,8 @@
       {@render children()}
     </div>
   </main>
+
+  <Footer />
 </div>
 
 <style>
