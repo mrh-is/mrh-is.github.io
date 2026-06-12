@@ -2,10 +2,8 @@
   import Section from "$lib/components/general/Section.svelte";
 
   import parque from "$lib/assets/Parque.jpg?enhanced";
-  import Icon from "$lib/components/general/Icon.svelte";
-  import Button from "$lib/components/general/Button.svelte";
-  import EmojiSwitcher from "$lib/components/general/EmojiSwitcher.svelte";
   import ProjectTileList from "$lib/components/projects/ProjectTileList.svelte";
+  import ContactCTA from "$lib/components/ContactCTA.svelte";
   import type { PageData } from "./$types";
 
   interface Props {
@@ -67,43 +65,11 @@
   </ul>
 </Section>
 
-<Section>
-  <div class="centerer">
-    <Button href="mailto:me@mrh.is?subject=Let’s%20work%20together!"
-      >Let’s talk! <EmojiSwitcher lightEmoji="💌" darkEmoji="📬" /></Button
-    >
-  </div>
-</Section>
+<ContactCTA />
 
 <Section>
   <p>Have a look at some of my work:</p>
   <ProjectTileList projects={data.projects} />
-</Section>
-
-<Section>
-  <div class="icon-set">
-    <a
-      href="https://github.com/mrh-is"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <Icon name="GitHub" size={40} />
-    </a>
-    <a
-      href="https://www.instagram.com/mrh_is/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <Icon name="Instagram" size={40} />
-    </a>
-    <a
-      href="https://www.linkedin.com/in/michaelhelmbrecht/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <Icon name="LinkedIn" size={40} />
-    </a>
-  </div>
 </Section>
 
 <style>
@@ -133,19 +99,6 @@
     width: 20rem;
     height: 20rem;
     object-fit: cover;
-  }
-
-  .centerer {
-    justify-content: center;
-    display: flex;
-  }
-
-  .icon-set {
-    column-gap: 2rem;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    display: flex;
   }
 
   @media (max-width: 1000px) {
