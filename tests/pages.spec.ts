@@ -157,10 +157,10 @@ test.describe("Footer", () => {
       await page.goto(url, { waitUntil: "networkidle" });
       await expect(
         page.locator('footer a[href*="mailto:me@mrh.is"]'),
-      ).toBeAttached();
+      ).toBeVisible();
       await expect(
         page.locator('footer a[href*="linkedin.com"]'),
-      ).toBeAttached();
+      ).toBeVisible();
     });
 
     test(`footer view-source link is present on ${url}`, async ({ page }) => {
@@ -169,7 +169,7 @@ test.describe("Footer", () => {
         page.locator(
           'footer a[href="https://github.com/mrh-is/mrh-is.github.io"]',
         ),
-      ).toBeAttached();
+      ).toBeVisible();
     });
   }
 });
