@@ -71,7 +71,7 @@ test.describe("Accessibility", () => {
     page,
   }) => {
     await page.goto("/timeline", { waitUntil: "networkidle" });
-    const sections = page.locator("[id]");
+    const sections = page.locator(".section[id]");
     const count = await sections.count();
     expect(count).toBeGreaterThan(0);
     for (let i = 0; i < count; i++) {
