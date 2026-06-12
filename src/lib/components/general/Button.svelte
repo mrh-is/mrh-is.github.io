@@ -45,10 +45,19 @@
     transform: scale(0.95);
   }
 
+  .button:focus-visible {
+    outline: 3px solid var(--color-dark-text);
+    outline-offset: 3px;
+  }
+
   @media (prefers-color-scheme: dark) {
     .button {
       background: var(--color-light-blob);
       color: var(--color-light-text);
+    }
+
+    .button:focus-visible {
+      outline-color: var(--color-light-text);
     }
   }
 </style>

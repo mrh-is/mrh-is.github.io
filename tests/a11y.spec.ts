@@ -89,4 +89,18 @@ test.describe("Accessibility", () => {
     );
     await expect(unnamedRegions).toHaveCount(0);
   });
+
+  test("CTA button has a visible focus ring", async ({ page, browserName }) => {
+    test.skip(
+      browserName !== "chromium",
+      "focus-visible computed styles vary by engine",
+    );
+    await page.goto("/", { waitUntil: "networkidle" });
+    const button = page.locator("a.button, button.button").first();
+    await button.focus();
+    const outlineWidth = await button.evaluate(
+      (el) => getComputedStyle(el).outlineWidth,
+    );
+    expect(parseFloat(outlineWidth)).toBeGreaterThan(0);
+  });
 });
