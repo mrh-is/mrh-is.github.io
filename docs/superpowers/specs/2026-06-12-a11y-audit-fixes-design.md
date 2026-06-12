@@ -25,10 +25,10 @@ Manual accessibility audit of all Svelte components and project data. 8 issues f
 - `id=""` when `title` is undefined (invalid HTML; can corrupt skip-link targeting)
 - IDs containing spaces and punctuation (e.g., `id="call me if you:"`) — technically valid but fragile
 
-**Fix:** Only set `id` when title is a non-empty string, and slugify it: lowercase, replace any non-alphanumeric characters with hyphens, collapse consecutive hyphens, trim leading/trailing hyphens.
+**Fix:** Extract a `slugify(text: string | undefined): string | undefined` helper (location: `src/lib/utils/slugify.ts`). It returns `undefined` for falsy input, otherwise lowercases, replaces runs of non-alphanumeric characters with single hyphens, and trims leading/trailing hyphens. Use it in `Section.svelte`:
 
 ```
-id={title ? title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') : undefined}
+id={slugify(title)}
 ```
 
 ---
@@ -98,15 +98,17 @@ Concrete approach: use a double ring — a colored outer ring contrasting agains
 
 **Issue:** External links in `FormattedText` use `target="_blank"` but — unlike `OutboundLink.svelte` — give no screen reader announcement that a new tab will open. Keyboard users navigating prose will be surprised when focus moves to a new window.
 
-**Fix:** Add the same visually-hidden span pattern as `OutboundLink`:
+**Fix:** Add the same visually-hidden "(opens in new tab)" span as `OutboundLink`, plus a superscript `↗` for sighted users — quieter than the inline arrow in `OutboundLink` but still signals external:
 
 ```svelte
 <a href={segment.href} target="_blank" rel="noopener noreferrer">
-  {segment.text}<span class="visually-hidden"> (opens in new tab)</span>
+  {segment.text}<sup aria-hidden="true">↗</sup><span class="visually-hidden">
+    (opens in new tab)</span
+  >
 </a>
 ```
 
-No `↗` arrow — prose links should not get the arrow (would be visually noisy). The visual affordance question is left to a quick design review by the author.
+Also update `OutboundLink.svelte` to use the same superscript `↗` pattern (replacing the current inline ` ↗` span) so both components are visually and semantically consistent.
 
 The `.visually-hidden` class is already defined in `styles.css`.
 
@@ -132,15 +134,17 @@ Existing tests that already cover related issues (do not duplicate):
 
 ## Files Changed
 
-| File                                                     | Change                                                |
-| -------------------------------------------------------- | ----------------------------------------------------- |
-| `src/lib/components/dropdown/Dropdown.svelte`            | Remove `role="region"`                                |
-| `src/lib/components/general/Section.svelte`              | Slugify `id` attribute, only set when non-empty       |
-| `src/routes/projects/[slug]/blocks/ImageCarousel.svelte` | Fallback `alt=""` when all alt sources are undefined  |
-| `src/lib/components/general/Button.svelte`               | Add `:focus-visible` double-ring outline              |
-| `src/lib/components/general/EmojiSwitcher.svelte`        | Wrap emoji in `aria-hidden="true"` span               |
-| `src/lib/components/NavBar.svelte`                       | Add `aria-label="Main"` to `<nav>`                    |
-| `src/lib/components/general/FormattedText.svelte`        | Add visually-hidden new-tab warning on external links |
-| `tests/a11y.spec.ts`                                     | Add 4 new assertions                                  |
+| File                                                     | Change                                                              |
+| -------------------------------------------------------- | ------------------------------------------------------------------- |
+| `src/lib/utils/slugify.ts`                               | New helper: `slugify(text?: string): string \| undefined`           |
+| `src/lib/components/dropdown/Dropdown.svelte`            | Remove `role="region"`                                              |
+| `src/lib/components/general/Section.svelte`              | Use `slugify()` for `id`, only set when non-empty                   |
+| `src/routes/projects/[slug]/blocks/ImageCarousel.svelte` | Fallback `alt=""` when all alt sources are undefined                |
+| `src/lib/components/general/Button.svelte`               | Add `:focus-visible` outline in light and dark mode                 |
+| `src/lib/components/general/EmojiSwitcher.svelte`        | Wrap emoji in `aria-hidden="true"` span                             |
+| `src/lib/components/NavBar.svelte`                       | Add `aria-label="Main"` to `<nav>`                                  |
+| `src/lib/components/general/FormattedText.svelte`        | Add superscript `↗` + visually-hidden new-tab warning               |
+| `src/lib/components/general/OutboundLink.svelte`         | Replace inline `↗` span with superscript `↗` to match FormattedText |
+| `tests/a11y.spec.ts`                                     | Add 4 new assertions                                                |
 
 **Not changed:** Color scheme files — all 8 link colors pass WCAG AA (min ratio 6.43:1).
