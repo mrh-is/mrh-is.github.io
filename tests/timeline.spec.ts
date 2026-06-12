@@ -1,14 +1,13 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("Timeline rich text", () => {
-  test("external description links open safely in new tabs", async ({
+  test("external description links navigate in the same tab", async ({
     page,
   }) => {
     await page.goto("/timeline", { waitUntil: "networkidle" });
     const capstoneLink = page.locator('main a[href*="capstone"]');
     await expect(capstoneLink).toBeAttached();
-    await expect(capstoneLink).toHaveAttribute("target", "_blank");
-    await expect(capstoneLink).toHaveAttribute("rel", "noopener noreferrer");
+    await expect(capstoneLink).not.toHaveAttribute("target", "_blank");
   });
 
   test("internal description links stay in-tab", async ({ page }) => {

@@ -47,7 +47,7 @@ test.describe("parseInlineMarkdown unit tests", () => {
 });
 
 test.describe("FormattedText html generation spec", () => {
-  test("projects text block external links open safely in a new tab", async ({
+  test("projects text block external links navigate in the same tab", async ({
     page,
   }) => {
     await page.goto("/projects/kidfund", { waitUntil: "networkidle" });
@@ -55,8 +55,7 @@ test.describe("FormattedText html generation spec", () => {
     // Find the external link to kidfund.us
     const kidfundLink = page.locator('main a[href="https://www.kidfund.us/"]');
     await expect(kidfundLink).toBeVisible();
-    await expect(kidfundLink).toHaveAttribute("target", "_blank");
-    await expect(kidfundLink).toHaveAttribute("rel", "noopener noreferrer");
+    await expect(kidfundLink).not.toHaveAttribute("target", "_blank");
 
     // Check that we don't leak any raw HTML tags in the main text block
     const text = await page.locator("main").innerText();

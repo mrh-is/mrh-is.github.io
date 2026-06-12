@@ -12,8 +12,6 @@
         </a>
         <a
           href="https://www.linkedin.com/in/michaelhelmbrecht/"
-          target="_blank"
-          rel="noopener noreferrer"
           aria-label="LinkedIn"
         >
           <Icon name="LinkedIn" size={20} />
@@ -22,9 +20,7 @@
     </div>
     <p class="footer-sub">
       designed &amp; built by me · <a
-        href="https://github.com/mrh-is/mrh-is.github.io"
-        target="_blank"
-        rel="noopener noreferrer">view source</a
+        href="https://github.com/mrh-is/mrh-is.github.io">view source</a
       >
     </p>
   </div>

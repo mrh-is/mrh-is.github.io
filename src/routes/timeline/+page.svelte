@@ -3,7 +3,6 @@
   import Entry from "./Entry.svelte";
 
   import resumeSrc from "$lib/assets/Michael Helmbrecht resume.pdf";
-  import OutboundLink from "$lib/components/general/OutboundLink.svelte";
   import type { PageData } from "./$types";
 
   interface Props {
@@ -28,11 +27,8 @@
 
 <Section>
   <p>
-    Also available <OutboundLink href={resumeSrc}>as a PDF</OutboundLink>. Or
-    you can read this on
-    <OutboundLink href="https://www.linkedin.com/in/michaelhelmbrecht/">
-      LinkedIn
-    </OutboundLink>
+    Also available <a href={resumeSrc}>as a PDF</a>. Or you can read this on
+    <a href="https://www.linkedin.com/in/michaelhelmbrecht/">LinkedIn</a>
     if you’re into that sort of thing.
   </p>
 </Section>
