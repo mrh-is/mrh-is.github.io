@@ -80,4 +80,13 @@ test.describe("Accessibility", () => {
       expect(id).toMatch(/^[a-z0-9-]+$/); // only slug-safe chars
     }
   });
+
+  test("nav dropdown has no unnamed region landmark", async ({ page }) => {
+    await page.goto("/", { waitUntil: "networkidle" });
+    // role="region" without aria-label creates an unnamed landmark — should not exist
+    const unnamedRegions = page.locator(
+      '[role="region"]:not([aria-label]):not([aria-labelledby])',
+    );
+    await expect(unnamedRegions).toHaveCount(0);
+  });
 });

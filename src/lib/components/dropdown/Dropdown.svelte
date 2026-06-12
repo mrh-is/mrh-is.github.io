@@ -21,7 +21,8 @@
 </script>
 
 <div
-  role="region"
+  role="group"
+  aria-label="Navigation menu"
   class:expanded={!!mode}
   onmouseleave={() => {
     if (mode !== "hover") {
