@@ -103,4 +103,20 @@ test.describe("Accessibility", () => {
     );
     expect(parseFloat(outlineWidth)).toBeGreaterThan(0);
   });
+
+  test("external links in project prose announce new tab to screen readers", async ({
+    page,
+  }) => {
+    // Archipelago tooling project has external links in FormattedText prose
+    await page.goto("/projects/archipelago-tooling", {
+      waitUntil: "networkidle",
+    });
+    const externalLinks = page.locator('main a[target="_blank"]');
+    const count = await externalLinks.count();
+    expect(count).toBeGreaterThan(0);
+    for (let i = 0; i < count; i++) {
+      const warning = externalLinks.nth(i).locator(".visually-hidden");
+      await expect(warning).toContainText("opens in new tab");
+    }
+  });
 });

@@ -16,7 +16,11 @@
     <a href={segment.href}>{segment.text}</a>
   {:else}
     <a href={segment.href} target="_blank" rel="noopener noreferrer"
-      >{segment.text}</a
+      >{segment.text}<sup aria-hidden="true">↗</sup><span
+        class="visually-hidden"
+      >
+        (opens in new tab)</span
+      ></a
     >
   {/if}
 {/each}

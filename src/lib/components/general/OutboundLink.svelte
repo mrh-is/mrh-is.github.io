@@ -11,7 +11,9 @@
 </script>
 
 <a {href} target="_blank" rel="noopener noreferrer">
-  {@render children()} <span aria-hidden="true">↗</span><span
-    class="visually-hidden">(opens in new tab)</span
+  {@render children()}<sup aria-hidden="true">↗</sup><span
+    class="visually-hidden"
+  >
+    (opens in new tab)</span
   >
 </a>
