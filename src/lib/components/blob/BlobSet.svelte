@@ -27,7 +27,6 @@
     onexit,
   }: Props = $props();
 
-  const BLOB_SIZE = 600;
   const TRANSITION_DURATION = 800;
   const REDUCED_MOTION_DURATION = 200;
 
@@ -97,18 +96,13 @@
 >
   {#each configs as config, index (index)}
     <div
-      class="blob-position"
-      style:margin-top="{config.position.top}rem"
-      style:height="{BLOB_SIZE}px"
+      class="blob-wrapper"
+      style:top="{config.position.top}rem"
+      style:left="{config.position.left}%"
+      style={blobStyle(index)}
+      ontransitionend={(e) => transitionEndHandler(e, index)}
     >
-      <div
-        class="blob-wrapper"
-        style:left="{config.position.left}%"
-        style={blobStyle(index)}
-        ontransitionend={(e) => transitionEndHandler(e, index)}
-      >
-        <BlobRenderer path={paths[index] ?? ""} />
-      </div>
+      <BlobRenderer path={paths[index] ?? ""} />
     </div>
   {/each}
 </div>
@@ -119,10 +113,6 @@
     width: 100%;
     top: 0;
     pointer-events: none;
-  }
-
-  .blob-position {
-    position: relative;
   }
 
   .blob-wrapper {

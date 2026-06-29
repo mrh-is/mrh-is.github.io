@@ -108,12 +108,14 @@
 
     pathsBySet = computeAllPaths(Date.now());
 
-    // Use requestAnimationFrame to let the entering styles render before
-    // flipping to visible (triggers the CSS transition)
+    // Double-rAF: first frame paints "entering" styles, second frame flips
+    // to "visible" so the browser transitions from the painted initial state
     oneshotRaf = requestAnimationFrame(() => {
-      sets = sets.map((s) =>
-        s.phase === "entering" ? { ...s, phase: "visible" } : s,
-      );
+      oneshotRaf = requestAnimationFrame(() => {
+        sets = sets.map((s) =>
+          s.phase === "entering" ? { ...s, phase: "visible" } : s,
+        );
+      });
     });
 
     if (transitionTimer) {
@@ -211,8 +213,9 @@
     position: absolute;
     width: 100%;
     top: 0;
+    bottom: 0;
     z-index: -1;
-    overflow-x: clip;
+    overflow: clip;
     pointer-events: none;
   }
 </style>

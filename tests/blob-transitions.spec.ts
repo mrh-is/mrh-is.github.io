@@ -37,15 +37,14 @@ test.describe("Blob transitions", () => {
     expect(hasHorizontalScroll).toBe(false);
   });
 
-  test("blob layer does not clip vertically", async ({ page }) => {
+  test("blob layer does not extend beyond page content", async ({ page }) => {
     await page.goto("/", { waitUntil: "networkidle" });
-    const overflowY = await page.evaluate(() => {
+    const hasExcessHeight = await page.evaluate(() => {
       const layer = document.querySelector(".blob-layer") as HTMLElement;
-      if (!layer) {
-        return "missing";
-      }
-      return getComputedStyle(layer).overflowY;
+      const pageEl = document.querySelector(".page") as HTMLElement;
+      if (!layer || !pageEl) {return true;}
+      return layer.scrollHeight > pageEl.scrollHeight + 100;
     });
-    expect(overflowY).toBe("visible");
+    expect(hasExcessHeight).toBe(false);
   });
 });
