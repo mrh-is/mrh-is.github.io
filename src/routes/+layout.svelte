@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from "$app/stores";
   import { PUBLIC_ORIGIN } from "$env/static/public";
-  import { styleStringFromScheme } from "$lib/types/Colors";
+  import { styleStringFromScheme, defaultColorScheme } from "$lib/types/Colors";
   import BlobLayer from "$lib/components/blob/BlobLayer.svelte";
   import NavBar from "$lib/components/NavBar.svelte";
   import Footer from "$lib/components/Footer.svelte";
@@ -93,7 +93,10 @@
 <div class="page" style={styleStringFromScheme($page.data.colorScheme)}>
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <BlobLayer seed={$page.url.pathname} />
+  <BlobLayer
+    seed={$page.url.pathname}
+    colorScheme={$page.data.colorScheme ?? defaultColorScheme}
+  />
 
   <NavBar projects={data.projects} />
 
