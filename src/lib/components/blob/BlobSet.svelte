@@ -42,7 +42,6 @@
   }
 
   function blobStyle(index: number): string {
-    const _config = configs[index];
     const drift = driftVectors?.[index];
     const delay = staggerDelays?.[index] ?? 0;
     const duration = reducedMotion

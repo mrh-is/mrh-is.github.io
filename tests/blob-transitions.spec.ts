@@ -41,7 +41,9 @@ test.describe("Blob transitions", () => {
     await page.goto("/", { waitUntil: "networkidle" });
     const overflowY = await page.evaluate(() => {
       const layer = document.querySelector(".blob-layer") as HTMLElement;
-      if (!layer) {return "missing";}
+      if (!layer) {
+        return "missing";
+      }
       return getComputedStyle(layer).overflowY;
     });
     expect(overflowY).toBe("visible");

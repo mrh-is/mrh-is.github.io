@@ -18,7 +18,7 @@ describe("blob types", () => {
 
   it("BlobSetPhase is a string union", () => {
     expectTypeOf<BlobSetPhase>().toEqualTypeOf<
-      "entering" | "visible" | "exiting" | "gone"
+      "entering" | "visible" | "exiting"
     >();
   });
 });

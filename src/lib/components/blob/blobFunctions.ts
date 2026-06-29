@@ -87,16 +87,9 @@ export function computeDriftVectors(
 ): { dx: number; dy: number }[] {
   return oldConfigs.map((old, i) => {
     const nw = newConfigs[i];
-    const rawDx = nw.position.left - old.position.left;
-    const rawDy = nw.position.top - old.position.top;
-    const magnitude = Math.sqrt(rawDx * rawDx + rawDy * rawDy);
-    if (magnitude === 0) {
-      return { dx: 0, dy: 0 };
-    }
-    const scale = magnitude * 0.4;
     return {
-      dx: (rawDx / magnitude) * scale,
-      dy: (rawDy / magnitude) * scale,
+      dx: (nw.position.left - old.position.left) * 0.4,
+      dy: (nw.position.top - old.position.top) * 0.4,
     };
   });
 }

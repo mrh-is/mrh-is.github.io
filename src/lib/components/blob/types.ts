@@ -1,6 +1,6 @@
 import type { BlobPath } from "./BlobPathGeometry";
 
-export type BlobSetPhase = "entering" | "visible" | "exiting" | "gone";
+export type BlobSetPhase = "entering" | "visible" | "exiting";
 
 export interface BlobConfig {
   position: { top: number; left: number };

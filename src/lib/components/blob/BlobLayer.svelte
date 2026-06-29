@@ -1,7 +1,6 @@
 <!-- src/lib/components/blob/BlobLayer.svelte -->
 <script lang="ts">
   import { onMount, untrack } from "svelte";
-  import { checkMediaQuery, KnownQueries } from "$lib/MediaQueryWatcher";
   import type { ColorScheme } from "$lib/types/Colors";
   import BlobSet from "./BlobSet.svelte";
   import type { BlobSetState } from "./types";
@@ -28,6 +27,13 @@
   let oneshotRaf: number | undefined;
   let transitionTimer: ReturnType<typeof setTimeout> | undefined;
 
+  let reducedMotion = $state(false);
+
+  const reducedMotionQuery =
+    typeof window !== "undefined"
+      ? window.matchMedia("(prefers-reduced-motion: reduce)")
+      : null;
+
   function computeAllPaths(time: number): string[][] {
     return sets.map((set) =>
       set.configs.map((config) => computeBlobPath(config, time, WAGGLE_SIZE)),
@@ -35,11 +41,22 @@
   }
 
   function rafLoop() {
-    const reducedMotion = checkMediaQuery(KnownQueries.ReducedMotion);
-    if (!reducedMotion) {
-      pathsBySet = computeAllPaths(Date.now());
-    }
+    pathsBySet = computeAllPaths(Date.now());
     rafHandle = requestAnimationFrame(rafLoop);
+  }
+
+  function startRaf() {
+    if (rafHandle) {
+      return;
+    }
+    rafLoop();
+  }
+
+  function stopRaf() {
+    if (rafHandle) {
+      cancelAnimationFrame(rafHandle);
+      rafHandle = 0;
+    }
   }
 
   function startTransition(
@@ -123,12 +140,14 @@
     startTransition(
       currentSeed,
       untrack(() => lightBlobColor),
-      sets,
+      untrack(() => sets),
     );
   });
 
   onMount(() => {
     isMounted = true;
+    reducedMotion = reducedMotionQuery?.matches ?? false;
+
     // Initial set — skip transition, go straight to visible
     const initialConfigs = generateBlobConfigs(seed, lightBlobColor);
     sets = [
@@ -142,23 +161,31 @@
     pathsBySet = computeAllPaths(Date.now());
     prevSeed = seed;
 
-    rafLoop();
+    if (!reducedMotion) {
+      startRaf();
+    }
+
+    const motionHandler = (e: MediaQueryListEvent) => {
+      reducedMotion = e.matches;
+      if (e.matches) {
+        stopRaf();
+      } else {
+        startRaf();
+      }
+    };
+    reducedMotionQuery?.addEventListener("change", motionHandler);
+
     return () => {
-      cancelAnimationFrame(rafHandle);
+      stopRaf();
       if (oneshotRaf !== undefined) {
         cancelAnimationFrame(oneshotRaf);
       }
       if (transitionTimer) {
         clearTimeout(transitionTimer);
       }
+      reducedMotionQuery?.removeEventListener("change", motionHandler);
     };
   });
-
-  const reducedMotion = $derived(
-    typeof window !== "undefined"
-      ? checkMediaQuery(KnownQueries.ReducedMotion)
-      : false,
-  );
 </script>
 
 <div class="blob-layer">
