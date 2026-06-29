@@ -15,7 +15,7 @@
 <style>
   path {
     fill: none;
-    stroke: inherit;
+    stroke: currentColor;
     stroke-linecap: round;
     stroke-linejoin: round;
   }
