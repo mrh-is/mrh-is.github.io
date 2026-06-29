@@ -90,7 +90,9 @@ export function computeDriftVectors(
     const rawDx = nw.position.left - old.position.left;
     const rawDy = nw.position.top - old.position.top;
     const magnitude = Math.sqrt(rawDx * rawDx + rawDy * rawDy);
-    if (magnitude === 0) {return { dx: 0, dy: 0 };}
+    if (magnitude === 0) {
+      return { dx: 0, dy: 0 };
+    }
     const scale = magnitude * 0.4;
     return {
       dx: (rawDx / magnitude) * scale,
