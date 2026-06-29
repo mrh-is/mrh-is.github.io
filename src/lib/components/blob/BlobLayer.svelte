@@ -1,6 +1,6 @@
 <!-- src/lib/components/blob/BlobLayer.svelte -->
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onMount, untrack } from "svelte";
   import { checkMediaQuery, KnownQueries } from "$lib/MediaQueryWatcher";
   import type { ColorScheme } from "$lib/types/Colors";
   import BlobSet from "./BlobSet.svelte";
@@ -25,6 +25,7 @@
   let sets = $state<BlobSetState[]>([]);
   let pathsBySet = $state<string[][]>([]);
   let rafHandle = 0;
+  let oneshotRaf: number | undefined;
   let transitionTimer: ReturnType<typeof setTimeout> | undefined;
 
   function computeAllPaths(time: number): string[][] {
@@ -92,13 +93,15 @@
 
     // Use requestAnimationFrame to let the entering styles render before
     // flipping to visible (triggers the CSS transition)
-    requestAnimationFrame(() => {
+    oneshotRaf = requestAnimationFrame(() => {
       sets = sets.map((s) =>
         s.phase === "entering" ? { ...s, phase: "visible" } : s,
       );
     });
 
-    if (transitionTimer) {clearTimeout(transitionTimer);}
+    if (transitionTimer) {
+      clearTimeout(transitionTimer);
+    }
     transitionTimer = setTimeout(() => {
       sets = sets.filter((s) => s.phase !== "exiting");
     }, TRANSITION_DURATION);
@@ -113,9 +116,15 @@
   let isMounted = false;
   $effect(() => {
     const currentSeed = seed; // track reactive dependency
-    if (!isMounted || currentSeed === prevSeed) {return;}
+    if (!isMounted || currentSeed === prevSeed) {
+      return;
+    }
     prevSeed = currentSeed;
-    startTransition(currentSeed, lightBlobColor, sets);
+    startTransition(
+      currentSeed,
+      untrack(() => lightBlobColor),
+      sets,
+    );
   });
 
   onMount(() => {
@@ -136,7 +145,12 @@
     rafLoop();
     return () => {
       cancelAnimationFrame(rafHandle);
-      if (transitionTimer) {clearTimeout(transitionTimer);}
+      if (oneshotRaf !== undefined) {
+        cancelAnimationFrame(oneshotRaf);
+      }
+      if (transitionTimer) {
+        clearTimeout(transitionTimer);
+      }
     };
   });
 
@@ -148,7 +162,7 @@
 </script>
 
 <div class="blob-layer">
-  {#each sets as set, setIndex (set.seed + set.phase)}
+  {#each sets as set, setIndex (set.seed)}
     <BlobSet
       configs={set.configs}
       phase={set.phase}
