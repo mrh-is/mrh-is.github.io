@@ -94,6 +94,17 @@ export function computeDriftVectors(
   });
 }
 
+export function generateRandomDrift(
+  seed: string,
+  count: number,
+): { dx: number; dy: number }[] {
+  const rand = new DeterministicVendor(seed + "__drift");
+  return Array.from({ length: count }, () => ({
+    dx: (rand.next() - 0.5) * 8,
+    dy: (rand.next() - 0.5) * 4,
+  }));
+}
+
 export function generateStaggerDelays(seed: string, count: number): number[] {
   const rand = new DeterministicVendor(seed + "__stagger");
   return Array.from({ length: count }, () => rand.next() * 150);

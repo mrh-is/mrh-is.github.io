@@ -42,7 +42,9 @@ test.describe("Blob transitions", () => {
     const hasExcessHeight = await page.evaluate(() => {
       const layer = document.querySelector(".blob-layer") as HTMLElement;
       const pageEl = document.querySelector(".page") as HTMLElement;
-      if (!layer || !pageEl) {return true;}
+      if (!layer || !pageEl) {
+        return true;
+      }
       return layer.scrollHeight > pageEl.scrollHeight + 100;
     });
     expect(hasExcessHeight).toBe(false);

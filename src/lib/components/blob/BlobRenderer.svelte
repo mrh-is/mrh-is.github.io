@@ -15,7 +15,7 @@
 <style>
   path {
     fill: none;
-    stroke: currentColor;
+    stroke: var(--blob-stroke-color, transparent);
     stroke-linecap: round;
     stroke-linejoin: round;
   }

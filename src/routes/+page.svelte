@@ -38,12 +38,14 @@
         I’m a product designer & developer based in Pittsburgh, PA.
       </p>
     </div>
-    <enhanced:img
-      fetchpriority="high"
-      src={parque}
-      alt="Me!"
-      sizes="(max-width: 400px) 100vw, (max-width: 1000px) 80vw, 320px"
-    />
+    <div class="portrait">
+      <enhanced:img
+        fetchpriority="high"
+        src={parque}
+        alt="Me!"
+        sizes="(max-width: 400px) 100vw, (max-width: 1000px) 80vw, 320px"
+      />
+    </div>
   </div>
   <p>I have a decade of experience helping startups build great products.</p>
   <p>
@@ -93,11 +95,17 @@
     font-weight: 500;
   }
 
-  enhanced\:img {
-    border-radius: 100%;
+  .portrait {
     flex: none;
     width: 20rem;
     height: 20rem;
+    border-radius: 100%;
+    overflow: hidden;
+  }
+
+  .portrait :global(img) {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 
@@ -108,7 +116,7 @@
       margin-bottom: 5rem;
     }
 
-    enhanced\:img {
+    .portrait {
       width: 80%;
       height: auto;
       aspect-ratio: 1;
@@ -116,7 +124,7 @@
   }
 
   @media (max-width: 400px) {
-    enhanced\:img {
+    .portrait {
       width: 100%;
     }
   }

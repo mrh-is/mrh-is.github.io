@@ -8,6 +8,7 @@
     generateBlobConfigs,
     computeBlobPath,
     computeDriftVectors,
+    generateRandomDrift,
     generateStaggerDelays,
   } from "./blobFunctions";
 
@@ -19,13 +20,16 @@
   const { seed, colorScheme }: Props = $props();
 
   const WAGGLE_SIZE = 600 * 0.03;
-  const TRANSITION_DURATION = 950; // slightly longer than CSS 800ms + max stagger 150ms
+  const PHASE_DURATION = 2200;
+  let enterDelayTimer: ReturnType<typeof setTimeout> | undefined;
 
   let sets = $state<BlobSetState[]>([]);
-  let pathsBySet = $state<string[][]>([]);
+  let pathsBySeed = $state<Record<string, string[]>>({});
   let rafHandle = 0;
   let oneshotRaf: number | undefined;
   let transitionTimer: ReturnType<typeof setTimeout> | undefined;
+  let rafPauseOffset = 0;
+  let rafPausedAt = 0;
 
   let reducedMotion = $state(false);
 
@@ -34,20 +38,32 @@
       ? window.matchMedia("(prefers-reduced-motion: reduce)")
       : null;
 
-  function computeAllPaths(time: number): string[][] {
-    return sets.map((set) =>
-      set.configs.map((config) => computeBlobPath(config, time, WAGGLE_SIZE)),
-    );
+  function waggleTime(): number {
+    return Date.now() - rafPauseOffset;
+  }
+
+  function computeAllPaths(time: number): Record<string, string[]> {
+    const result: Record<string, string[]> = {};
+    for (const set of sets) {
+      result[set.seed] = set.configs.map((config) =>
+        computeBlobPath(config, time, WAGGLE_SIZE),
+      );
+    }
+    return result;
   }
 
   function rafLoop() {
-    pathsBySet = computeAllPaths(Date.now());
+    pathsBySeed = computeAllPaths(waggleTime());
     rafHandle = requestAnimationFrame(rafLoop);
   }
 
   function startRaf() {
     if (rafHandle) {
       return;
+    }
+    if (rafPausedAt) {
+      rafPauseOffset += Date.now() - rafPausedAt;
+      rafPausedAt = 0;
     }
     rafLoop();
   }
@@ -56,6 +72,7 @@
     if (rafHandle) {
       cancelAnimationFrame(rafHandle);
       rafHandle = 0;
+      rafPausedAt = Date.now();
     }
   }
 
@@ -106,35 +123,57 @@
       ];
     }
 
-    pathsBySet = computeAllPaths(Date.now());
+    pathsBySeed = computeAllPaths(waggleTime());
 
-    // Double-rAF: first frame paints "entering" styles, second frame flips
-    // to "visible" so the browser transitions from the painted initial state
-    oneshotRaf = requestAnimationFrame(() => {
-      oneshotRaf = requestAnimationFrame(() => {
-        sets = sets.map((s) =>
-          s.phase === "entering" ? { ...s, phase: "visible" } : s,
-        );
-      });
-    });
-
+    if (enterDelayTimer) {
+      clearTimeout(enterDelayTimer);
+    }
     if (transitionTimer) {
       clearTimeout(transitionTimer);
     }
-    transitionTimer = setTimeout(() => {
-      sets = sets.filter((s) => s.phase !== "exiting");
-    }, TRANSITION_DURATION);
+
+    if (currentSet) {
+      const enterDelay = PHASE_DURATION * 0.3;
+
+      enterDelayTimer = setTimeout(() => {
+        oneshotRaf = requestAnimationFrame(() => {
+          oneshotRaf = requestAnimationFrame(() => {
+            sets = sets.map((s) =>
+              s.phase === "entering" ? { ...s, phase: "visible" } : s,
+            );
+          });
+        });
+      }, enterDelay);
+
+      transitionTimer = setTimeout(
+        () => {
+          sets = sets.filter(
+            (s) => s.phase !== "exiting" && s.phase !== "entering",
+          );
+        },
+        enterDelay + PHASE_DURATION + 200,
+      );
+    } else {
+      oneshotRaf = requestAnimationFrame(() => {
+        oneshotRaf = requestAnimationFrame(() => {
+          sets = sets.map((s) =>
+            s.phase === "entering" ? { ...s, phase: "visible" } : s,
+          );
+        });
+      });
+
+      transitionTimer = setTimeout(() => {
+        sets = sets.filter((s) => s.phase !== "entering");
+      }, PHASE_DURATION + 200);
+    }
   }
 
-  // Track the current light blob color from colorScheme
   const lightBlobColor = $derived(colorScheme.light.blob);
 
-  // Watch seed changes — initialize to "" so $state() doesn't capture a reactive prop value.
-  // onMount sets prevSeed = seed before effects can trigger a false transition.
   let prevSeed = $state("");
   let isMounted = false;
   $effect(() => {
-    const currentSeed = seed; // track reactive dependency
+    const currentSeed = seed;
     if (!isMounted || currentSeed === prevSeed) {
       return;
     }
@@ -150,18 +189,27 @@
     isMounted = true;
     reducedMotion = reducedMotionQuery?.matches ?? false;
 
-    // Initial set — skip transition, go straight to visible
     const initialConfigs = generateBlobConfigs(seed, lightBlobColor);
     sets = [
       {
         configs: initialConfigs,
         seed,
-        phase: "visible",
+        phase: "entering",
         startTime: Date.now(),
+        driftVectors: generateRandomDrift(seed, 7),
+        staggerDelays: generateStaggerDelays(seed, 7),
       },
     ];
-    pathsBySet = computeAllPaths(Date.now());
+    pathsBySeed = computeAllPaths(Date.now());
     prevSeed = seed;
+
+    oneshotRaf = requestAnimationFrame(() => {
+      oneshotRaf = requestAnimationFrame(() => {
+        sets = sets.map((s) =>
+          s.phase === "entering" ? { ...s, phase: "visible" } : s,
+        );
+      });
+    });
 
     if (!reducedMotion) {
       startRaf();
@@ -185,17 +233,20 @@
       if (transitionTimer) {
         clearTimeout(transitionTimer);
       }
+      if (enterDelayTimer) {
+        clearTimeout(enterDelayTimer);
+      }
       reducedMotionQuery?.removeEventListener("change", motionHandler);
     };
   });
 </script>
 
 <div class="blob-layer">
-  {#each sets as set, setIndex (set.seed)}
+  {#each sets as set (set.seed)}
     <BlobSet
       configs={set.configs}
       phase={set.phase}
-      paths={pathsBySet[setIndex] ?? []}
+      paths={pathsBySeed[set.seed] ?? []}
       driftVectors={set.driftVectors}
       staggerDelays={set.staggerDelays}
       lightColor={set.configs[0]?.color ?? "transparent"}

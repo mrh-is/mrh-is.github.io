@@ -27,7 +27,7 @@
     onexit,
   }: Props = $props();
 
-  const TRANSITION_DURATION = 800;
+  const TRANSITION_DURATION = 2200;
   const REDUCED_MOTION_DURATION = 200;
 
   function transitionEndHandler(event: TransitionEvent, index: number) {
@@ -40,54 +40,33 @@
     }
   }
 
-  function blobStyle(index: number): string {
+  /* eslint-disable svelte/valid-compile -- intentionally capture initial values; styles must be stable to avoid resetting CSS transitions */
+  const initPhase = phase;
+  const blobStyles = configs.map((_, index) => {
     const drift = driftVectors?.[index];
     const delay = staggerDelays?.[index] ?? 0;
     const duration = reducedMotion
       ? REDUCED_MOTION_DURATION
       : TRANSITION_DURATION;
 
-    let transform = "translate(-50%, 0)";
-    let opacity = "0.4";
-    let filter = "blur(0px)";
-    let scale = "1";
+    const parts: string[] = [
+      `--blob-delay: ${delay}ms`,
+      `--blob-duration: ${duration}ms`,
+    ];
 
-    if (phase === "entering") {
-      if (reducedMotion) {
-        opacity = "0";
+    if (drift) {
+      if (initPhase === "exiting") {
+        parts.push(`--blob-dx: ${drift.dx}%`);
+        parts.push(`--blob-dy: ${drift.dy}rem`);
       } else {
-        opacity = "0";
-        scale = "0.92";
-        filter = "blur(4px)";
-        if (drift) {
-          transform = `translate(calc(-50% + ${-drift.dx}%), ${-drift.dy}rem)`;
-        }
-      }
-    } else if (phase === "exiting") {
-      if (reducedMotion) {
-        opacity = "0";
-      } else {
-        opacity = "0";
-        scale = "0.92";
-        filter = "blur(4px)";
-        if (drift) {
-          transform = `translate(calc(-50% + ${drift.dx}%), ${drift.dy}rem)`;
-        }
+        parts.push(`--blob-dx: ${-drift.dx}%`);
+        parts.push(`--blob-dy: ${-drift.dy}rem`);
       }
     }
 
-    const transitionProps = reducedMotion
-      ? "opacity"
-      : "opacity, transform, filter";
-
-    return [
-      `--blob-opacity: ${opacity}`,
-      `--blob-transform: ${transform} scale(${scale})`,
-      `--blob-filter: ${filter}`,
-      `transition: ${transitionProps} ${duration}ms ease-out`,
-      `transition-delay: ${delay}ms`,
-    ].join("; ");
-  }
+    return parts.join("; ");
+  });
+  /* eslint-enable svelte/valid-compile */
 </script>
 
 <div
@@ -96,13 +75,20 @@
 >
   {#each configs as config, index (index)}
     <div
-      class="blob-wrapper"
-      style:top="{config.position.top}rem"
-      style:left="{config.position.left}%"
-      style={blobStyle(index)}
-      ontransitionend={(e) => transitionEndHandler(e, index)}
+      class="blob-position"
+      style:margin-top="{config.position.top}rem"
+      style:height="600px"
     >
-      <BlobRenderer path={paths[index] ?? ""} />
+      <div
+        class="blob-wrapper"
+        class:entering={phase === "entering"}
+        class:exiting={phase === "exiting"}
+        style:left="{config.position.left}%"
+        style={blobStyles[index]}
+        ontransitionend={(e) => transitionEndHandler(e, index)}
+      >
+        <BlobRenderer path={paths[index] ?? ""} />
+      </div>
     </div>
   {/each}
 </div>
@@ -115,17 +101,44 @@
     pointer-events: none;
   }
 
+  .blob-position {
+    position: relative;
+  }
+
   .blob-wrapper {
     position: absolute;
-    transform: var(--blob-transform, translate(-50%, 0));
-    opacity: var(--blob-opacity, 0.4);
-    filter: var(--blob-filter, none);
-    color: var(--blob-light-color);
+    opacity: 0.4;
+    transform: translate(-50%, 0) scale(1);
+    filter: blur(0px);
+    transition:
+      opacity var(--blob-duration, 800ms) cubic-bezier(0.22, 0.6, 0.1, 1)
+        var(--blob-delay, 0ms),
+      transform var(--blob-duration, 800ms) cubic-bezier(0.22, 0.6, 0.1, 1)
+        var(--blob-delay, 0ms),
+      filter var(--blob-duration, 800ms) cubic-bezier(0.22, 0.6, 0.1, 1)
+        var(--blob-delay, 0ms);
+    --blob-stroke-color: var(--blob-light-color);
+  }
+
+  .blob-wrapper.entering,
+  .blob-wrapper.exiting {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--blob-dx, 0%)), var(--blob-dy, 0rem))
+      scale(0.92);
+    filter: blur(4px);
   }
 
   @media (prefers-color-scheme: dark) {
     .blob-wrapper {
-      color: var(--blob-dark-color);
+      --blob-stroke-color: var(--blob-dark-color);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .blob-wrapper.entering,
+    .blob-wrapper.exiting {
+      transform: translate(-50%, 0) scale(1);
+      filter: blur(0px);
     }
   }
 </style>
