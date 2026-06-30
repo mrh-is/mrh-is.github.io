@@ -40,8 +40,9 @@
     }
   }
 
-  /* eslint-disable svelte/valid-compile -- intentionally capture initial values; styles must be stable to avoid resetting CSS transitions */
+  // svelte-ignore state_referenced_locally
   const initPhase = phase;
+  // svelte-ignore state_referenced_locally
   const blobStyles = configs.map((_, index) => {
     const drift = driftVectors?.[index];
     const delay = staggerDelays?.[index] ?? 0;
@@ -66,7 +67,6 @@
 
     return parts.join("; ");
   });
-  /* eslint-enable svelte/valid-compile */
 </script>
 
 <div

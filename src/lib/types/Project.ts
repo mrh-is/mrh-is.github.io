@@ -43,12 +43,7 @@ export interface Subsection {
   content: ContentBlock[];
 }
 export type ContentBlock =
-  | TextBlock
-  | TitleBlock
-  | ListBlock
-  | ImageCarousel
-  | SingleImage
-  | Subsection;
+  TextBlock | TitleBlock | ListBlock | ImageCarousel | SingleImage | Subsection;
 
 export interface Project {
   title: string;

@@ -20,6 +20,8 @@ Personal portfolio website for Michael Helmbrecht (mrh.is) — a product designe
 
 Pre-commit hook runs `lint-staged` (prettier + eslint --fix on staged .js/.ts/.svelte files).
 
+**Important:** CI runs `npm run lint` (prettier --check + eslint) on the entire repo, not just staged files. Always run `npm run format` before committing to avoid CI failures from unformatted files — including docs and other non-code files that `lint-staged` doesn't cover.
+
 ## Architecture
 
 ### Routing (SvelteKit file-based)
