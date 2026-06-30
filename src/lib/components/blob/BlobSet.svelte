@@ -1,5 +1,6 @@
 <!-- src/lib/components/blob/BlobSet.svelte -->
 <script lang="ts">
+  import { untrack } from "svelte";
   import BlobRenderer from "./BlobRenderer.svelte";
   import type { BlobConfig, BlobSetPhase } from "./types";
 
@@ -40,33 +41,33 @@
     }
   }
 
-  // svelte-ignore state_referenced_locally
-  const initPhase = phase;
-  // svelte-ignore state_referenced_locally
-  const blobStyles = configs.map((_, index) => {
-    const drift = driftVectors?.[index];
-    const delay = staggerDelays?.[index] ?? 0;
-    const duration = reducedMotion
-      ? REDUCED_MOTION_DURATION
-      : TRANSITION_DURATION;
+  const initPhase = untrack(() => phase);
+  const blobStyles = untrack(() =>
+    configs.map((_, index) => {
+      const drift = driftVectors?.[index];
+      const delay = staggerDelays?.[index] ?? 0;
+      const duration = reducedMotion
+        ? REDUCED_MOTION_DURATION
+        : TRANSITION_DURATION;
 
-    const parts: string[] = [
-      `--blob-delay: ${delay}ms`,
-      `--blob-duration: ${duration}ms`,
-    ];
+      const parts: string[] = [
+        `--blob-delay: ${delay}ms`,
+        `--blob-duration: ${duration}ms`,
+      ];
 
-    if (drift) {
-      if (initPhase === "exiting") {
-        parts.push(`--blob-dx: ${drift.dx}%`);
-        parts.push(`--blob-dy: ${drift.dy}rem`);
-      } else {
-        parts.push(`--blob-dx: ${-drift.dx}%`);
-        parts.push(`--blob-dy: ${-drift.dy}rem`);
+      if (drift) {
+        if (initPhase === "exiting") {
+          parts.push(`--blob-dx: ${drift.dx}%`);
+          parts.push(`--blob-dy: ${drift.dy}rem`);
+        } else {
+          parts.push(`--blob-dx: ${-drift.dx}%`);
+          parts.push(`--blob-dy: ${-drift.dy}rem`);
+        }
       }
-    }
 
-    return parts.join("; ");
-  });
+      return parts.join("; ");
+    }),
+  );
 </script>
 
 <div
