@@ -1,0 +1,3 @@
+Contact: mailto:me@mrh.is
+Expires: 2027-09-01T00:00:00Z
+Preferred-Languages: en
