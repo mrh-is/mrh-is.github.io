@@ -4,7 +4,7 @@ This file provides guidance to AI coding agents working with code in this reposi
 
 ## Project Overview
 
-Personal portfolio website for Michael Helmbrecht (mrh.is) — a product designer & developer. Built with SvelteKit 2, Svelte 5 (runes mode), TypeScript, and deployed to Cloudflare Pages.
+Personal portfolio website for Michael Helmbrecht (mrh.is) — a product designer & developer. Built with SvelteKit 3, Svelte 5 (runes mode), TypeScript, and deployed to Cloudflare Pages.
 
 ## Commands
 
