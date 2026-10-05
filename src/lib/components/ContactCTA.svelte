@@ -1,13 +1,20 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import Section from "$lib/components/general/Section.svelte";
   import Button from "$lib/components/general/Button.svelte";
   import EmojiSwitcher from "$lib/components/general/EmojiSwitcher.svelte";
+  import { mailtoHref } from "$lib/utils/email";
 
   interface Props {
     leadIn?: string;
   }
 
   const { leadIn = undefined }: Props = $props();
+
+  let emailHref = $state<string>();
+  onMount(() => {
+    emailHref = mailtoHref("Let’s work together!");
+  });
 </script>
 
 <Section>
@@ -15,7 +22,7 @@
     <p class="lead-in">{leadIn}</p>
   {/if}
   <div class="centerer">
-    <Button href="mailto:me@mrh.is?subject=Let's%20work%20together!"
+    <Button href={emailHref}
       >Let’s talk! <EmojiSwitcher lightEmoji="💌" darkEmoji="📬" /></Button
     >
   </div>

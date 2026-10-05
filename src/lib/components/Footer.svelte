@@ -1,5 +1,12 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import Icon from "$lib/components/general/Icon.svelte";
+  import { mailtoHref } from "$lib/utils/email";
+
+  let emailHref = $state<string>();
+  onMount(() => {
+    emailHref = mailtoHref();
+  });
 </script>
 
 <footer class="site-footer">
@@ -7,7 +14,7 @@
     <div class="footer-top">
       <span class="domain header-font">mrh.is</span>
       <div class="footer-icons">
-        <a href="mailto:me@mrh.is" aria-label="Email me">
+        <a href={emailHref} aria-label="Email me">
           <Icon name="Mail" size={20} />
         </a>
         <a
