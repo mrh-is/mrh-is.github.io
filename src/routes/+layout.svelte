@@ -57,20 +57,6 @@
 </script>
 
 <svelte:head>
-  <link rel="preconnect" href="https://rsms.me/" />
-  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin="anonymous"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Sniglet:wght@400;800&display=swap"
-    rel="stylesheet"
-  />
-
   <title>{pageTitle}</title>
   <meta name="description" content={pageDescription} />
   <link rel="canonical" href="{PUBLIC_ORIGIN}{$page.url.pathname}" />
