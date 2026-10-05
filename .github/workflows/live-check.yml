@@ -1,0 +1,43 @@
+name: Live Site Check
+
+on:
+  schedule:
+    # Every six hours
+    - cron: "17 */6 * * *"
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  live-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: ".node-version"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Wait for Cloudflare deploy
+        if: github.event_name == 'push'
+        run: sleep 300
+
+      - name: Run live checks
+        run: npx playwright test --config playwright.live.config.ts
+
+      - name: Upload Playwright report
+        uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: live-playwright-report
+          path: playwright-report/
+          retention-days: 14
