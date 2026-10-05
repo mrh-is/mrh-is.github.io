@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { TimelineEntry } from "$lib/types/TimelineEntry";
-  import FormattedText from "$lib/components/general/FormattedText.svelte";
+  import type { TimelineEntry } from "#lib/types/TimelineEntry.js";
+  import FormattedText from "#lib/components/general/FormattedText.svelte";
 
   interface Props {
     entry: TimelineEntry;

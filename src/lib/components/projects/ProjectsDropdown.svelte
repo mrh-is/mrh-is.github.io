@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ProjectNavLink } from "$lib/types/Project";
+  import type { ProjectNavLink } from "#lib/types/Project.js";
   import Dropdown from "../dropdown/Dropdown.svelte";
   import DropdownItem from "../dropdown/DropdownItem.svelte";
 

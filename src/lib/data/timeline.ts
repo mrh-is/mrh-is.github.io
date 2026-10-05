@@ -1,5 +1,5 @@
-import { projects } from "$lib/types/Project";
-import type { TimelineEntry } from "$lib/types/TimelineEntry";
+import { projects } from "#lib/types/Project.js";
+import type { TimelineEntry } from "#lib/types/TimelineEntry.js";
 
 function requireSlug(slug: string): string {
   if (!projects.some((proj) => proj.slug === slug)) {

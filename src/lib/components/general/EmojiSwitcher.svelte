@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { KnownQueries, watchMediaQuery } from "$lib/MediaQueryWatcher";
+  import { KnownQueries, watchMediaQuery } from "#lib/MediaQueryWatcher.js";
 
   interface Props {
     lightEmoji: string;

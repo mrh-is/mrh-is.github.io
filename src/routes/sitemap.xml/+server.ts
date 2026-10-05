@@ -1,5 +1,5 @@
-import { projects } from "$lib/types/Project";
-import { PUBLIC_ORIGIN } from "$env/static/public";
+import { projects } from "#lib/types/Project.js";
+import { PUBLIC_ORIGIN } from "$app/env/public";
 
 export const prerender = true;
 

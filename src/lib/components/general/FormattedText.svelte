@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { parseInlineMarkdown } from "$lib/utils/markdown";
+  import { parseInlineMarkdown } from "#lib/utils/markdown.js";
 
   interface Props {
     text: string;

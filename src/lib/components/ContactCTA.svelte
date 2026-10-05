@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Section from "$lib/components/general/Section.svelte";
-  import Button from "$lib/components/general/Button.svelte";
-  import EmojiSwitcher from "$lib/components/general/EmojiSwitcher.svelte";
+  import Section from "#lib/components/general/Section.svelte";
+  import Button from "#lib/components/general/Button.svelte";
+  import EmojiSwitcher from "#lib/components/general/EmojiSwitcher.svelte";
 
   interface Props {
     leadIn?: string;

@@ -34,7 +34,7 @@ The root `+layout.ts` sets `prerender = true` (fully static site) and loads proj
 
 ### Project Data System
 
-Projects are defined as TypeScript files in `src/lib/data/projects/`, each exporting a `Project` object (see `src/lib/types/Project.ts`). Projects are auto-discovered via `import.meta.glob` in `Project.ts` and sorted by `priority`. Each project defines its content as an array of typed `ContentBlock` variants (text, title, list, carousel, image, subsection), rendered recursively by `src/routes/projects/[slug]/blocks/ContentBlock.svelte`.
+Projects are defined as TypeScript files in `src/lib/data/projects/`, each exporting a `Project` object (see `src/lib/types/Project.ts`; import via the `#lib/*` subpath alias with explicit `.js` extensions). Projects are auto-discovered via `import.meta.glob` in `Project.ts` and sorted by `priority`. Each project defines its content as an array of typed `ContentBlock` variants (text, title, list, carousel, image, subsection), rendered recursively by `src/routes/projects/[slug]/blocks/ContentBlock.svelte`.
 
 ### Color System
 
@@ -50,7 +50,7 @@ Uses `@sveltejs/enhanced-img` for responsive images. Import images with `?enhanc
 
 ### Key Conventions
 
-- Svelte 5 runes mode (`$props()`, `$derived()`, `$state()`) — enabled globally in `svelte.config.js`
+- Svelte 5 runes mode (`$props()`, `$derived()`, `$state()`) — the default in Svelte 5; SvelteKit config lives in the `sveltekit()` plugin in `vite.config.ts`
 - Strict TypeScript with `svelte-check`
 - ESLint enforces `eqeqeq`, `curly`, `no-var`, `prefer-const`, `no-console` (warn)
 - Unused vars prefixed with `_` are allowed

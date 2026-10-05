@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Icon from "$lib/components/general/Icon.svelte";
+  import Icon from "#lib/components/general/Icon.svelte";
 </script>
 
 <footer class="site-footer">

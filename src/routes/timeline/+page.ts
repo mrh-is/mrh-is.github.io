@@ -1,4 +1,4 @@
-import { education, work } from "$lib/data/timeline";
+import { education, work } from "#lib/data/timeline.js";
 
 export const load = () => {
   return {

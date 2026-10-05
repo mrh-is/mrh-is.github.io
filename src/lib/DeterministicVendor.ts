@@ -1,4 +1,4 @@
-import { Range } from "$lib/mathHelpers";
+import { Range } from "#lib/mathHelpers.js";
 
 export class DeterministicVendor {
   private state: number;

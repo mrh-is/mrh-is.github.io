@@ -1,4 +1,4 @@
-import type { ColorScheme } from "$lib/types/Colors";
+import type { ColorScheme } from "#lib/types/Colors.js";
 
 declare global {
   namespace App {

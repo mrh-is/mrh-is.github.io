@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Section from "$lib/components/general/Section.svelte";
+  import Section from "#lib/components/general/Section.svelte";
   import Entry from "./Entry.svelte";
 
-  import resumeSrc from "$lib/assets/Michael Helmbrecht resume.pdf";
+  import resumeSrc from "#lib/assets/Michael Helmbrecht resume.pdf";
   import type { PageData } from "./$types";
 
   interface Props {

@@ -1,5 +1,5 @@
-import { fittingInside, type Point, type Rect } from "$lib/geometryHelpers";
-import { Range, scale } from "$lib/mathHelpers";
+import { fittingInside, type Point, type Rect } from "#lib/geometryHelpers.js";
+import { Range, scale } from "#lib/mathHelpers.js";
 
 export interface BlobPath {
   start: Point;
