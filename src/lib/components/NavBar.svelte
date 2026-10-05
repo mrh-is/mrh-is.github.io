@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ProjectNavLink } from "$lib/types/Project";
+  import type { ProjectNavLink } from "#lib/types/Project.js";
   import ProjectsDropdown from "./projects/ProjectsDropdown.svelte";
 
   interface Props {

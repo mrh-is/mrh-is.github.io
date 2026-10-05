@@ -1,7 +1,7 @@
 // src/lib/components/blob/blobFunctions.ts
-import type { Point, Rect } from "$lib/geometryHelpers";
-import { Range } from "$lib/mathHelpers";
-import { DeterministicVendor } from "$lib/DeterministicVendor";
+import type { Point, Rect } from "#lib/geometryHelpers.js";
+import { Range } from "#lib/mathHelpers.js";
+import { DeterministicVendor } from "#lib/DeterministicVendor.js";
 import { blobPath, type BlobPath } from "./BlobPathGeometry";
 import { svgCurvePath } from "./SVGPath";
 import type { BlobConfig } from "./types";

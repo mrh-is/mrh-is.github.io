@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ProjectPreview } from "$lib/types/Project";
+  import type { ProjectPreview } from "#lib/types/Project.js";
   import ProjectTile from "./ProjectTile.svelte";
 
   interface Props {

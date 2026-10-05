@@ -1,9 +1,9 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import Section from "$lib/components/general/Section.svelte";
-  import Button from "$lib/components/general/Button.svelte";
-  import EmojiSwitcher from "$lib/components/general/EmojiSwitcher.svelte";
-  import { mailtoHref } from "$lib/utils/email";
+  import Section from "#lib/components/general/Section.svelte";
+  import Button from "#lib/components/general/Button.svelte";
+  import EmojiSwitcher from "#lib/components/general/EmojiSwitcher.svelte";
+  import { mailtoHref } from "#lib/utils/email.js";
 
   interface Props {
     leadIn?: string;

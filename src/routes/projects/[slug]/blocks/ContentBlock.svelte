@@ -1,12 +1,12 @@
 <script lang="ts">
   import Self from "./ContentBlock.svelte";
-  import Section from "$lib/components/general/Section.svelte";
+  import Section from "#lib/components/general/Section.svelte";
   import ImageCarousel from "./ImageCarousel.svelte";
   import SingleImage from "./SingleImage.svelte";
   import ListBlock from "./ListBlock.svelte";
   import TextBlock from "./TextBlock.svelte";
   import TitleBlock from "./TitleBlock.svelte";
-  import type { ContentBlock } from "$lib/types/Project";
+  import type { ContentBlock } from "#lib/types/Project.js";
 
   interface Props {
     content: ContentBlock;

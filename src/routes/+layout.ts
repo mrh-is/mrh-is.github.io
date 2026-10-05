@@ -1,4 +1,4 @@
-import { navLinkForProject, projects } from "$lib/types/Project";
+import { navLinkForProject, projects } from "#lib/types/Project.js";
 
 export const prerender = true;
 

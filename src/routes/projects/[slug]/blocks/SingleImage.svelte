@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { getLargestImageUrl, type ImageSource } from "$lib/utils/imageUrl";
+  import { getLargestImageUrl, type ImageSource } from "#lib/utils/imageUrl.js";
   import type { BiggerPictureInstance } from "bigger-picture";
   import BiggerPicture from "bigger-picture";
   import "bigger-picture/css";

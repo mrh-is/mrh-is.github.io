@@ -1,17 +1,20 @@
 <script lang="ts">
-  import { page } from "$app/stores";
-  import { PUBLIC_ORIGIN } from "$env/static/public";
-  import { styleStringFromScheme, defaultColorScheme } from "$lib/types/Colors";
-  import BlobLayer from "$lib/components/blob/BlobLayer.svelte";
-  import NavBar from "$lib/components/NavBar.svelte";
-  import Footer from "$lib/components/Footer.svelte";
+  import { page } from "$app/state";
+  import { PUBLIC_ORIGIN } from "$app/env/public";
+  import {
+    styleStringFromScheme,
+    defaultColorScheme,
+  } from "#lib/types/Colors.js";
+  import BlobLayer from "#lib/components/blob/BlobLayer.svelte";
+  import NavBar from "#lib/components/NavBar.svelte";
+  import Footer from "#lib/components/Footer.svelte";
 
-  import "$lib/assets/normalize.css";
-  import "$lib/assets/styles.css";
+  import "#lib/assets/normalize.css";
+  import "#lib/assets/styles.css";
 
   import { type Snippet } from "svelte";
   import type { LayoutData } from "./$types";
-  import Favicons from "$lib/components/Favicons.svelte";
+  import Favicons from "#lib/components/Favicons.svelte";
   import { onMount } from "svelte";
 
   interface Props {
@@ -22,10 +25,10 @@
   const { data, children }: Props = $props();
 
   const pageTitle = $derived(
-    ($page.data.title ?? "Michael Helmbrecht").replace(/­/g, ""),
+    (page.data.title ?? "Michael Helmbrecht").replace(/­/g, ""),
   );
   const pageDescription = $derived(
-    $page.data.description ??
+    page.data.description ??
       "Michael Helmbrecht — product designer & developer.",
   );
 
@@ -59,15 +62,15 @@
 <svelte:head>
   <title>{pageTitle}</title>
   <meta name="description" content={pageDescription} />
-  <link rel="canonical" href="{PUBLIC_ORIGIN}{$page.url.pathname}" />
+  <link rel="canonical" href="{PUBLIC_ORIGIN}{page.url.pathname}" />
 
   <meta property="og:title" content={pageTitle} />
   <meta property="og:description" content={pageDescription} />
-  <meta property="og:url" content="{PUBLIC_ORIGIN}{$page.url.pathname}" />
+  <meta property="og:url" content="{PUBLIC_ORIGIN}{page.url.pathname}" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Michael Helmbrecht" />
-  {#if $page.data.ogImage}
-    <meta property="og:image" content="{PUBLIC_ORIGIN}{$page.data.ogImage}" />
+  {#if page.data.ogImage}
+    <meta property="og:image" content="{PUBLIC_ORIGIN}{page.data.ogImage}" />
     <meta name="twitter:card" content="summary_large_image" />
   {:else}
     <meta name="twitter:card" content="summary" />
@@ -76,12 +79,12 @@
   <Favicons />
 </svelte:head>
 
-<div class="page" style={styleStringFromScheme($page.data.colorScheme)}>
+<div class="page" style={styleStringFromScheme(page.data.colorScheme)}>
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <BlobLayer
-    seed={$page.url.pathname}
-    colorScheme={$page.data.colorScheme ?? defaultColorScheme}
+    seed={page.url.pathname}
+    colorScheme={page.data.colorScheme ?? defaultColorScheme}
   />
 
   <NavBar projects={data.projects} />

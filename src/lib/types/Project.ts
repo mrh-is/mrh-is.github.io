@@ -1,5 +1,5 @@
 import type { ColorScheme } from "./Colors";
-import type { ImageSource } from "$lib/utils/imageUrl";
+import type { ImageSource } from "#lib/utils/imageUrl.js";
 
 // Re-export for convenience
 export type { ImageSource };

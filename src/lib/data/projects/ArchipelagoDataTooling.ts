@@ -1,11 +1,11 @@
-import type { Project } from "$lib/types/Project";
+import type { Project } from "#lib/types/Project.js";
 
-import thumbnail from "$lib/assets/projects/archipelago-data-tooling/Archipelago tooling thumbnail.png";
+import thumbnail from "#lib/assets/projects/archipelago-data-tooling/Archipelago tooling thumbnail.png";
 
-import myJobs from "$lib/assets/projects/archipelago-data-tooling/Archipelago My Jobs.png";
-import jobDetails from "$lib/assets/projects/archipelago-data-tooling/Archipelago job details.png";
-import onboardingFlow from "$lib/assets/projects/archipelago-data-tooling/Archipelago onboarding flow.png";
-import jobState from "$lib/assets/projects/archipelago-data-tooling/Archipelago job state.png";
+import myJobs from "#lib/assets/projects/archipelago-data-tooling/Archipelago My Jobs.png";
+import jobDetails from "#lib/assets/projects/archipelago-data-tooling/Archipelago job details.png";
+import onboardingFlow from "#lib/assets/projects/archipelago-data-tooling/Archipelago onboarding flow.png";
+import jobState from "#lib/assets/projects/archipelago-data-tooling/Archipelago job state.png";
 
 const archipelagoDataTooling: Project = {
   title: "Archi\u00ADpelago data tool\u00ADing",

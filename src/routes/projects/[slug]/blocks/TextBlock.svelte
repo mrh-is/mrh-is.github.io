@@ -1,5 +1,5 @@
 <script lang="ts">
-  import FormattedText from "$lib/components/general/FormattedText.svelte";
+  import FormattedText from "#lib/components/general/FormattedText.svelte";
 
   interface Props {
     title?: string;

@@ -1,13 +1,15 @@
 {
-  "extends": "./.svelte-kit/tsconfig.json",
+  "extends": "$app/tsconfig",
   "compilerOptions": {
-    "allowJs": true,
-    "checkJs": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
     "sourceMap": true,
     "strict": true
-  }
+  },
+  "include": [
+    "src",
+    "vite.config.ts",
+    "playwright.config.ts",
+    "playwright.live.config.ts",
+    "tests",
+    "tests-live"
+  ]
 }

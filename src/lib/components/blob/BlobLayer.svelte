@@ -1,7 +1,7 @@
 <!-- src/lib/components/blob/BlobLayer.svelte -->
 <script lang="ts">
   import { onMount, untrack } from "svelte";
-  import type { ColorScheme } from "$lib/types/Colors";
+  import type { ColorScheme } from "#lib/types/Colors.js";
   import BlobSet from "./BlobSet.svelte";
   import type { BlobSetState } from "./types";
   import {

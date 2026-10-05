@@ -1,11 +1,11 @@
 <script lang="ts">
-  import type { ImageCarouselSlide } from "$lib/types/Project";
+  import type { ImageCarouselSlide } from "#lib/types/Project.js";
   import type { BiggerPictureInstance } from "bigger-picture";
   import {
     getImageUrl,
     getLargestImageUrl,
     type ImageSource,
-  } from "$lib/utils/imageUrl";
+  } from "#lib/utils/imageUrl.js";
   import BiggerPicture from "bigger-picture";
   import "bigger-picture/css";
   import { onMount } from "svelte";

@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
-  import { slugify } from "$lib/utils/slugify";
+  import { slugify } from "#lib/utils/slugify.js";
 
   interface Props {
     title?: string;

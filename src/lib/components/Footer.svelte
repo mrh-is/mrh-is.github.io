@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import Icon from "$lib/components/general/Icon.svelte";
-  import { mailtoHref } from "$lib/utils/email";
+  import Icon from "#lib/components/general/Icon.svelte";
+  import { mailtoHref } from "#lib/utils/email.js";
 
   let emailHref = $state<string>();
   onMount(() => {

@@ -1,9 +1,9 @@
 <script lang="ts">
-  import Section from "$lib/components/general/Section.svelte";
-  import type { Project } from "$lib/types/Project";
+  import Section from "#lib/components/general/Section.svelte";
+  import type { Project } from "#lib/types/Project.js";
   import ContentBlock from "./blocks/ContentBlock.svelte";
-  import ProjectTileList from "$lib/components/projects/ProjectTileList.svelte";
-  import ContactCTA from "$lib/components/ContactCTA.svelte";
+  import ProjectTileList from "#lib/components/projects/ProjectTileList.svelte";
+  import ContactCTA from "#lib/components/ContactCTA.svelte";
   import type { PageData } from "./$types";
 
   interface Props {

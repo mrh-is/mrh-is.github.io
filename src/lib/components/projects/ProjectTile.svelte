@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { ProjectPreview } from "$lib/types/Project";
-  import { getImageUrl } from "$lib/utils/imageUrl";
+  import type { ProjectPreview } from "#lib/types/Project.js";
+  import { getImageUrl } from "#lib/utils/imageUrl.js";
 
   interface Props {
     project: ProjectPreview;

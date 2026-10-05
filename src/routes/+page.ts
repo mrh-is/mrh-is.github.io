@@ -1,5 +1,5 @@
-import { previewForProject, projects } from "$lib/types/Project";
-import parque from "$lib/assets/Parque.jpg";
+import { previewForProject, projects } from "#lib/types/Project.js";
+import parque from "#lib/assets/Parque.jpg";
 
 export const load = () => {
   return {

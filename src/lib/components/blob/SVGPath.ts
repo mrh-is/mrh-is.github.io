@@ -1,4 +1,4 @@
-import type { Point } from "$lib/geometryHelpers";
+import type { Point } from "#lib/geometryHelpers.js";
 
 function svgStringify(point: Point): string {
   return `${point.x.toFixed(1)},${point.y.toFixed(1)}`;
