@@ -13,14 +13,17 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
           node-version-file: ".node-version"
-          cache: "npm"
+          cache: "pnpm"
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Cache Vite build
         uses: actions/cache@v5
@@ -28,25 +31,25 @@ jobs:
           path: |
             .svelte-kit
             node_modules/.vite
-          key: ${{ runner.os }}-vite-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('src/**') }}
+          key: ${{ runner.os }}-vite-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('src/**') }}
           restore-keys: |
-            ${{ runner.os }}-vite-${{ hashFiles('**/package-lock.json') }}-
+            ${{ runner.os }}-vite-${{ hashFiles('**/pnpm-lock.yaml') }}-
             ${{ runner.os }}-vite-
 
       - name: Run linting
-        run: npm run lint
+        run: pnpm lint
 
       - name: Run type checking
-        run: npm run check
+        run: pnpm check
 
       - name: Build site
-        run: npm run build
+        run: pnpm build
 
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps chromium webkit
+        run: pnpm exec playwright install --with-deps chromium webkit
 
       - name: Run Playwright tests
-        run: npm run test
+        run: pnpm test
 
       - name: Upload Playwright report
         uses: actions/upload-artifact@v7

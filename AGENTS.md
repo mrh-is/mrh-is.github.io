@@ -8,19 +8,19 @@ Personal portfolio website for Michael Helmbrecht (mrh.is) — a product designe
 
 ## Commands
 
-- `npm run dev` — Start dev server (port 5173)
-- `npm run build` — Production build
-- `npm run preview` — Preview production build (port 4173)
-- `npm run check` — TypeScript/Svelte type checking
-- `npm run lint` — Prettier + ESLint
-- `npm run format` — Auto-format with Prettier
-- `npm run test` — Playwright e2e tests (builds first, runs against preview server)
-- `npm run test:ui` — Playwright tests with interactive UI
-- `npm run pages:deploy` — Build and deploy to Cloudflare Pages
+- `pnpm dev` — Start dev server (port 5173)
+- `pnpm build` — Production build
+- `pnpm preview` — Preview production build (port 4173)
+- `pnpm check` — TypeScript/Svelte type checking
+- `pnpm lint` — Prettier + ESLint
+- `pnpm format` — Auto-format with Prettier
+- `pnpm test` — Playwright e2e tests (builds first, runs against preview server)
+- `pnpm test:ui` — Playwright tests with interactive UI
+- `pnpm pages:deploy` — Build and deploy to Cloudflare Pages
 
 Pre-commit hook runs `lint-staged` (prettier + eslint --fix on staged .js/.ts/.svelte files).
 
-**Important:** CI runs `npm run lint` (prettier --check + eslint) on the entire repo, not just staged files. Always run `npm run format` before committing to avoid CI failures from unformatted files — including docs and other non-code files that `lint-staged` doesn't cover.
+**Important:** CI runs `pnpm lint` (prettier --check + eslint) on the entire repo, not just staged files. Always run `pnpm format` before committing to avoid CI failures from unformatted files — including docs and other non-code files that `lint-staged` doesn't cover.
 
 ## Architecture
 
