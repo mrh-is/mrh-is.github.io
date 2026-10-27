@@ -14,7 +14,7 @@ Personal portfolio website for Michael Helmbrecht (mrh.is) — a product designe
 - `pnpm check` — TypeScript/Svelte type checking
 - `pnpm lint` — Prettier + ESLint
 - `pnpm format` — Auto-format with Prettier
-- `pnpm test` — Playwright e2e tests (builds first, runs against preview server)
+- `pnpm test` — Playwright e2e tests (installs missing browsers, builds, then runs against preview server)
 - `pnpm test:ui` — Playwright tests with interactive UI
 - `pnpm pages:deploy` — Build and deploy to Cloudflare Pages
 
