@@ -60,5 +60,5 @@
   "imports": {
     "#lib/*": "./src/lib/*"
   },
-  "packageManager": "pnpm@11.21.0"
+  "packageManager": "pnpm@12.15.0"
 }
