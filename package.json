@@ -10,8 +10,9 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --check . && eslint .",
     "format": "prettier --write .",
-    "test": "playwright test",
-    "test:ui": "playwright test --ui",
+    "test": "pnpm test:browsers && playwright test",
+    "test:ui": "pnpm test:browsers && playwright test --ui",
+    "test:browsers": "playwright install chromium webkit",
     "test:unit": "vitest run",
     "pages:dev": "wrangler pages dev --compatibility-date=2023-10-30 --proxy 5173 -- pnpm dev",
     "pages:deploy": "pnpm build && wrangler pages deploy .svelte-kit/cloudflare",
@@ -60,5 +61,5 @@
   "imports": {
     "#lib/*": "./src/lib/*"
   },
-  "packageManager": "pnpm@11.21.0"
+  "packageManager": "pnpm@12.15.0"
 }
